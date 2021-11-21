@@ -1,0 +1,19 @@
+﻿{
+  "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.VisitData.Contract.dll",
+  "interfaceTypeNamePattern": "MedicalResearch.VisitData.StoreAccess.I*",
+  "requireXmlDocForNamespaces": [
+    "MedicalResearch.VisitData.StoreAccess"
+  ],
+  "template": "Models",
+  "outputLanguage": "TS",
+  "indentDepthPerLevel": 2,
+  "codeGenInfoHeader": "based on ORSCF VisitData Contract v{InputAssemblyVersion}",
+  "outputNamespace": "MedicalResearch.VisitData.StoreAccess",
+  "customImports": [],
+  "modelTypeNameIncludePatterns": [
+    "MedicalResearch.VisitData.*"
+  ],
+  "GenerateTypeNamesInPhp": false,
+  "generateDataAnnotationsForLocalModels": false,
+  "generateNavigationAnnotationsForLocalModels": false
+}

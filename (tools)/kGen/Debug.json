@@ -1,0 +1,13 @@
+﻿{
+  "inputFile": "..\\..\\Demo\\bin\\Demo.dll",
+  "template": "MvcControllers",
+  "outputLanguage": "C#",
+  "outputNamespace": "MyBusinessNamespace.WebApi",
+  "interfaceTypeNamePattern": "MyBusinessNamespace.I*",
+  "modelTypeNameIncludePatterns": [
+    "MyBusinessNamespace.*"
+  ],
+  "customImports": [],
+  "generateSwashbuckleAttributesForControllers": true,
+  "customAttributesPerControllerMethod": "RequireBaererAuth(\"{C}/{O}\")"
+}

@@ -1,0 +1,19 @@
+﻿{
+  "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.BillingData.Contract.dll",
+  "interfaceTypeNamePattern": "MedicalResearch.BillingData.StoreAccess.I*",
+  "requireXmlDocForNamespaces": [
+    "MedicalResearch.BillingData.StoreAccess"
+  ],
+  "template": "Models",
+  "outputLanguage": "TS",
+  "indentDepthPerLevel": 2,
+  "codeGenInfoHeader": "based on ORSCF BillingData Contract v{InputAssemblyVersion}",
+  "outputNamespace": "MedicalResearch.BillingData.StoreAccess",
+  "customImports": [],
+  "modelTypeNameIncludePatterns": [
+    "MedicalResearch.BillingData.*"
+  ],
+  "GenerateTypeNamesInPhp": false,
+  "generateDataAnnotationsForLocalModels": false,
+  "generateNavigationAnnotationsForLocalModels": false
+}
