@@ -1,4 +1,4 @@
-/* based on ORSCF StudyManagement Contract v1.6.1.0 */
+/* based on ORSCF StudyManagement Contract v1.6.1.11538 */
 
 import MedicalResearch.StudyManagement.Model;
 
@@ -18,8 +18,6 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
     public isArchived : bool { get; set; }
     
-    public ownPatientSdrEndpointUid : string { get; set; }
-    
   }
   
   public class InstituteRelatedSystemAssignment {
@@ -37,6 +35,11 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     public useAsOwnWdr : string { get; set; }
     
     public useAsConsumingExternalWdr : string { get; set; }
+    
+    /**
+     * semicolon separated list of custom role-names
+     */
+    public customRoles : string { get; set; }
     
   }
   
@@ -152,9 +155,10 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
      */
     public initiatorRelatedProjectNumber : string { get; set; }
     
-    public originWdrEndpointUid : string { get; set; }
-    
-    public primaryImsEndpointUid : string { get; set; }
+    /**
+     * *this field is optional
+     */
+    public originWdrEndpointUid : string? { get; set; }
     
   }
   
@@ -220,6 +224,11 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
     public siteUid : string { get; set; }
     
+    /**
+     * semicolon separated list of custom role-names
+     */
+    public customRoles : string { get; set; }
+    
   }
   
   public class StudyRelatedSystemAssignment {
@@ -229,6 +238,11 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     public researchStudyUid : string { get; set; }
     
     public systemEndpointUid : string { get; set; }
+    
+    /**
+     * semicolon separated list of custom role-names
+     */
+    public customRoles : string { get; set; }
     
   }
   

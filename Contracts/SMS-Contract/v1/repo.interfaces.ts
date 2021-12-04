@@ -1,4 +1,4 @@
-/* based on ORSCF StudyManagement Contract v1.6.1.0 */
+/* based on ORSCF StudyManagement Contract v1.6.1.11538 */
 
 import MedicalResearch.StudyManagement.Model;
 
