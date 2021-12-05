@@ -1,4 +1,4 @@
-/* based on ORSCF VisitData Contract v1.6.0.11538 */
+/* based on ORSCF VisitData Contract v1.6.0.11588 */
 
 import MedicalResearch.VisitData.Model;
 

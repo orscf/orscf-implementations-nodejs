@@ -1,4 +1,4 @@
-/* based on ORSCF BillingData Contract v1.6.0.11538 */
+/* based on ORSCF BillingData Contract v1.6.0.11588 */
 
 import MedicalResearch.BillingData.Model;
 
