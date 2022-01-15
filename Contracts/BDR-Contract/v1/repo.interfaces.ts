@@ -1,10 +1,10 @@
-/* based on ORSCF BillingData Contract v1.6.0.0 */
+/* based on ORSCF BillingData Contract v1.7.0.0 */
 
 import MedicalResearch.BillingData.Model;
 
 namespace MedicalResearch.BillingData.StoreAccess {
   
-  public interface IBillableTasks {
+  export interface IBillableTasks {
     
     /**
      * Loads a specific BillableTask addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -62,7 +62,7 @@ namespace MedicalResearch.BillingData.StoreAccess {
     
   }
   
-  public interface IBillableVisits {
+  export interface IBillableVisits {
     
     /**
      * Loads a specific BillableVisit addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -120,7 +120,7 @@ namespace MedicalResearch.BillingData.StoreAccess {
     
   }
   
-  public interface IStudyExecutionScopes {
+  export interface IStudyExecutionScopes {
     
     /**
      * Loads a specific StudyExecutionScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -178,7 +178,7 @@ namespace MedicalResearch.BillingData.StoreAccess {
     
   }
   
-  public interface IBillingDemands {
+  export interface IBillingDemands {
     
     /**
      * Loads a specific BillingDemand addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -236,7 +236,7 @@ namespace MedicalResearch.BillingData.StoreAccess {
     
   }
   
-  public interface IInvoices {
+  export interface IInvoices {
     
     /**
      * Loads a specific Invoice addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.

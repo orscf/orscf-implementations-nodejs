@@ -1,11 +1,11 @@
-/* based on ORSCF IdentityManagement Contract v1.6.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.7.0.0 */
 
 import MedicalResearch.IdentityManagement.Model;
 import MedicalResearch.IdentityManagement.StoreAccess;
 
 namespace MedicalResearch.IdentityManagement.StoreAccess {
   
-  public interface IAdditionalSubjectParticipationIdentifiers {
+  export interface IAdditionalSubjectParticipationIdentifiers {
     
     /**
      * Loads a specific AdditionalSubjectParticipationIdentifier addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -63,14 +63,14 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
     
   }
   
-  public interface ISubjectParticipations {
+  export interface ISubjectParticipations {
     
     /**
      * Loads a specific SubjectParticipation addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
      *
-     * @param participantIdentifier identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
+     * @param subjectParticipationIdentity Composite Key, which represents the primary identity of a SubjectParticipation
      */
-    GetSubjectParticipationByParticipantIdentifier(participantIdentifier : string) : GetSubjectParticipationByParticipantIdentifierResponse;
+    GetSubjectParticipationBySubjectParticipationIdentity(subjectParticipationIdentity : SubjectParticipationIdentity) : GetSubjectParticipationBySubjectParticipationIdentityResponse;
     
     /**
      * Loads SubjectParticipations.
@@ -107,21 +107,21 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
     /**
      * Updates all values (which are not "FixedAfterCreation") of the given SubjectParticipation addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
      *
-     * @param participantIdentifier identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
+     * @param subjectParticipationIdentity Composite Key, which represents the primary identity of a SubjectParticipation
      * @param subjectParticipation SubjectParticipation containing the new values (the primary identifier fields within the given SubjectParticipation will be ignored)
      */
-    UpdateSubjectParticipationByParticipantIdentifier(participantIdentifier : string, subjectParticipation : SubjectParticipation) : UpdateSubjectParticipationByParticipantIdentifierResponse;
+    UpdateSubjectParticipationBySubjectParticipationIdentity(subjectParticipationIdentity : SubjectParticipationIdentity, subjectParticipation : SubjectParticipation) : UpdateSubjectParticipationBySubjectParticipationIdentityResponse;
     
     /**
      * Deletes a specific SubjectParticipation addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
      *
-     * @param participantIdentifier identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
+     * @param subjectParticipationIdentity Composite Key, which represents the primary identity of a SubjectParticipation
      */
-    DeleteSubjectParticipationByParticipantIdentifier(participantIdentifier : string) : DeleteSubjectParticipationByParticipantIdentifierResponse;
+    DeleteSubjectParticipationBySubjectParticipationIdentity(subjectParticipationIdentity : SubjectParticipationIdentity) : DeleteSubjectParticipationBySubjectParticipationIdentityResponse;
     
   }
   
-  public interface IStudyExecutionScopes {
+  export interface IStudyExecutionScopes {
     
     /**
      * Loads a specific StudyExecutionScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -179,14 +179,14 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
     
   }
   
-  public interface IStudyScopes {
+  export interface IStudyScopes {
     
     /**
      * Loads a specific StudyScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
      *
-     * @param studyScopeIdentity Composite Key, which represents the primary identity of a StudyScope
+     * @param researchStudyUid the official invariant name of the study as given by the sponsor
      */
-    GetStudyScopeByStudyScopeIdentity(studyScopeIdentity : StudyScopeIdentity) : GetStudyScopeByStudyScopeIdentityResponse;
+    GetStudyScopeByResearchStudyUid(researchStudyUid : string) : GetStudyScopeByResearchStudyUidResponse;
     
     /**
      * Loads StudyScopes.
@@ -223,21 +223,21 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
     /**
      * Updates all values (which are not "FixedAfterCreation") of the given StudyScope addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
      *
-     * @param studyScopeIdentity Composite Key, which represents the primary identity of a StudyScope
+     * @param researchStudyUid the official invariant name of the study as given by the sponsor
      * @param studyScope StudyScope containing the new values (the primary identifier fields within the given StudyScope will be ignored)
      */
-    UpdateStudyScopeByStudyScopeIdentity(studyScopeIdentity : StudyScopeIdentity, studyScope : StudyScope) : UpdateStudyScopeByStudyScopeIdentityResponse;
+    UpdateStudyScopeByResearchStudyUid(researchStudyUid : string, studyScope : StudyScope) : UpdateStudyScopeByResearchStudyUidResponse;
     
     /**
      * Deletes a specific StudyScope addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
      *
-     * @param studyScopeIdentity Composite Key, which represents the primary identity of a StudyScope
+     * @param researchStudyUid the official invariant name of the study as given by the sponsor
      */
-    DeleteStudyScopeByStudyScopeIdentity(studyScopeIdentity : StudyScopeIdentity) : DeleteStudyScopeByStudyScopeIdentityResponse;
+    DeleteStudyScopeByResearchStudyUid(researchStudyUid : string) : DeleteStudyScopeByResearchStudyUidResponse;
     
   }
   
-  public interface ISubjectAddresses {
+  export interface ISubjectAddresses {
     
     /**
      * Loads a specific SubjectAddress addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -295,7 +295,7 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
     
   }
   
-  public interface ISubjectIdentities {
+  export interface ISubjectIdentities {
     
     /**
      * Loads a specific SubjectIdentity addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.

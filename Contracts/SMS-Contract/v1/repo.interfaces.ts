@@ -1,10 +1,10 @@
-/* based on ORSCF StudyManagement Contract v1.6.1.0 */
+/* based on ORSCF StudyManagement Contract v1.7.0.0 */
 
 import MedicalResearch.StudyManagement.Model;
 
 namespace MedicalResearch.StudyManagement.StoreAccess {
   
-  public interface IInstitutes {
+  export interface IInstitutes {
     
     /**
      * Loads a specific Institute addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -62,7 +62,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface IResearchStudies {
+  export interface IResearchStudies {
     
     /**
      * Loads a specific ResearchStudy addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -120,7 +120,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface ISites {
+  export interface ISites {
     
     /**
      * Loads a specific Site addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -178,7 +178,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface ISystemEndpoints {
+  export interface ISystemEndpoints {
     
     /**
      * Loads a specific SystemEndpoint addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -236,7 +236,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface IInstituteRelatedSystemAssignments {
+  export interface IInstituteRelatedSystemAssignments {
     
     /**
      * Loads a specific InstituteRelatedSystemAssignment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -294,7 +294,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface ISystemConnections {
+  export interface ISystemConnections {
     
     /**
      * Loads a specific SystemConnection addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -352,7 +352,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface IInvolvedPersons {
+  export interface IInvolvedPersons {
     
     /**
      * Loads a specific InvolvedPerson addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -410,7 +410,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface IInvolvementRoles {
+  export interface IInvolvementRoles {
     
     /**
      * Loads a specific InvolvementRole addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -468,7 +468,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface IStudyRelatedSystemAssignments {
+  export interface IStudyRelatedSystemAssignments {
     
     /**
      * Loads a specific StudyRelatedSystemAssignment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -526,7 +526,7 @@ namespace MedicalResearch.StudyManagement.StoreAccess {
     
   }
   
-  public interface ISiteRelatedSystemAssignments {
+  export interface ISiteRelatedSystemAssignments {
     
     /**
      * Loads a specific SiteRelatedSystemAssignment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.

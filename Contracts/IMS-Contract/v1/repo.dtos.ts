@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.6.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.7.0.0 */
 
 import MedicalResearch.IdentityManagement.Model;
 import MedicalResearch.IdentityManagement.StoreAccess;
@@ -9,11 +9,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Loads a specific AdditionalSubjectParticipationIdentifier addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
+  export class GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
     
     // Required Argument for 'GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (AdditionalSubjectParticipationIdentifierIdentity): Composite Key, which represents the primary identity of a AdditionalSubjectParticipationIdentifier
-    [Required]
-    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity { get; set; }
+    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity;
     
   }
   
@@ -21,13 +20,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Loads a specific AdditionalSubjectParticipationIdentifier addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
+  export class GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (AdditionalSubjectParticipationIdentifier)
-    public @return : AdditionalSubjectParticipationIdentifier { get; set; }
+    public return : AdditionalSubjectParticipationIdentifier;
     
   }
   
@@ -35,13 +34,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetAdditionalSubjectParticipationIdentifiers'.
    * Method: Loads AdditionalSubjectParticipationIdentifiers.
    */
-  public class GetAdditionalSubjectParticipationIdentifiersRequest {
+  export class GetAdditionalSubjectParticipationIdentifiersRequest {
     
-    // Optional Argument for 'GetAdditionalSubjectParticipationIdentifiers' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetAdditionalSubjectParticipationIdentifiers' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetAdditionalSubjectParticipationIdentifiers' (number?): Max count of AdditionalSubjectParticipationIdentifiers which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetAdditionalSubjectParticipationIdentifiers' (number): Max count of AdditionalSubjectParticipationIdentifiers which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -49,13 +48,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetAdditionalSubjectParticipationIdentifiers'.
    * Method: Loads AdditionalSubjectParticipationIdentifiers.
    */
-  public class GetAdditionalSubjectParticipationIdentifiersResponse {
+  export class GetAdditionalSubjectParticipationIdentifiersResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetAdditionalSubjectParticipationIdentifiers' (AdditionalSubjectParticipationIdentifier[])
-    public @return : AdditionalSubjectParticipationIdentifier[] { get; set; }
+    public return : AdditionalSubjectParticipationIdentifier[];
     
   }
   
@@ -63,20 +62,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchAdditionalSubjectParticipationIdentifiers'.
    * Method: Loads AdditionalSubjectParticipationIdentifiers where values matching to the given filterExpression
    */
-  public class SearchAdditionalSubjectParticipationIdentifiersRequest {
+  export class SearchAdditionalSubjectParticipationIdentifiersRequest {
     
     // Required Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (number?): Max count of AdditionalSubjectParticipationIdentifiers which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchAdditionalSubjectParticipationIdentifiers' (number): Max count of AdditionalSubjectParticipationIdentifiers which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -84,13 +82,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchAdditionalSubjectParticipationIdentifiers'.
    * Method: Loads AdditionalSubjectParticipationIdentifiers where values matching to the given filterExpression
    */
-  public class SearchAdditionalSubjectParticipationIdentifiersResponse {
+  export class SearchAdditionalSubjectParticipationIdentifiersResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchAdditionalSubjectParticipationIdentifiers' (AdditionalSubjectParticipationIdentifier[])
-    public @return : AdditionalSubjectParticipationIdentifier[] { get; set; }
+    public return : AdditionalSubjectParticipationIdentifier[];
     
   }
   
@@ -98,11 +96,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewAdditionalSubjectParticipationIdentifier'.
    * Method: Adds a new AdditionalSubjectParticipationIdentifier and returns its primary identifier (or null on failure).
    */
-  public class AddNewAdditionalSubjectParticipationIdentifierRequest {
+  export class AddNewAdditionalSubjectParticipationIdentifierRequest {
     
     // Required Argument for 'AddNewAdditionalSubjectParticipationIdentifier' (AdditionalSubjectParticipationIdentifier): AdditionalSubjectParticipationIdentifier containing the new values
-    [Required]
-    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier { get; set; }
+    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier;
     
   }
   
@@ -110,13 +107,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewAdditionalSubjectParticipationIdentifier'.
    * Method: Adds a new AdditionalSubjectParticipationIdentifier and returns its primary identifier (or null on failure).
    */
-  public class AddNewAdditionalSubjectParticipationIdentifierResponse {
+  export class AddNewAdditionalSubjectParticipationIdentifierResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewAdditionalSubjectParticipationIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -124,11 +121,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateAdditionalSubjectParticipationIdentifier'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given AdditionalSubjectParticipationIdentifier addressed by the primary identifier fields within the given AdditionalSubjectParticipationIdentifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateAdditionalSubjectParticipationIdentifierRequest {
+  export class UpdateAdditionalSubjectParticipationIdentifierRequest {
     
     // Required Argument for 'UpdateAdditionalSubjectParticipationIdentifier' (AdditionalSubjectParticipationIdentifier): AdditionalSubjectParticipationIdentifier containing the new values (the primary identifier fields within the given AdditionalSubjectParticipationIdentifier will be used to address the target record)
-    [Required]
-    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier { get; set; }
+    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier;
     
   }
   
@@ -136,13 +132,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateAdditionalSubjectParticipationIdentifier'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given AdditionalSubjectParticipationIdentifier addressed by the primary identifier fields within the given AdditionalSubjectParticipationIdentifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateAdditionalSubjectParticipationIdentifierResponse {
+  export class UpdateAdditionalSubjectParticipationIdentifierResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateAdditionalSubjectParticipationIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -150,15 +146,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given AdditionalSubjectParticipationIdentifier addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
+  export class UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
     
     // Required Argument for 'UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (AdditionalSubjectParticipationIdentifierIdentity): Composite Key, which represents the primary identity of a AdditionalSubjectParticipationIdentifier
-    [Required]
-    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity { get; set; }
+    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity;
     
     // Required Argument for 'UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (AdditionalSubjectParticipationIdentifier): AdditionalSubjectParticipationIdentifier containing the new values (the primary identifier fields within the given AdditionalSubjectParticipationIdentifier will be ignored)
-    [Required]
-    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier { get; set; }
+    public additionalSubjectParticipationIdentifier : AdditionalSubjectParticipationIdentifier;
     
   }
   
@@ -166,13 +160,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given AdditionalSubjectParticipationIdentifier addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
+  export class UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -180,11 +174,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Deletes a specific AdditionalSubjectParticipationIdentifier addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
+  export class DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityRequest {
     
     // Required Argument for 'DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (AdditionalSubjectParticipationIdentifierIdentity): Composite Key, which represents the primary identity of a AdditionalSubjectParticipationIdentifier
-    [Required]
-    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity { get; set; }
+    public additionalSubjectParticipationIdentifierIdentity : AdditionalSubjectParticipationIdentifierIdentity;
     
   }
   
@@ -192,39 +185,38 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity'.
    * Method: Deletes a specific AdditionalSubjectParticipationIdentifier addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
+  export class DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'DeleteAdditionalSubjectParticipationIdentifierByAdditionalSubjectParticipationIdentifierIdentity' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'GetSubjectParticipationByParticipantIdentifier'.
+   * Contains arguments for calling 'GetSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Loads a specific SubjectParticipation addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectParticipationByParticipantIdentifierRequest {
+  export class GetSubjectParticipationBySubjectParticipationIdentityRequest {
     
-    // Required Argument for 'GetSubjectParticipationByParticipantIdentifier' (string): identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
-    [Required]
-    public participantIdentifier : string { get; set; }
+    // Required Argument for 'GetSubjectParticipationBySubjectParticipationIdentity' (SubjectParticipationIdentity): Composite Key, which represents the primary identity of a SubjectParticipation
+    public subjectParticipationIdentity : SubjectParticipationIdentity;
     
   }
   
   /**
-   * Contains results from calling 'GetSubjectParticipationByParticipantIdentifier'.
+   * Contains results from calling 'GetSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Loads a specific SubjectParticipation addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectParticipationByParticipantIdentifierResponse {
+  export class GetSubjectParticipationBySubjectParticipationIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'GetSubjectParticipationByParticipantIdentifier' (SubjectParticipation)
-    public @return : SubjectParticipation { get; set; }
+    // Return-Value of 'GetSubjectParticipationBySubjectParticipationIdentity' (SubjectParticipation)
+    public return : SubjectParticipation;
     
   }
   
@@ -232,13 +224,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetSubjectParticipations'.
    * Method: Loads SubjectParticipations.
    */
-  public class GetSubjectParticipationsRequest {
+  export class GetSubjectParticipationsRequest {
     
-    // Optional Argument for 'GetSubjectParticipations' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectParticipations' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetSubjectParticipations' (number?): Max count of SubjectParticipations which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectParticipations' (number): Max count of SubjectParticipations which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -246,13 +238,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetSubjectParticipations'.
    * Method: Loads SubjectParticipations.
    */
-  public class GetSubjectParticipationsResponse {
+  export class GetSubjectParticipationsResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetSubjectParticipations' (SubjectParticipation[])
-    public @return : SubjectParticipation[] { get; set; }
+    public return : SubjectParticipation[];
     
   }
   
@@ -260,20 +252,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchSubjectParticipations'.
    * Method: Loads SubjectParticipations where values matching to the given filterExpression
    */
-  public class SearchSubjectParticipationsRequest {
+  export class SearchSubjectParticipationsRequest {
     
     // Required Argument for 'SearchSubjectParticipations' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchSubjectParticipations' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchSubjectParticipations' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectParticipations' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchSubjectParticipations' (number?): Max count of SubjectParticipations which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectParticipations' (number): Max count of SubjectParticipations which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -281,13 +272,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchSubjectParticipations'.
    * Method: Loads SubjectParticipations where values matching to the given filterExpression
    */
-  public class SearchSubjectParticipationsResponse {
+  export class SearchSubjectParticipationsResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchSubjectParticipations' (SubjectParticipation[])
-    public @return : SubjectParticipation[] { get; set; }
+    public return : SubjectParticipation[];
     
   }
   
@@ -295,11 +286,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewSubjectParticipation'.
    * Method: Adds a new SubjectParticipation and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectParticipationRequest {
+  export class AddNewSubjectParticipationRequest {
     
     // Required Argument for 'AddNewSubjectParticipation' (SubjectParticipation): SubjectParticipation containing the new values
-    [Required]
-    public subjectParticipation : SubjectParticipation { get; set; }
+    public subjectParticipation : SubjectParticipation;
     
   }
   
@@ -307,13 +297,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewSubjectParticipation'.
    * Method: Adds a new SubjectParticipation and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectParticipationResponse {
+  export class AddNewSubjectParticipationResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewSubjectParticipation' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -321,11 +311,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateSubjectParticipation'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectParticipation addressed by the primary identifier fields within the given SubjectParticipation. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectParticipationRequest {
+  export class UpdateSubjectParticipationRequest {
     
     // Required Argument for 'UpdateSubjectParticipation' (SubjectParticipation): SubjectParticipation containing the new values (the primary identifier fields within the given SubjectParticipation will be used to address the target record)
-    [Required]
-    public subjectParticipation : SubjectParticipation { get; set; }
+    public subjectParticipation : SubjectParticipation;
     
   }
   
@@ -333,69 +322,66 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateSubjectParticipation'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectParticipation addressed by the primary identifier fields within the given SubjectParticipation. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectParticipationResponse {
+  export class UpdateSubjectParticipationResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateSubjectParticipation' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'UpdateSubjectParticipationByParticipantIdentifier'.
+   * Contains arguments for calling 'UpdateSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectParticipation addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectParticipationByParticipantIdentifierRequest {
+  export class UpdateSubjectParticipationBySubjectParticipationIdentityRequest {
     
-    // Required Argument for 'UpdateSubjectParticipationByParticipantIdentifier' (string): identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
-    [Required]
-    public participantIdentifier : string { get; set; }
+    // Required Argument for 'UpdateSubjectParticipationBySubjectParticipationIdentity' (SubjectParticipationIdentity): Composite Key, which represents the primary identity of a SubjectParticipation
+    public subjectParticipationIdentity : SubjectParticipationIdentity;
     
-    // Required Argument for 'UpdateSubjectParticipationByParticipantIdentifier' (SubjectParticipation): SubjectParticipation containing the new values (the primary identifier fields within the given SubjectParticipation will be ignored)
-    [Required]
-    public subjectParticipation : SubjectParticipation { get; set; }
+    // Required Argument for 'UpdateSubjectParticipationBySubjectParticipationIdentity' (SubjectParticipation): SubjectParticipation containing the new values (the primary identifier fields within the given SubjectParticipation will be ignored)
+    public subjectParticipation : SubjectParticipation;
     
   }
   
   /**
-   * Contains results from calling 'UpdateSubjectParticipationByParticipantIdentifier'.
+   * Contains results from calling 'UpdateSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectParticipation addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectParticipationByParticipantIdentifierResponse {
+  export class UpdateSubjectParticipationBySubjectParticipationIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'UpdateSubjectParticipationByParticipantIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    // Return-Value of 'UpdateSubjectParticipationBySubjectParticipationIdentity' (Boolean)
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'DeleteSubjectParticipationByParticipantIdentifier'.
+   * Contains arguments for calling 'DeleteSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Deletes a specific SubjectParticipation addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectParticipationByParticipantIdentifierRequest {
+  export class DeleteSubjectParticipationBySubjectParticipationIdentityRequest {
     
-    // Required Argument for 'DeleteSubjectParticipationByParticipantIdentifier' (string): identity of the patient which can be a randomization or screening number (the exact semantic is defined per study)
-    [Required]
-    public participantIdentifier : string { get; set; }
+    // Required Argument for 'DeleteSubjectParticipationBySubjectParticipationIdentity' (SubjectParticipationIdentity): Composite Key, which represents the primary identity of a SubjectParticipation
+    public subjectParticipationIdentity : SubjectParticipationIdentity;
     
   }
   
   /**
-   * Contains results from calling 'DeleteSubjectParticipationByParticipantIdentifier'.
+   * Contains results from calling 'DeleteSubjectParticipationBySubjectParticipationIdentity'.
    * Method: Deletes a specific SubjectParticipation addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectParticipationByParticipantIdentifierResponse {
+  export class DeleteSubjectParticipationBySubjectParticipationIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'DeleteSubjectParticipationByParticipantIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    // Return-Value of 'DeleteSubjectParticipationBySubjectParticipationIdentity' (Boolean)
+    public return : boolean;
     
   }
   
@@ -403,11 +389,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Loads a specific StudyExecutionScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetStudyExecutionScopeByStudyExecutionIdentifierRequest {
+  export class GetStudyExecutionScopeByStudyExecutionIdentifierRequest {
     
     // Required Argument for 'GetStudyExecutionScopeByStudyExecutionIdentifier' (string): a global unique id of a concrete study execution (dedicated to a concrete institute) which is usually originated at the primary CRF or study management system ('SMS')
-    [Required]
-    public studyExecutionIdentifier : string { get; set; }
+    public studyExecutionIdentifier : string;
     
   }
   
@@ -415,13 +400,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Loads a specific StudyExecutionScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetStudyExecutionScopeByStudyExecutionIdentifierResponse {
+  export class GetStudyExecutionScopeByStudyExecutionIdentifierResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetStudyExecutionScopeByStudyExecutionIdentifier' (StudyExecutionScope)
-    public @return : StudyExecutionScope { get; set; }
+    public return : StudyExecutionScope;
     
   }
   
@@ -429,13 +414,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetStudyExecutionScopes'.
    * Method: Loads StudyExecutionScopes.
    */
-  public class GetStudyExecutionScopesRequest {
+  export class GetStudyExecutionScopesRequest {
     
-    // Optional Argument for 'GetStudyExecutionScopes' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetStudyExecutionScopes' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetStudyExecutionScopes' (number?): Max count of StudyExecutionScopes which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetStudyExecutionScopes' (number): Max count of StudyExecutionScopes which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -443,13 +428,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetStudyExecutionScopes'.
    * Method: Loads StudyExecutionScopes.
    */
-  public class GetStudyExecutionScopesResponse {
+  export class GetStudyExecutionScopesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetStudyExecutionScopes' (StudyExecutionScope[])
-    public @return : StudyExecutionScope[] { get; set; }
+    public return : StudyExecutionScope[];
     
   }
   
@@ -457,20 +442,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchStudyExecutionScopes'.
    * Method: Loads StudyExecutionScopes where values matching to the given filterExpression
    */
-  public class SearchStudyExecutionScopesRequest {
+  export class SearchStudyExecutionScopesRequest {
     
     // Required Argument for 'SearchStudyExecutionScopes' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchStudyExecutionScopes' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchStudyExecutionScopes' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchStudyExecutionScopes' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchStudyExecutionScopes' (number?): Max count of StudyExecutionScopes which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchStudyExecutionScopes' (number): Max count of StudyExecutionScopes which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -478,13 +462,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchStudyExecutionScopes'.
    * Method: Loads StudyExecutionScopes where values matching to the given filterExpression
    */
-  public class SearchStudyExecutionScopesResponse {
+  export class SearchStudyExecutionScopesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchStudyExecutionScopes' (StudyExecutionScope[])
-    public @return : StudyExecutionScope[] { get; set; }
+    public return : StudyExecutionScope[];
     
   }
   
@@ -492,11 +476,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewStudyExecutionScope'.
    * Method: Adds a new StudyExecutionScope and returns its primary identifier (or null on failure).
    */
-  public class AddNewStudyExecutionScopeRequest {
+  export class AddNewStudyExecutionScopeRequest {
     
     // Required Argument for 'AddNewStudyExecutionScope' (StudyExecutionScope): StudyExecutionScope containing the new values
-    [Required]
-    public studyExecutionScope : StudyExecutionScope { get; set; }
+    public studyExecutionScope : StudyExecutionScope;
     
   }
   
@@ -504,13 +487,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewStudyExecutionScope'.
    * Method: Adds a new StudyExecutionScope and returns its primary identifier (or null on failure).
    */
-  public class AddNewStudyExecutionScopeResponse {
+  export class AddNewStudyExecutionScopeResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewStudyExecutionScope' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -518,11 +501,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateStudyExecutionScope'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyExecutionScope addressed by the primary identifier fields within the given StudyExecutionScope. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyExecutionScopeRequest {
+  export class UpdateStudyExecutionScopeRequest {
     
     // Required Argument for 'UpdateStudyExecutionScope' (StudyExecutionScope): StudyExecutionScope containing the new values (the primary identifier fields within the given StudyExecutionScope will be used to address the target record)
-    [Required]
-    public studyExecutionScope : StudyExecutionScope { get; set; }
+    public studyExecutionScope : StudyExecutionScope;
     
   }
   
@@ -530,13 +512,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateStudyExecutionScope'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyExecutionScope addressed by the primary identifier fields within the given StudyExecutionScope. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyExecutionScopeResponse {
+  export class UpdateStudyExecutionScopeResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateStudyExecutionScope' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -544,15 +526,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyExecutionScope addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyExecutionScopeByStudyExecutionIdentifierRequest {
+  export class UpdateStudyExecutionScopeByStudyExecutionIdentifierRequest {
     
     // Required Argument for 'UpdateStudyExecutionScopeByStudyExecutionIdentifier' (string): a global unique id of a concrete study execution (dedicated to a concrete institute) which is usually originated at the primary CRF or study management system ('SMS')
-    [Required]
-    public studyExecutionIdentifier : string { get; set; }
+    public studyExecutionIdentifier : string;
     
     // Required Argument for 'UpdateStudyExecutionScopeByStudyExecutionIdentifier' (StudyExecutionScope): StudyExecutionScope containing the new values (the primary identifier fields within the given StudyExecutionScope will be ignored)
-    [Required]
-    public studyExecutionScope : StudyExecutionScope { get; set; }
+    public studyExecutionScope : StudyExecutionScope;
     
   }
   
@@ -560,13 +540,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyExecutionScope addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyExecutionScopeByStudyExecutionIdentifierResponse {
+  export class UpdateStudyExecutionScopeByStudyExecutionIdentifierResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateStudyExecutionScopeByStudyExecutionIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -574,11 +554,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'DeleteStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Deletes a specific StudyExecutionScope addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteStudyExecutionScopeByStudyExecutionIdentifierRequest {
+  export class DeleteStudyExecutionScopeByStudyExecutionIdentifierRequest {
     
     // Required Argument for 'DeleteStudyExecutionScopeByStudyExecutionIdentifier' (string): a global unique id of a concrete study execution (dedicated to a concrete institute) which is usually originated at the primary CRF or study management system ('SMS')
-    [Required]
-    public studyExecutionIdentifier : string { get; set; }
+    public studyExecutionIdentifier : string;
     
   }
   
@@ -586,39 +565,38 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'DeleteStudyExecutionScopeByStudyExecutionIdentifier'.
    * Method: Deletes a specific StudyExecutionScope addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteStudyExecutionScopeByStudyExecutionIdentifierResponse {
+  export class DeleteStudyExecutionScopeByStudyExecutionIdentifierResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'DeleteStudyExecutionScopeByStudyExecutionIdentifier' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'GetStudyScopeByStudyScopeIdentity'.
+   * Contains arguments for calling 'GetStudyScopeByResearchStudyUid'.
    * Method: Loads a specific StudyScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetStudyScopeByStudyScopeIdentityRequest {
+  export class GetStudyScopeByResearchStudyUidRequest {
     
-    // Required Argument for 'GetStudyScopeByStudyScopeIdentity' (StudyScopeIdentity): Composite Key, which represents the primary identity of a StudyScope
-    [Required]
-    public studyScopeIdentity : StudyScopeIdentity { get; set; }
+    // Required Argument for 'GetStudyScopeByResearchStudyUid' (string): the official invariant name of the study as given by the sponsor
+    public researchStudyUid : string;
     
   }
   
   /**
-   * Contains results from calling 'GetStudyScopeByStudyScopeIdentity'.
+   * Contains results from calling 'GetStudyScopeByResearchStudyUid'.
    * Method: Loads a specific StudyScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetStudyScopeByStudyScopeIdentityResponse {
+  export class GetStudyScopeByResearchStudyUidResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'GetStudyScopeByStudyScopeIdentity' (StudyScope)
-    public @return : StudyScope { get; set; }
+    // Return-Value of 'GetStudyScopeByResearchStudyUid' (StudyScope)
+    public return : StudyScope;
     
   }
   
@@ -626,13 +604,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetStudyScopes'.
    * Method: Loads StudyScopes.
    */
-  public class GetStudyScopesRequest {
+  export class GetStudyScopesRequest {
     
-    // Optional Argument for 'GetStudyScopes' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetStudyScopes' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetStudyScopes' (number?): Max count of StudyScopes which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetStudyScopes' (number): Max count of StudyScopes which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -640,13 +618,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetStudyScopes'.
    * Method: Loads StudyScopes.
    */
-  public class GetStudyScopesResponse {
+  export class GetStudyScopesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetStudyScopes' (StudyScope[])
-    public @return : StudyScope[] { get; set; }
+    public return : StudyScope[];
     
   }
   
@@ -654,20 +632,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchStudyScopes'.
    * Method: Loads StudyScopes where values matching to the given filterExpression
    */
-  public class SearchStudyScopesRequest {
+  export class SearchStudyScopesRequest {
     
     // Required Argument for 'SearchStudyScopes' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchStudyScopes' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchStudyScopes' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchStudyScopes' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchStudyScopes' (number?): Max count of StudyScopes which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchStudyScopes' (number): Max count of StudyScopes which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -675,13 +652,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchStudyScopes'.
    * Method: Loads StudyScopes where values matching to the given filterExpression
    */
-  public class SearchStudyScopesResponse {
+  export class SearchStudyScopesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchStudyScopes' (StudyScope[])
-    public @return : StudyScope[] { get; set; }
+    public return : StudyScope[];
     
   }
   
@@ -689,11 +666,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewStudyScope'.
    * Method: Adds a new StudyScope and returns its primary identifier (or null on failure).
    */
-  public class AddNewStudyScopeRequest {
+  export class AddNewStudyScopeRequest {
     
     // Required Argument for 'AddNewStudyScope' (StudyScope): StudyScope containing the new values
-    [Required]
-    public studyScope : StudyScope { get; set; }
+    public studyScope : StudyScope;
     
   }
   
@@ -701,13 +677,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewStudyScope'.
    * Method: Adds a new StudyScope and returns its primary identifier (or null on failure).
    */
-  public class AddNewStudyScopeResponse {
+  export class AddNewStudyScopeResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewStudyScope' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -715,11 +691,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateStudyScope'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyScope addressed by the primary identifier fields within the given StudyScope. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyScopeRequest {
+  export class UpdateStudyScopeRequest {
     
     // Required Argument for 'UpdateStudyScope' (StudyScope): StudyScope containing the new values (the primary identifier fields within the given StudyScope will be used to address the target record)
-    [Required]
-    public studyScope : StudyScope { get; set; }
+    public studyScope : StudyScope;
     
   }
   
@@ -727,69 +702,66 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateStudyScope'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyScope addressed by the primary identifier fields within the given StudyScope. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyScopeResponse {
+  export class UpdateStudyScopeResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateStudyScope' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'UpdateStudyScopeByStudyScopeIdentity'.
+   * Contains arguments for calling 'UpdateStudyScopeByResearchStudyUid'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyScope addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyScopeByStudyScopeIdentityRequest {
+  export class UpdateStudyScopeByResearchStudyUidRequest {
     
-    // Required Argument for 'UpdateStudyScopeByStudyScopeIdentity' (StudyScopeIdentity): Composite Key, which represents the primary identity of a StudyScope
-    [Required]
-    public studyScopeIdentity : StudyScopeIdentity { get; set; }
+    // Required Argument for 'UpdateStudyScopeByResearchStudyUid' (string): the official invariant name of the study as given by the sponsor
+    public researchStudyUid : string;
     
-    // Required Argument for 'UpdateStudyScopeByStudyScopeIdentity' (StudyScope): StudyScope containing the new values (the primary identifier fields within the given StudyScope will be ignored)
-    [Required]
-    public studyScope : StudyScope { get; set; }
+    // Required Argument for 'UpdateStudyScopeByResearchStudyUid' (StudyScope): StudyScope containing the new values (the primary identifier fields within the given StudyScope will be ignored)
+    public studyScope : StudyScope;
     
   }
   
   /**
-   * Contains results from calling 'UpdateStudyScopeByStudyScopeIdentity'.
+   * Contains results from calling 'UpdateStudyScopeByResearchStudyUid'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given StudyScope addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateStudyScopeByStudyScopeIdentityResponse {
+  export class UpdateStudyScopeByResearchStudyUidResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'UpdateStudyScopeByStudyScopeIdentity' (Boolean)
-    public @return : bool { get; set; }
+    // Return-Value of 'UpdateStudyScopeByResearchStudyUid' (Boolean)
+    public return : boolean;
     
   }
   
   /**
-   * Contains arguments for calling 'DeleteStudyScopeByStudyScopeIdentity'.
+   * Contains arguments for calling 'DeleteStudyScopeByResearchStudyUid'.
    * Method: Deletes a specific StudyScope addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteStudyScopeByStudyScopeIdentityRequest {
+  export class DeleteStudyScopeByResearchStudyUidRequest {
     
-    // Required Argument for 'DeleteStudyScopeByStudyScopeIdentity' (StudyScopeIdentity): Composite Key, which represents the primary identity of a StudyScope
-    [Required]
-    public studyScopeIdentity : StudyScopeIdentity { get; set; }
+    // Required Argument for 'DeleteStudyScopeByResearchStudyUid' (string): the official invariant name of the study as given by the sponsor
+    public researchStudyUid : string;
     
   }
   
   /**
-   * Contains results from calling 'DeleteStudyScopeByStudyScopeIdentity'.
+   * Contains results from calling 'DeleteStudyScopeByResearchStudyUid'.
    * Method: Deletes a specific StudyScope addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteStudyScopeByStudyScopeIdentityResponse {
+  export class DeleteStudyScopeByResearchStudyUidResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
-    // Return-Value of 'DeleteStudyScopeByStudyScopeIdentity' (Boolean)
-    public @return : bool { get; set; }
+    // Return-Value of 'DeleteStudyScopeByResearchStudyUid' (Boolean)
+    public return : boolean;
     
   }
   
@@ -797,11 +769,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetSubjectAddressByInternalRecordId'.
    * Method: Loads a specific SubjectAddress addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectAddressByInternalRecordIdRequest {
+  export class GetSubjectAddressByInternalRecordIdRequest {
     
     // Required Argument for 'GetSubjectAddressByInternalRecordId' (string): Represents the primary identity of a SubjectAddress
-    [Required]
-    public internalRecordId : string { get; set; }
+    public internalRecordId : string;
     
   }
   
@@ -809,13 +780,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetSubjectAddressByInternalRecordId'.
    * Method: Loads a specific SubjectAddress addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectAddressByInternalRecordIdResponse {
+  export class GetSubjectAddressByInternalRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetSubjectAddressByInternalRecordId' (SubjectAddress)
-    public @return : SubjectAddress { get; set; }
+    public return : SubjectAddress;
     
   }
   
@@ -823,13 +794,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetSubjectAddresses'.
    * Method: Loads SubjectAddresses.
    */
-  public class GetSubjectAddressesRequest {
+  export class GetSubjectAddressesRequest {
     
-    // Optional Argument for 'GetSubjectAddresses' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectAddresses' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetSubjectAddresses' (number?): Max count of SubjectAddresses which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectAddresses' (number): Max count of SubjectAddresses which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -837,13 +808,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetSubjectAddresses'.
    * Method: Loads SubjectAddresses.
    */
-  public class GetSubjectAddressesResponse {
+  export class GetSubjectAddressesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetSubjectAddresses' (SubjectAddress[])
-    public @return : SubjectAddress[] { get; set; }
+    public return : SubjectAddress[];
     
   }
   
@@ -851,20 +822,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchSubjectAddresses'.
    * Method: Loads SubjectAddresses where values matching to the given filterExpression
    */
-  public class SearchSubjectAddressesRequest {
+  export class SearchSubjectAddressesRequest {
     
     // Required Argument for 'SearchSubjectAddresses' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchSubjectAddresses' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchSubjectAddresses' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectAddresses' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchSubjectAddresses' (number?): Max count of SubjectAddresses which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectAddresses' (number): Max count of SubjectAddresses which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -872,13 +842,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchSubjectAddresses'.
    * Method: Loads SubjectAddresses where values matching to the given filterExpression
    */
-  public class SearchSubjectAddressesResponse {
+  export class SearchSubjectAddressesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchSubjectAddresses' (SubjectAddress[])
-    public @return : SubjectAddress[] { get; set; }
+    public return : SubjectAddress[];
     
   }
   
@@ -886,11 +856,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewSubjectAddress'.
    * Method: Adds a new SubjectAddress and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectAddressRequest {
+  export class AddNewSubjectAddressRequest {
     
     // Required Argument for 'AddNewSubjectAddress' (SubjectAddress): SubjectAddress containing the new values
-    [Required]
-    public subjectAddress : SubjectAddress { get; set; }
+    public subjectAddress : SubjectAddress;
     
   }
   
@@ -898,13 +867,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewSubjectAddress'.
    * Method: Adds a new SubjectAddress and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectAddressResponse {
+  export class AddNewSubjectAddressResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewSubjectAddress' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -912,11 +881,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateSubjectAddress'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectAddress addressed by the primary identifier fields within the given SubjectAddress. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectAddressRequest {
+  export class UpdateSubjectAddressRequest {
     
     // Required Argument for 'UpdateSubjectAddress' (SubjectAddress): SubjectAddress containing the new values (the primary identifier fields within the given SubjectAddress will be used to address the target record)
-    [Required]
-    public subjectAddress : SubjectAddress { get; set; }
+    public subjectAddress : SubjectAddress;
     
   }
   
@@ -924,13 +892,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateSubjectAddress'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectAddress addressed by the primary identifier fields within the given SubjectAddress. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectAddressResponse {
+  export class UpdateSubjectAddressResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateSubjectAddress' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -938,15 +906,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateSubjectAddressByInternalRecordId'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectAddress addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectAddressByInternalRecordIdRequest {
+  export class UpdateSubjectAddressByInternalRecordIdRequest {
     
     // Required Argument for 'UpdateSubjectAddressByInternalRecordId' (string): Represents the primary identity of a SubjectAddress
-    [Required]
-    public internalRecordId : string { get; set; }
+    public internalRecordId : string;
     
     // Required Argument for 'UpdateSubjectAddressByInternalRecordId' (SubjectAddress): SubjectAddress containing the new values (the primary identifier fields within the given SubjectAddress will be ignored)
-    [Required]
-    public subjectAddress : SubjectAddress { get; set; }
+    public subjectAddress : SubjectAddress;
     
   }
   
@@ -954,13 +920,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateSubjectAddressByInternalRecordId'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectAddress addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectAddressByInternalRecordIdResponse {
+  export class UpdateSubjectAddressByInternalRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateSubjectAddressByInternalRecordId' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -968,11 +934,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'DeleteSubjectAddressByInternalRecordId'.
    * Method: Deletes a specific SubjectAddress addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectAddressByInternalRecordIdRequest {
+  export class DeleteSubjectAddressByInternalRecordIdRequest {
     
     // Required Argument for 'DeleteSubjectAddressByInternalRecordId' (string): Represents the primary identity of a SubjectAddress
-    [Required]
-    public internalRecordId : string { get; set; }
+    public internalRecordId : string;
     
   }
   
@@ -980,13 +945,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'DeleteSubjectAddressByInternalRecordId'.
    * Method: Deletes a specific SubjectAddress addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectAddressByInternalRecordIdResponse {
+  export class DeleteSubjectAddressByInternalRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'DeleteSubjectAddressByInternalRecordId' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -994,11 +959,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetSubjectIdentityByRecordId'.
    * Method: Loads a specific SubjectIdentity addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectIdentityByRecordIdRequest {
+  export class GetSubjectIdentityByRecordIdRequest {
     
     // Required Argument for 'GetSubjectIdentityByRecordId' (string): Represents the primary identity of a SubjectIdentity
-    [Required]
-    public recordId : string { get; set; }
+    public recordId : string;
     
   }
   
@@ -1006,13 +970,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetSubjectIdentityByRecordId'.
    * Method: Loads a specific SubjectIdentity addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
    */
-  public class GetSubjectIdentityByRecordIdResponse {
+  export class GetSubjectIdentityByRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetSubjectIdentityByRecordId' (SubjectIdentity)
-    public @return : SubjectIdentity { get; set; }
+    public return : SubjectIdentity;
     
   }
   
@@ -1020,13 +984,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'GetSubjectIdentities'.
    * Method: Loads SubjectIdentities.
    */
-  public class GetSubjectIdentitiesRequest {
+  export class GetSubjectIdentitiesRequest {
     
-    // Optional Argument for 'GetSubjectIdentities' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectIdentities' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'GetSubjectIdentities' (number?): Max count of SubjectIdentities which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'GetSubjectIdentities' (number): Max count of SubjectIdentities which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -1034,13 +998,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'GetSubjectIdentities'.
    * Method: Loads SubjectIdentities.
    */
-  public class GetSubjectIdentitiesResponse {
+  export class GetSubjectIdentitiesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'GetSubjectIdentities' (SubjectIdentity[])
-    public @return : SubjectIdentity[] { get; set; }
+    public return : SubjectIdentity[];
     
   }
   
@@ -1048,20 +1012,19 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'SearchSubjectIdentities'.
    * Method: Loads SubjectIdentities where values matching to the given filterExpression
    */
-  public class SearchSubjectIdentitiesRequest {
+  export class SearchSubjectIdentitiesRequest {
     
     // Required Argument for 'SearchSubjectIdentities' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-    [Required]
-    public filterExpression : string { get; set; }
+    public filterExpression : string;
     
     // Optional Argument for 'SearchSubjectIdentities' (string): one or more property names which are used as sort order (before pagination)
-    public sortingExpression : string { get; set; }
+    public sortingExpression? : string;
     
-    // Optional Argument for 'SearchSubjectIdentities' (number?): Number of the page, which should be returned
-    public page : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectIdentities' (number): Number of the page, which should be returned
+    public page? : number = null;
     
-    // Optional Argument for 'SearchSubjectIdentities' (number?): Max count of SubjectIdentities which should be returned
-    public pageSize : number? { get; set; } = null;
+    // Optional Argument for 'SearchSubjectIdentities' (number): Max count of SubjectIdentities which should be returned
+    public pageSize? : number = null;
     
   }
   
@@ -1069,13 +1032,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'SearchSubjectIdentities'.
    * Method: Loads SubjectIdentities where values matching to the given filterExpression
    */
-  public class SearchSubjectIdentitiesResponse {
+  export class SearchSubjectIdentitiesResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'SearchSubjectIdentities' (SubjectIdentity[])
-    public @return : SubjectIdentity[] { get; set; }
+    public return : SubjectIdentity[];
     
   }
   
@@ -1083,11 +1046,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'AddNewSubjectIdentity'.
    * Method: Adds a new SubjectIdentity and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectIdentityRequest {
+  export class AddNewSubjectIdentityRequest {
     
     // Required Argument for 'AddNewSubjectIdentity' (SubjectIdentity): SubjectIdentity containing the new values
-    [Required]
-    public subjectIdentity : SubjectIdentity { get; set; }
+    public subjectIdentity : SubjectIdentity;
     
   }
   
@@ -1095,13 +1057,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'AddNewSubjectIdentity'.
    * Method: Adds a new SubjectIdentity and returns its primary identifier (or null on failure).
    */
-  public class AddNewSubjectIdentityResponse {
+  export class AddNewSubjectIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'AddNewSubjectIdentity' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -1109,11 +1071,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateSubjectIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectIdentity addressed by the primary identifier fields within the given SubjectIdentity. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectIdentityRequest {
+  export class UpdateSubjectIdentityRequest {
     
     // Required Argument for 'UpdateSubjectIdentity' (SubjectIdentity): SubjectIdentity containing the new values (the primary identifier fields within the given SubjectIdentity will be used to address the target record)
-    [Required]
-    public subjectIdentity : SubjectIdentity { get; set; }
+    public subjectIdentity : SubjectIdentity;
     
   }
   
@@ -1121,13 +1082,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateSubjectIdentity'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectIdentity addressed by the primary identifier fields within the given SubjectIdentity. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectIdentityResponse {
+  export class UpdateSubjectIdentityResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateSubjectIdentity' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -1135,15 +1096,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'UpdateSubjectIdentityByRecordId'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectIdentity addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectIdentityByRecordIdRequest {
+  export class UpdateSubjectIdentityByRecordIdRequest {
     
     // Required Argument for 'UpdateSubjectIdentityByRecordId' (string): Represents the primary identity of a SubjectIdentity
-    [Required]
-    public recordId : string { get; set; }
+    public recordId : string;
     
     // Required Argument for 'UpdateSubjectIdentityByRecordId' (SubjectIdentity): SubjectIdentity containing the new values (the primary identifier fields within the given SubjectIdentity will be ignored)
-    [Required]
-    public subjectIdentity : SubjectIdentity { get; set; }
+    public subjectIdentity : SubjectIdentity;
     
   }
   
@@ -1151,13 +1110,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'UpdateSubjectIdentityByRecordId'.
    * Method: Updates all values (which are not "FixedAfterCreation") of the given SubjectIdentity addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class UpdateSubjectIdentityByRecordIdResponse {
+  export class UpdateSubjectIdentityByRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'UpdateSubjectIdentityByRecordId' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   
@@ -1165,11 +1124,10 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains arguments for calling 'DeleteSubjectIdentityByRecordId'.
    * Method: Deletes a specific SubjectIdentity addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectIdentityByRecordIdRequest {
+  export class DeleteSubjectIdentityByRecordIdRequest {
     
     // Required Argument for 'DeleteSubjectIdentityByRecordId' (string): Represents the primary identity of a SubjectIdentity
-    [Required]
-    public recordId : string { get; set; }
+    public recordId : string;
     
   }
   
@@ -1177,13 +1135,13 @@ namespace MedicalResearch.IdentityManagement.StoreAccess {
    * Contains results from calling 'DeleteSubjectIdentityByRecordId'.
    * Method: Deletes a specific SubjectIdentity addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
    */
-  public class DeleteSubjectIdentityByRecordIdResponse {
+  export class DeleteSubjectIdentityByRecordIdResponse {
     
     // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
-    public fault : string { get; set; } = null;
+    public fault : string = null;
     
     // Return-Value of 'DeleteSubjectIdentityByRecordId' (Boolean)
-    public @return : bool { get; set; }
+    public return : boolean;
     
   }
   

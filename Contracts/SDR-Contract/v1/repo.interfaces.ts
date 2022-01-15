@@ -1,10 +1,10 @@
-/* based on ORSCF SubjectData Contract v0.1.0.0 */
+/* based on ORSCF SubjectData Contract v1.7.0.0 */
 
 import MedicalResearch.SubjectData.Model;
 
 namespace MedicalResearch.SubjectData.StoreAccess {
   
-  public interface ISubjects {
+  export interface ISubjects {
     
     /**
      * Loads a specific Subject addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -62,7 +62,7 @@ namespace MedicalResearch.SubjectData.StoreAccess {
     
   }
   
-  public interface ISubjectSiteAssignments {
+  export interface ISubjectSiteAssignments {
     
     /**
      * Loads a specific SubjectSiteAssignment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.

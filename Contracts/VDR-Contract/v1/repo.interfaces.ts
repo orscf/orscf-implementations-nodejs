@@ -1,10 +1,10 @@
-/* based on ORSCF VisitData Contract v1.6.0.0 */
+/* based on ORSCF VisitData Contract v1.7.0.0 */
 
 import MedicalResearch.VisitData.Model;
 
 namespace MedicalResearch.VisitData.StoreAccess {
   
-  public interface IDataRecordings {
+  export interface IDataRecordings {
     
     /**
      * Loads a specific DataRecording addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -62,7 +62,7 @@ namespace MedicalResearch.VisitData.StoreAccess {
     
   }
   
-  public interface IVisits {
+  export interface IVisits {
     
     /**
      * Loads a specific Visit addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -120,7 +120,7 @@ namespace MedicalResearch.VisitData.StoreAccess {
     
   }
   
-  public interface IDrugApplyments {
+  export interface IDrugApplyments {
     
     /**
      * Loads a specific DrugApplyment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -178,7 +178,7 @@ namespace MedicalResearch.VisitData.StoreAccess {
     
   }
   
-  public interface IStudyEvents {
+  export interface IStudyEvents {
     
     /**
      * Loads a specific StudyEvent addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -236,7 +236,7 @@ namespace MedicalResearch.VisitData.StoreAccess {
     
   }
   
-  public interface IStudyExecutionScopes {
+  export interface IStudyExecutionScopes {
     
     /**
      * Loads a specific StudyExecutionScope addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
@@ -294,7 +294,7 @@ namespace MedicalResearch.VisitData.StoreAccess {
     
   }
   
-  public interface ITreatments {
+  export interface ITreatments {
     
     /**
      * Loads a specific Treatment addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
