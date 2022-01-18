@@ -1,14 +1,21 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.StudyWorkflowDefinition.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.StudyWorkflowDefinition.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.Workflow.StoreAccess.I*",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.StudyWorkflowDefinition.StoreAccess"
+    "MedicalResearch.Workflow.StoreAccess"
   ],
   "template": "Wrappers",
   "outputLanguage": "TS",
   "indentDepthPerLevel": 2,
   "codeGenInfoHeader": "based on ORSCF StudyWorkflowDefinition Contract v{InputAssemblyVersion}",
-  "outputNamespace": "MedicalResearch.StudyWorkflowDefinition.StoreAccess",
-  "customImports": [],
-  "generateFaultProperty": true
+  "outputNamespace": "",
+  "customImports": [
+    "* as Models from './models'"
+  ],
+  "writeCustomImportsOnly": true,
+  "nsPrefixForModelTypesUsage": "Models.",
+  "generateFaultProperty": true,
+  "useInterfaceTypeNameToGenerateSubNamespace": false,
+  "removeLeadingCharCountForSubNamespace": 1,
+  "removeTrailingCharCountForSubNamespace": 7,
 }

@@ -1,19 +1,22 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.StudyManagement.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.StudyManagement.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.StudyManagement.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.StudyManagement.StoreAccess"
+    "MedicalResearch.StudyManagement"
   ],
   "template": "Interfaces",
   "outputLanguage": "TS",
   "indentDepthPerLevel": 2,
   "codeGenInfoHeader": "based on ORSCF StudyManagement Contract v{InputAssemblyVersion}",
-  "outputNamespace": "MedicalResearch.StudyManagement.StoreAccess",
-  "customImports": [],
-  "modelTypeNameIncludePatterns": [
-    "MedicalResearch.StudyManagement.*"
+  "outputNamespace": "",
+  "customImports": [
+    "* as Models from './models'"
   ],
-  "generateTypeNamesInPhp": true,
-  "generateDataAnnotationsForLocalModels": true,
+  "writeCustomImportsOnly": true,
+  "nsPrefixForModelTypesUsage": "Models.",
+  "modelTypeNameIncludePatterns": [
+    "MedicalResearch.IdentityManagement.*"
+  ],
+  "generateDataAnnotationsForLocalModels": false,
   "generateNavigationAnnotationsForLocalModels": false
 }

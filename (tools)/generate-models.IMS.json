@@ -1,19 +1,19 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.IdentityManagement.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.IdentityManagement.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.IdentityManagement.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.IdentityManagement.StoreAccess"
+    "MedicalResearch.IdentityManagement"
   ],
   "template": "Models",
   "outputLanguage": "TS",
   "indentDepthPerLevel": 2,
   "codeGenInfoHeader": "based on ORSCF IdentityManagement Contract v{InputAssemblyVersion}",
-  "outputNamespace": "MedicalResearch.IdentityManagement.StoreAccess",
+  "outputNamespace": "",
   "customImports": [],
+  "writeCustomImportsOnly": true,
   "modelTypeNameIncludePatterns": [
     "MedicalResearch.IdentityManagement.*"
   ],
-  "GenerateTypeNamesInPhp": false,
   "generateDataAnnotationsForLocalModels": false,
   "generateNavigationAnnotationsForLocalModels": false
 }
