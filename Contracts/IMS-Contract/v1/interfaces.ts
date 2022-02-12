@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.7.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
 
 import * as Models from './models';
 
@@ -79,7 +79,7 @@ export interface IPseudonymizationService {
    * @param pseudonym
    * @param wasCreatedNewly
    */
-  GetOrCreatePseudonym(researchStudyUid : string, givenName : string, familyName : string, birthDate : string, extendedFields : object, siteUid : string, pseudonym : (out: string) => void, wasCreatedNewly : (out: boolean) => void) : boolean;
+  GetOrCreatePseudonym(researchStudyUid : string, givenName : string, familyName : string, birthDate : string, extendedFields : Object, siteUid : string, pseudonym : (out: string) => void, wasCreatedNewly : (out: boolean) => void) : boolean;
   
   /**
    * GetExisitingPseudonym
@@ -91,6 +91,6 @@ export interface IPseudonymizationService {
    * @param extendedFields
    * @param pseudonym
    */
-  GetExisitingPseudonym(researchStudyUid : string, givenName : string, familyName : string, birthDate : string, extendedFields : object, pseudonym : (out: string) => void) : boolean;
+  GetExisitingPseudonym(researchStudyUid : string, givenName : string, familyName : string, birthDate : string, extendedFields : Object, pseudonym : (out: string) => void) : boolean;
   
 }

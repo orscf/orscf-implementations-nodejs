@@ -1,6 +1,4 @@
-/* based on ORSCF StudyManagement Contract v1.7.0.0 */
-
-import * as Models from './models';
+/* based on ORSCF StudyManagement Contract v1.8.0.0 */
 
 export interface IInstituteMgmtService {
   

@@ -1,6 +1,6 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.VisitData.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.VisitData.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.VisitData.I*",
   "requireXmlDocForNamespaces": [
     "MedicalResearch.VisitData"
   ],

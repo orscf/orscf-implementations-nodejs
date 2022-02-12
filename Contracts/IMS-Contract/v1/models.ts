@@ -1,19 +1,5 @@
-/* based on ORSCF IdentityManagement Contract v1.7.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
 
-
-export class ExtendedFieldDescriptor {
-  
-  public technicalName : string;
-  
-  public isRequired : boolean;
-  
-  public displayLabel : string;
-  
-  public inputDescription : string;
-  
-  public regularExpression : string;
-  
-}
 
 export class IdentityDetails {
   
@@ -43,5 +29,19 @@ export class IdentityDetails {
   public dateOfBirth : Date;
   
   public dateOfDeath : Date;
+  
+}
+
+export class ExtendedFieldDescriptor {
+  
+  public technicalName : string;
+  
+  public isRequired : boolean;
+  
+  public displayLabel : string;
+  
+  public inputDescription : string;
+  
+  public regularExpression : string;
   
 }

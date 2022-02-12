@@ -1,8 +1,8 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.SubjectData.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.SubjectData.StoreAccess.I*Service",
+  "interfaceTypeNamePattern": "MedicalResearch.SubjectData.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.SubjectData.StoreAccess"
+    "MedicalResearch.SubjectData"
   ],
   "template": "Wrappers",
   "outputLanguage": "TS",

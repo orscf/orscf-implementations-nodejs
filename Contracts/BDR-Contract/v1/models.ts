@@ -1,4 +1,4 @@
-/* based on ORSCF BillingData Contract v1.7.0.0 */
+/* based on ORSCF BillingData Contract v1.8.0.0 */
 
 
 export class BillableTask {
@@ -45,7 +45,7 @@ export class BillableVisit {
   /**
    * unique invariant name of the visit-procedure as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
    */
-  public visitProdecureName : string;
+  public visitProcedureName : string;
   
   /**
    * title of the visit execution as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
@@ -76,6 +76,35 @@ export class BillableVisit {
    * indicates, that the visit is ready to get assigned to a 'Invoice' (usually this state is managed by the executor) This can only be set after either the 'SponsorValidationDateUtc' is set (and there is a Demand) nor the states are only managed by the executor, so that the demand-part is completely skipped. *this field is optional
    */
   public executorValidationDateUtc : Date;
+  
+}
+
+export class StudyExecutionScope {
+  
+  /**
+   * a global unique id of a concrete study execution (dedicated to a concrete institute) which is usually originated at the primary CRF or study management system ('SMS')
+   */
+  public studyExecutionIdentifier : string;
+  
+  /**
+   * the institute which is executing the study (this should be an invariant technical representation of the company name or a guid)
+   */
+  public executingInstituteIdentifier : string;
+  
+  /**
+   * the official invariant name of the study as given by the sponsor *this field has a max length of 100
+   */
+  public studyWorkflowName : string;
+  
+  /**
+   * version of the workflow *this field has a max length of 20
+   */
+  public studyWorkflowVersion : string;
+  
+  /**
+   * optional structure (in JSON-format) containing additional metadata regarding this record, which can be used by 'StudyExecutionSystems' to extend the schema *this field is optional (use null as value)
+   */
+  public extendedMetaData : string;
   
 }
 
@@ -135,34 +164,5 @@ export class Invoice {
    * *this field is optional
    */
   public paymentReceivedDateUtc : Date;
-  
-}
-
-export class StudyExecutionScope {
-  
-  /**
-   * a global unique id of a concrete study execution (dedicated to a concrete institute) which is usually originated at the primary CRF or study management system ('SMS')
-   */
-  public studyExecutionIdentifier : string;
-  
-  /**
-   * the institute which is executing the study (this should be an invariant technical representation of the company name or a guid)
-   */
-  public executingInstituteIdentifier : string;
-  
-  /**
-   * the official invariant name of the study as given by the sponsor *this field has a max length of 100
-   */
-  public studyWorkflowName : string;
-  
-  /**
-   * version of the workflow *this field has a max length of 20
-   */
-  public studyWorkflowVersion : string;
-  
-  /**
-   * optional structure (in JSON-format) containing additional metadata regarding this record, which can be used by 'StudyExecutionSystems' to extend the schema *this field is optional (use null as value)
-   */
-  public extendedMetaData : string;
   
 }

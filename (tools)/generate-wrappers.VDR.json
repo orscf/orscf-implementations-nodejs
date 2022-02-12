@@ -1,8 +1,8 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.VisitData.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.VisitData.StoreAccess.I*Service",
+  "interfaceTypeNamePattern": "MedicalResearch.VisitData.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.VisitData.StoreAccess"
+    "MedicalResearch.VisitData"
   ],
   "template": "Wrappers",
   "outputLanguage": "TS",

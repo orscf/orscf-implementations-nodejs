@@ -1,4 +1,4 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.7.0.0 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
 
 
 export class Arm {
@@ -142,6 +142,248 @@ export class DrugApplymentTaskDefinition {
   public unitsToApply : number;
   
   public applymentRoute : string;
+  
+  /**
+   * *this field is optional (use null as value)
+   */
+  public importantNotices : string;
+  
+}
+
+export class ProcedureDefinition {
+  
+  /**
+   * Name of the Definition - INVARIANT! because it is used to generate Identifers for induced executions! *this field has a max length of 50
+   */
+  public prodecureDefinitionName : string;
+  
+  /**
+   * *this field has a max length of 100
+   */
+  public studyWorkflowName : string;
+  
+  /**
+   * *this field has a max length of 20
+   */
+  public studyWorkflowVersion : string;
+  
+  /**
+   * the TaskSchedule which is representing the primary-/entry-workflow (estimated tasks) when executing this visit *this field is optional
+   */
+  public rootTaskScheduleId : string;
+  
+  /**
+   * *this field is optional
+   */
+  public billablePriceOnAbortedExecution : number;
+  
+  /**
+   * *this field is optional
+   */
+  public billablePriceOnCompletedExecution : number;
+  
+  /**
+   * *this field is optional (use null as value)
+   */
+  public visitSpecificDocumentationUrl : string;
+  
+}
+
+export class InducedProcedure {
+  
+  public id : string;
+  
+  public procedureScheduleId : string;
+  
+  /**
+   * estimated scheduling date relative to the scheduling date of the parent ProcedureSchedule
+   */
+  public schedulingOffset : number;
+  
+  /**
+   * 'M'=Months / 'W'=Weeks / 'D'=Days
+   */
+  public schedulingOffsetUnit : string;
+  
+  /**
+   * defines an additional variability RELATIVE to the estimated scheduling date (which is calculated from the offset), in this case the EARLIEST possible date.
+   */
+  public schedulingVariabilityBefore : number;
+  
+  /**
+   * defines an additional variability RELATIVE to the estimated scheduling date (which is calculated from the offset), in this case the LATEST possible date.
+   */
+  public schedulingVariabilityAfter : number;
+  
+  /**
+   * 'M'=Months / 'W'=Weeks / 'D'=Days
+   */
+  public schedulingVariabilityUnit : string;
+  
+  /**
+   * *this field has a max length of 50
+   */
+  public prodecureDefinitionName : string;
+  
+  /**
+   * the name for the induced execution (=VISIT), like 'V0', which is usually defined by the study protocol. if multiple inducements are possible (for example when using cycles), the title should to contain a placeholder (example: 'C{cy}-V0') to prevent from duplicate execution names.
+   */
+  public uniqueExecutionName : string;
+  
+  /**
+   * defines, if the study protocol tolerates this execution to be 'skipped' (if not, a missed execution is treated as 'lost' and can cause the exclusion of the participant)
+   */
+  public skipable : boolean;
+  
+  public eventOnSkip : string;
+  
+  public eventOnLost : string;
+  
+  /**
+   * The Position (1..x) of this inducement within the parent schedule. This value is relevant for addressing predecessors as fixpoint for the offest-calculation. Within one schedule there can only be one inducement for each position! The 0 is reserved for addressing the parent schedule itself and must not be used as well as negative values!
+   */
+  public position : number;
+  
+  /**
+   * 0=InducementOfScheduleOrCycle: when the start of the parent Schedule (for the current cycle) was induced / -1=InducementOfPredessessor: when the direct predecessor procedure or subschedule (based on the 'Position') within the current schedule was induced / 1..x: when the predecessor at the Position within the current schedule, ADRESSED by the given value, was induced *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'SchedulingByEstimate'
+   */
+  public schedulingOffsetFixpoint : number;
+  
+  /**
+   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
+   */
+  public schedulingByEstimate : boolean;
+  
+  /**
+   * The name of a Sub-Study for which this procedure should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
+   */
+  public dedicatedToSubstudy : string;
+  
+  /**
+   * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
+   */
+  public visitNumber : number;
+  
+}
+
+export class InducedSubProcedureSchedule {
+  
+  public id : string;
+  
+  public parentProcedureScheduleId : string;
+  
+  public inducedProcedureScheduleId : string;
+  
+  /**
+   * estimated scheduling date relative to the scheduling date of the parent ProcedureSchedule
+   */
+  public schedulingOffset : number;
+  
+  /**
+   * 'M'=Months / 'W'=Weeks / 'D'=Days
+   */
+  public schedulingOffsetUnit : string;
+  
+  public sharedSkipCounters : boolean;
+  
+  public sharedLostCounters : boolean;
+  
+  /**
+   * The Position (1..x) of this inducement within the parent schedule. This value is relevant for addressing predecessors as fixpoint for the offest-calculation. Within one schedule there can only be one inducement for each position! The 0 is reserved for addressing the parent schedule itself and must not be used as well as negative values!
+   */
+  public position : number;
+  
+  /**
+   * 0=InducementOfScheduleOrCycle: when the start of the parent Schedule (for the current cycle) was induced / -1=InducementOfPredessessor: when the direct predecessor procedure or subschedule (based on the 'Position') within the current schedule was induced / 1..x: when the predecessor at the Position within the current schedule, ADRESSED by the given value, was induced *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'SchedulingByEstimate'
+   */
+  public schedulingOffsetFixpoint : number;
+  
+  /**
+   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
+   */
+  public schedulingByEstimate : boolean;
+  
+  /**
+   * The name of a Sub-Study for which this schedule should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
+   */
+  public dedicatedToSubstudy : string;
+  
+  public increaseVisitNumberBase : number;
+  
+  public inheritVisitNumberBase : boolean;
+  
+}
+
+export class ProcedureCycleDefinition {
+  
+  public procedureScheduleId : string;
+  
+  /**
+   * 0=InducementOfScheduleOrCycle: when the start of the last cycle was induced / -1=InducementOfPredessessor: when the last procedure or subschedule (based on the 'Position') of the previous cycle was induced. *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'ReschedulingByEstimate'
+   */
+  public reschedulingOffsetFixpoint : number;
+  
+  /**
+   * estimated scheduling date relative to the ReschedulingBase
+   */
+  public reschedulingOffset : number;
+  
+  /**
+   * 'M'=Months / 'W'=Weeks / 'D'=Days
+   */
+  public reschedulingOffsetUnit : string;
+  
+  /**
+   * number of cycles (of null for a infinite number of cycles) *this field is optional
+   */
+  public cycleLimit : number;
+  
+  public sharedSkipCounters : boolean;
+  
+  public sharedLostCounters : boolean;
+  
+  /**
+   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
+   */
+  public reschedulingByEstimate : boolean;
+  
+  /**
+   * -1: automatic, based on the usage of visit numbers within the schedule
+   */
+  public increaseVisitNumberBasePerCycle : number;
+  
+}
+
+export class TreatmentTaskDefinition {
+  
+  /**
+   * Name of the Definition - INVARIANT! because it is used to generate Identifers for induced executions! *this field has a max length of 50
+   */
+  public taskDefinitionName : string;
+  
+  /**
+   * *this field has a max length of 100
+   */
+  public studyWorkflowName : string;
+  
+  /**
+   * *this field has a max length of 20
+   */
+  public studyWorkflowVersion : string;
+  
+  /**
+   * *this field is optional
+   */
+  public billablePriceOnCompletedExecution : number;
+  
+  public shortDescription : string;
+  
+  /**
+   * *this field is optional (use null as value)
+   */
+  public taskSpecificDocumentationUrl : string;
+  
+  public treatmentDescription : string;
   
   /**
    * *this field is optional (use null as value)
@@ -304,131 +546,6 @@ export class InducedDrugApplymentTask {
   
 }
 
-export class InducedProcedure {
-  
-  public id : string;
-  
-  public procedureScheduleId : string;
-  
-  /**
-   * estimated scheduling date relative to the scheduling date of the parent ProcedureSchedule
-   */
-  public schedulingOffset : number;
-  
-  /**
-   * 'M'=Months / 'W'=Weeks / 'D'=Days
-   */
-  public schedulingOffsetUnit : string;
-  
-  /**
-   * defines an additional variability RELATIVE to the estimated scheduling date (which is calculated from the offset), in this case the EARLIEST possible date.
-   */
-  public schedulingVariabilityBefore : number;
-  
-  /**
-   * defines an additional variability RELATIVE to the estimated scheduling date (which is calculated from the offset), in this case the LATEST possible date.
-   */
-  public schedulingVariabilityAfter : number;
-  
-  /**
-   * 'M'=Months / 'W'=Weeks / 'D'=Days
-   */
-  public schedulingVariabilityUnit : string;
-  
-  /**
-   * *this field has a max length of 50
-   */
-  public prodecureDefinitionName : string;
-  
-  /**
-   * the name for the induced execution (=VISIT), like 'V0', which is usually defined by the study protocol. if multiple inducements are possible (for example when using cycles), the title should to contain a placeholder (example: 'C{cy}-V0') to prevent from duplicate execution names.
-   */
-  public uniqueExecutionName : string;
-  
-  /**
-   * defines, if the study protocol tolerates this execution to be 'skipped' (if not, a missed execution is treated as 'lost' and can cause the exclusion of the participant)
-   */
-  public skipable : boolean;
-  
-  public eventOnSkip : string;
-  
-  public eventOnLost : string;
-  
-  /**
-   * The Position (1..x) of this inducement within the parent schedule. This value is relevant for addressing predecessors as fixpoint for the offest-calculation. Within one schedule there can only be one inducement for each position! The 0 is reserved for addressing the parent schedule itself and must not be used as well as negative values!
-   */
-  public position : number;
-  
-  /**
-   * 0=InducementOfScheduleOrCycle: when the start of the parent Schedule (for the current cycle) was induced / -1=InducementOfPredessessor: when the direct predecessor procedure or subschedule (based on the 'Position') within the current schedule was induced / 1..x: when the predecessor at the Position within the current schedule, ADRESSED by the given value, was induced *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'SchedulingByEstimate'
-   */
-  public schedulingOffsetFixpoint : number;
-  
-  /**
-   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
-   */
-  public schedulingByEstimate : boolean;
-  
-  /**
-   * The name of a Sub-Study for which this procedure should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
-   */
-  public dedicatedToSubstudy : string;
-  
-  /**
-   * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
-   */
-  public visitNumber : number;
-  
-}
-
-export class InducedSubProcedureSchedule {
-  
-  public id : string;
-  
-  public parentProcedureScheduleId : string;
-  
-  public inducedProcedureScheduleId : string;
-  
-  /**
-   * estimated scheduling date relative to the scheduling date of the parent ProcedureSchedule
-   */
-  public schedulingOffset : number;
-  
-  /**
-   * 'M'=Months / 'W'=Weeks / 'D'=Days
-   */
-  public schedulingOffsetUnit : string;
-  
-  public sharedSkipCounters : boolean;
-  
-  public sharedLostCounters : boolean;
-  
-  /**
-   * The Position (1..x) of this inducement within the parent schedule. This value is relevant for addressing predecessors as fixpoint for the offest-calculation. Within one schedule there can only be one inducement for each position! The 0 is reserved for addressing the parent schedule itself and must not be used as well as negative values!
-   */
-  public position : number;
-  
-  /**
-   * 0=InducementOfScheduleOrCycle: when the start of the parent Schedule (for the current cycle) was induced / -1=InducementOfPredessessor: when the direct predecessor procedure or subschedule (based on the 'Position') within the current schedule was induced / 1..x: when the predecessor at the Position within the current schedule, ADRESSED by the given value, was induced *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'SchedulingByEstimate'
-   */
-  public schedulingOffsetFixpoint : number;
-  
-  /**
-   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
-   */
-  public schedulingByEstimate : boolean;
-  
-  /**
-   * The name of a Sub-Study for which this schedule should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
-   */
-  public dedicatedToSubstudy : string;
-  
-  public increaseVisitNumberBase : number;
-  
-  public inheritVisitNumberBase : boolean;
-  
-}
-
 export class InducedSubTaskSchedule {
   
   public id : string;
@@ -554,22 +671,22 @@ export class InducedTreatmentTask {
   
 }
 
-export class ProcedureCycleDefinition {
+export class TaskCycleDefinition {
   
-  public procedureScheduleId : string;
+  public taskScheduleId : string;
   
   /**
-   * 0=InducementOfScheduleOrCycle: when the start of the last cycle was induced / -1=InducementOfPredessessor: when the last procedure or subschedule (based on the 'Position') of the previous cycle was induced. *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'ReschedulingByEstimate'
+   * 0=InducementOfScheduleOrCycle: when the start of the last cycle was induced / -1=InducementOfPredessessor: when the last task or subschedule (based on the 'Position') of the previous cycle was induced. *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'ReschedulingByEstimate'
    */
   public reschedulingOffsetFixpoint : number;
   
   /**
-   * estimated scheduling date relative to the ReschedulingBase
+   * estimated scheduling time relative to the ReschedulingBase
    */
   public reschedulingOffset : number;
   
   /**
-   * 'M'=Months / 'W'=Weeks / 'D'=Days
+   * 'h'=Hours / 'm'=Minutes / 's'=Seconds
    */
   public reschedulingOffsetUnit : string;
   
@@ -588,18 +705,18 @@ export class ProcedureCycleDefinition {
   public reschedulingByEstimate : boolean;
   
   /**
-   * -1: automatic, based on the usage of visit numbers within the schedule
+   * -1: automatic, based on the usage of task numbers within the schedule
    */
-  public increaseVisitNumberBasePerCycle : number;
+  public increaseTaskNumberBasePerCycle : number;
   
 }
 
-export class ProcedureDefinition {
+export class StudyEvent {
   
   /**
-   * Name of the Definition - INVARIANT! because it is used to generate Identifers for induced executions! *this field has a max length of 50
+   * *this field has a max length of 50
    */
-  public prodecureDefinitionName : string;
+  public studyEventName : string;
   
   /**
    * *this field has a max length of 100
@@ -612,24 +729,44 @@ export class ProcedureDefinition {
   public studyWorkflowVersion : string;
   
   /**
-   * the TaskSchedule which is representing the primary-/entry-workflow (estimated tasks) when executing this visit *this field is optional
-   */
-  public rootTaskScheduleId : string;
-  
-  /**
    * *this field is optional
    */
-  public billablePriceOnAbortedExecution : number;
+  public maxOccourrencesBeforeExclusion : number;
   
-  /**
-   * *this field is optional
-   */
-  public billablePriceOnCompletedExecution : number;
+  public allowManualTrigger : boolean;
+  
+  public description : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public visitSpecificDocumentationUrl : string;
+  public evenSpecificDocumentationUrl : string;
+  
+}
+
+export class SubStudy {
+  
+  /**
+   * *this field has a max length of 50
+   */
+  public subStudyName : string;
+  
+  /**
+   * *this field has a max length of 100
+   */
+  public studyWorkflowName : string;
+  
+  /**
+   * *this field has a max length of 20
+   */
+  public studyWorkflowVersion : string;
+  
+}
+
+/**
+ * Composite Key, which represents the primary identity of a ResearchStudyDefinition
+ */
+export class ResearchStudyDefinitionIdentity {
   
 }
 
@@ -675,6 +812,55 @@ export class ProcedureSchedule {
   public inducedSubProcedureSchedules : InducedSubProcedureSchedule[];
   
   public cycleDefinition : ProcedureCycleDefinition;
+  
+}
+
+export class TaskSchedule {
+  
+  public taskScheduleId : string;
+  
+  /**
+   * *this field has a max length of 100
+   */
+  public studyWorkflowName : string;
+  
+  /**
+   * *this field has a max length of 20
+   */
+  public studyWorkflowVersion : string;
+  
+  /**
+   * Name of the Workflow which is represented by this schedule - INVARIANT! because it is used to generate Identifers for induced executions!
+   */
+  public scheduleWorkflowName : string;
+  
+  public maxSkipsBeforeLost : string;
+  
+  public maxSubsequentSkipsBeforeLost : string;
+  
+  public maxLostsBeforeLtfuAbort : string;
+  
+  public maxSubsequentLostsBeforeLtfuAbort : string;
+  
+  public eventOnLtfuAbort : string;
+  
+  public eventOnCycleEnded : string;
+  
+  public eventOnAllCyclesEnded : string;
+  
+  public inducingEvents : string;
+  
+  public abortCausingEvents : string;
+  
+  public inducedDataRecordingTasks : InducedDataRecordingTask[];
+  
+  public inducedDrugApplymentTasks : InducedDrugApplymentTask[];
+  
+  public inducedSubTaskSchedules : InducedSubTaskSchedule[];
+  
+  public inducedTreatmentTasks : InducedTreatmentTask[];
+  
+  public cycleDefinition : TaskCycleDefinition;
   
 }
 
@@ -752,191 +938,5 @@ export class ResearchStudyDefinition {
   public events : StudyEvent[];
   
   public subStudies : SubStudy[];
-  
-}
-
-/**
- * Composite Key, which represents the primary identity of a ResearchStudyDefinition
- */
-export class ResearchStudyDefinitionIdentity {
-  
-}
-
-export class StudyEvent {
-  
-  /**
-   * *this field has a max length of 50
-   */
-  public studyEventName : string;
-  
-  /**
-   * *this field has a max length of 100
-   */
-  public studyWorkflowName : string;
-  
-  /**
-   * *this field has a max length of 20
-   */
-  public studyWorkflowVersion : string;
-  
-  /**
-   * *this field is optional
-   */
-  public maxOccourrencesBeforeExclusion : number;
-  
-  public allowManualTrigger : boolean;
-  
-  public description : string;
-  
-  /**
-   * *this field is optional (use null as value)
-   */
-  public evenSpecificDocumentationUrl : string;
-  
-}
-
-export class SubStudy {
-  
-  /**
-   * *this field has a max length of 50
-   */
-  public subStudyName : string;
-  
-  /**
-   * *this field has a max length of 100
-   */
-  public studyWorkflowName : string;
-  
-  /**
-   * *this field has a max length of 20
-   */
-  public studyWorkflowVersion : string;
-  
-}
-
-export class TaskCycleDefinition {
-  
-  public taskScheduleId : string;
-  
-  /**
-   * 0=InducementOfScheduleOrCycle: when the start of the last cycle was induced / -1=InducementOfPredessessor: when the last task or subschedule (based on the 'Position') of the previous cycle was induced. *items of sub-schedules are not relevant - when addressing a sub-schedule as predecessor, then only its entry will be used *this behaviour can be concretized via 'ReschedulingByEstimate'
-   */
-  public reschedulingOffsetFixpoint : number;
-  
-  /**
-   * estimated scheduling time relative to the ReschedulingBase
-   */
-  public reschedulingOffset : number;
-  
-  /**
-   * 'h'=Hours / 'm'=Minutes / 's'=Seconds
-   */
-  public reschedulingOffsetUnit : string;
-  
-  /**
-   * number of cycles (of null for a infinite number of cycles) *this field is optional
-   */
-  public cycleLimit : number;
-  
-  public sharedSkipCounters : boolean;
-  
-  public sharedLostCounters : boolean;
-  
-  /**
-   * If set to true, the offset calculation will be based on the ESTIMATED completion of the predecessor (see 'Fixpoint'). Otherwise, when set to false, the offset calculation will be based on the REAL completion (if recorded execution data is available during calculation) of the predecessor. *this will not evaluated, when the 'Fixpoint' is set to 0!
-   */
-  public reschedulingByEstimate : boolean;
-  
-  /**
-   * -1: automatic, based on the usage of task numbers within the schedule
-   */
-  public increaseTaskNumberBasePerCycle : number;
-  
-}
-
-export class TaskSchedule {
-  
-  public taskScheduleId : string;
-  
-  /**
-   * *this field has a max length of 100
-   */
-  public studyWorkflowName : string;
-  
-  /**
-   * *this field has a max length of 20
-   */
-  public studyWorkflowVersion : string;
-  
-  /**
-   * Name of the Workflow which is represented by this schedule - INVARIANT! because it is used to generate Identifers for induced executions!
-   */
-  public scheduleWorkflowName : string;
-  
-  public maxSkipsBeforeLost : string;
-  
-  public maxSubsequentSkipsBeforeLost : string;
-  
-  public maxLostsBeforeLtfuAbort : string;
-  
-  public maxSubsequentLostsBeforeLtfuAbort : string;
-  
-  public eventOnLtfuAbort : string;
-  
-  public eventOnCycleEnded : string;
-  
-  public eventOnAllCyclesEnded : string;
-  
-  public inducingEvents : string;
-  
-  public abortCausingEvents : string;
-  
-  public inducedDataRecordingTasks : InducedDataRecordingTask[];
-  
-  public inducedDrugApplymentTasks : InducedDrugApplymentTask[];
-  
-  public inducedSubTaskSchedules : InducedSubTaskSchedule[];
-  
-  public inducedTreatmentTasks : InducedTreatmentTask[];
-  
-  public cycleDefinition : TaskCycleDefinition;
-  
-}
-
-export class TreatmentTaskDefinition {
-  
-  /**
-   * Name of the Definition - INVARIANT! because it is used to generate Identifers for induced executions! *this field has a max length of 50
-   */
-  public taskDefinitionName : string;
-  
-  /**
-   * *this field has a max length of 100
-   */
-  public studyWorkflowName : string;
-  
-  /**
-   * *this field has a max length of 20
-   */
-  public studyWorkflowVersion : string;
-  
-  /**
-   * *this field is optional
-   */
-  public billablePriceOnCompletedExecution : number;
-  
-  public shortDescription : string;
-  
-  /**
-   * *this field is optional (use null as value)
-   */
-  public taskSpecificDocumentationUrl : string;
-  
-  public treatmentDescription : string;
-  
-  /**
-   * *this field is optional (use null as value)
-   */
-  public importantNotices : string;
   
 }

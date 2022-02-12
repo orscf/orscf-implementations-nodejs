@@ -1,8 +1,8 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.StudyManagement.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.StudyManagement.StoreAccess.I*Service",
+  "interfaceTypeNamePattern": "MedicalResearch.StudyManagement.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.StudyManagement.StoreAccess"
+    "MedicalResearch.StudyManagement"
   ],
   "template": "Wrappers",
   "outputLanguage": "TS",

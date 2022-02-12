@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.7.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
 
 import * as Models from './models';
 
@@ -245,8 +245,8 @@ export class GetOrCreatePseudonymRequest {
   // Required Argument for 'GetOrCreatePseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!)
   public birthDate : string;
   
-  // Required Argument for 'GetOrCreatePseudonym' (object)
-  public extendedFields : object;
+  // Required Argument for 'GetOrCreatePseudonym' (Object)
+  public extendedFields : Object;
   
   // Required Argument for 'GetOrCreatePseudonym' (string): A UUID
   public siteUid : string;
@@ -289,8 +289,8 @@ export class GetExisitingPseudonymRequest {
   // Required Argument for 'GetExisitingPseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!)
   public birthDate : string;
   
-  // Required Argument for 'GetExisitingPseudonym' (object)
-  public extendedFields : object;
+  // Required Argument for 'GetExisitingPseudonym' (Object)
+  public extendedFields : Object;
   
 }
 

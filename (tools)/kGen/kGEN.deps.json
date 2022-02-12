@@ -6,9 +6,10 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "kGEN/1.2.3": {
+      "kGEN/1.3.1": {
         "dependencies": {
           "EntityAnnotations": "2.2.0.423",
+          "EntitySchema": "1.0.0.488",
           "Newtonsoft.Json": "12.0.3",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Net.Http": "4.3.4"
@@ -22,6 +23,14 @@
           "lib/net5.0/EntityAnnotations.dll": {
             "assemblyVersion": "2.2.0.423",
             "fileVersion": "2.2.0.423"
+          }
+        }
+      },
+      "EntitySchema/1.0.0.488": {
+        "runtime": {
+          "lib/net5.0/EntitySchema.dll": {
+            "assemblyVersion": "1.0.0.488",
+            "fileVersion": "1.0.0.488"
           }
         }
       },
@@ -429,7 +438,7 @@
     }
   },
   "libraries": {
-    "kGEN/1.2.3": {
+    "kGEN/1.3.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -440,6 +449,13 @@
       "sha512": "sha512-7vvxOzadwm+KY4a1t8z1BeNIRa3SRaJaB/GJ2lSspeyvzbCoAJ3Gzy44MhDEZ5K/BEW9M3Ks8l7dsGGBIeZ5tg==",
       "path": "entityannotations/2.2.0.423",
       "hashPath": "entityannotations.2.2.0.423.nupkg.sha512"
+    },
+    "EntitySchema/1.0.0.488": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iI4212oUAsLjKGLD2a1+v1OzBe5l+IR29Q034lXeVYPhm4IN4xv9pMA3dx4PniZs0S9kUX5CyFk1zGJusfoTg==",
+      "path": "entityschema/1.0.0.488",
+      "hashPath": "entityschema.1.0.0.488.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",
