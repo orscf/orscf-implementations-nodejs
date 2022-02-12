@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.11747 */
 
 import * as Models from './models';
 
