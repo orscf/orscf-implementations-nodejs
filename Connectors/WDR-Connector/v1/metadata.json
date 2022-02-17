@@ -1,0 +1,62 @@
+[ 
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.AssemblyVersion.Revision",
+    "value": "11747",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.FileVersion.Minor",
+    "value": "7",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.AssemblyVersion.Build",
+    "value": "0",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.FileVersion.Revision",
+    "value": "11747",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.ProductVersion",
+    "value": "1.7.0.11747",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.AssemblyVersion.Minor",
+    "value": "1",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.Name",
+    "value": "ORSCF.StudyWorkflowDefinition.Connector",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.FileVersion.Major",
+    "value": "1",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.AssemblyVersion.Major",
+    "value": "0",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.FileVersion",
+    "value": "1.7.0.11747",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.AssemblyVersion",
+    "value": "1.7.0.11747",
+    "secret": false
+  },
+  {
+    "name": "meta.ORSCF.StudyWorkflowDefinition.Connector.AssemblyInfo.FileVersion.Build",
+    "value": "0",
+    "secret": false
+  }
+]

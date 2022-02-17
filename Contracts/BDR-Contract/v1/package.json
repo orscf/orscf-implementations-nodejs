@@ -1,14 +1,14 @@
 {
-  "name": "@orscf/subjectdata-contract",
+  "name": "@orscf/billingdata-contract",
   "version": "1.8.0",
-  "description": "ORSCF - SubjectData - Contract",
+  "description": "ORSCF - BillingData - Contract",
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/orscf/orscf-implementations-nodejs/tree/master/Contracts/SDR-Contract/v1"
+    "url": "https://github.com/orscf/orscf-implementations-nodejs/tree/master/Contracts/BDR-Contract/v1"
   },
   "author": "ORSCF.org",
   "license": "Apache-2.0",
