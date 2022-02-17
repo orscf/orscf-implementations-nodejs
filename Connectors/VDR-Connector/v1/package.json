@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/visitdata-connector",
+  "name": "orscf-visitdata-connector",
   "version": "0.1.0",
   "description": "ORSCF - VisitData - Connector",
   "main": "index.js",

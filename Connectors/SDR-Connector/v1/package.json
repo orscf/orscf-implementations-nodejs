@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/subjectdata-connector",
+  "name": "orscf-subjectdata-connector",
   "version": "0.1.0",
   "description": "ORSCF - SubjectData - Connector",
   "main": "index.js",

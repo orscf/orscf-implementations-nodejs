@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/identitymanagement-contract",
+  "name": "orscf-identitymanagement-contract",
   "version": "1.8.0",
   "description": "ORSCF - IdentityManagement - Contract",
   "main": "index.js",

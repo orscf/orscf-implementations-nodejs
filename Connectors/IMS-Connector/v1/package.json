@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/identitymanagement-connector",
+  "name": "orscf-identitymanagement-connector",
   "version": "0.1.0",
   "description": "ORSCF - IdentityManagement - Connector",
   "main": "index.js",

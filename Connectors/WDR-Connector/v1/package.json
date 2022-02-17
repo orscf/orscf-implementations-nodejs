@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/studyworkflowdefinition-connector",
+  "name": "orscf-studyworkflowdefinition-connector",
   "version": "1.0.0",
   "description": "ORSCF - StudyWorkflowDefinition - Connector",
   "main": "index.js",

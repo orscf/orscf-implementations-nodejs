@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/visitdata-contract",
+  "name": "orscf-visitdata-contract",
   "version": "1.0.0",
   "description": "ORSCF - VisitData - Contract",
   "main": "index.js",

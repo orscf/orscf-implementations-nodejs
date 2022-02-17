@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/studymanagement-contract",
+  "name": "orscf-studymanagement-contract",
   "version": "1.0.0",
   "description": "ORSCF - StudyManagement - Contract",
   "main": "index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/studyworkflowdefinition-contract",
+  "name": "orscf-studyworkflowdefinition-contract",
   "version": "1.0.0",
   "description": "ORSCF - StudyWorkflowDefinition - Contract",
   "main": "index.js",

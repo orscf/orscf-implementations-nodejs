@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/billingdata-connector",
+  "name": "orscf-billingdata-connector",
   "version": "0.1.0",
   "description": "ORSCF - BillingData - Connector",
   "main": "index.js",

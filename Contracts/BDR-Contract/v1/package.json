@@ -1,5 +1,5 @@
 {
-  "name": "@orscf/billingdata-contract",
+  "name": "orscf-billingdata-contract",
   "version": "1.8.0",
   "description": "ORSCF - BillingData - Contract",
   "main": "index.js",
