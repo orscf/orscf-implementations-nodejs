@@ -1,4 +1,4 @@
-/* based on ORSCF BillingData Contract v1.8.0.11747 */
+/* based on ORSCF BillingData Contract v1.8.0.0 */
 
 
 export class BillableTask {
@@ -55,27 +55,27 @@ export class BillableVisit {
   /**
    * *this field is optional
    */
-  public billingDemandId : string;
+  public billingDemandId? : string;
   
   /**
    * *this field is optional
    */
-  public invoiceId : string;
+  public invoiceId? : string;
   
   /**
    * *this field is optional
    */
-  public executionEndDateUtc : Date;
+  public executionEndDateUtc? : Date;
   
   /**
    * indicates, that the visit is ready to get assigned to a 'BillingDemand' (usually this state is managed by the sponsor) This can only be set after there is a valid 'ExecutionEndDateUtc' *this field is optional
    */
-  public sponsorValidationDateUtc : Date;
+  public sponsorValidationDateUtc? : Date;
   
   /**
    * indicates, that the visit is ready to get assigned to a 'Invoice' (usually this state is managed by the executor) This can only be set after either the 'SponsorValidationDateUtc' is set (and there is a Demand) nor the states are only managed by the executor, so that the demand-part is completely skipped. *this field is optional
    */
-  public executorValidationDateUtc : Date;
+  public executorValidationDateUtc? : Date;
   
 }
 
@@ -104,7 +104,7 @@ export class StudyExecutionScope {
   /**
    * optional structure (in JSON-format) containing additional metadata regarding this record, which can be used by 'StudyExecutionSystems' to extend the schema *this field is optional (use null as value)
    */
-  public extendedMetaData : string;
+  public extendedMetaData? : string;
   
 }
 
@@ -122,7 +122,7 @@ export class BillingDemand {
   /**
    * *this field is optional
    */
-  public transmissionDateUtc : Date;
+  public transmissionDateUtc? : Date;
   
   public creationDateUtc : Date;
   
@@ -149,7 +149,7 @@ export class Invoice {
   /**
    * *this field is optional
    */
-  public transmissionDateUtc : Date;
+  public transmissionDateUtc? : Date;
   
   public creationDateUtc : Date;
   
@@ -158,11 +158,11 @@ export class Invoice {
   /**
    * *this field is optional
    */
-  public paymentSubmittedDateUtc : Date;
+  public paymentSubmittedDateUtc? : Date;
   
   /**
    * *this field is optional
    */
-  public paymentReceivedDateUtc : Date;
+  public paymentReceivedDateUtc? : Date;
   
 }

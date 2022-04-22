@@ -1,0 +1,26 @@
+﻿{
+  "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.VisitData.Contract.dll",
+  "interfaceTypeNamePattern": "MedicalResearch.VisitData.I*Service",
+  "requireXmlDocForNamespaces": [
+    "MedicalResearch.VisitData"
+  ],
+  "template": "Clients",
+  "outputLanguage": "TS",
+  "indentDepthPerLevel": 2,
+  "codeGenInfoHeader": "based on ORSCF VisitData Contract v{InputAssemblyVersion}",
+  "outputNamespace": "",
+  "customImports": [
+  ],
+  "writeCustomImportsOnly": true,
+  "nsPrefixForModelTypesUsage": "Models.",
+  "generateFaultProperty": true,
+  "useInterfaceTypeNameToGenerateSubNamespace": false,
+  "removeLeadingCharCountForSubNamespace": 1,
+  "removeTrailingCharCountForSubNamespace": 7,
+  "connectorClassName": "VdrConnector",
+  "authHeaderName": "Authorization",
+  "throwClientExecptionsFromFaultProperty": true,
+  "ImportDtosFrom": "orscf-visitdata-contract/dtos",
+  "ImportModelsFrom": "orscf-visitdata-contract/models",
+  "ImportInterfacesFrom": "orscf-visitdata-contract/interfaces"
+}

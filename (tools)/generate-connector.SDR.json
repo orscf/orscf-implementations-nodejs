@@ -1,0 +1,26 @@
+﻿{
+  "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.SubjectData.Contract.dll",
+  "interfaceTypeNamePattern": "MedicalResearch.SubjectData.I*Service",
+  "requireXmlDocForNamespaces": [
+    "MedicalResearch.SubjectData"
+  ],
+  "template": "Clients",
+  "outputLanguage": "TS",
+  "indentDepthPerLevel": 2,
+  "codeGenInfoHeader": "based on ORSCF SubjectData Contract v{InputAssemblyVersion}",
+  "outputNamespace": "",
+  "customImports": [
+  ],
+  "writeCustomImportsOnly": true,
+  "nsPrefixForModelTypesUsage": "Models.",
+  "generateFaultProperty": true,
+  "useInterfaceTypeNameToGenerateSubNamespace": false,
+  "removeLeadingCharCountForSubNamespace": 1,
+  "removeTrailingCharCountForSubNamespace": 7,
+  "connectorClassName": "SdrConnector",
+  "authHeaderName": "Authorization",
+  "throwClientExecptionsFromFaultProperty": true,
+  "ImportDtosFrom": "orscf-subjectdata-contract/dtos",
+  "ImportModelsFrom": "orscf-subjectdata-contract/models",
+  "ImportInterfacesFrom": "orscf-subjectdata-contract/interfaces"
+}

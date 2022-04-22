@@ -246,3 +246,5 @@ ModelManifest.xml
 
 /(Vendor)/NuGet/
 /(Stage)/
+*.js
+*.tgz

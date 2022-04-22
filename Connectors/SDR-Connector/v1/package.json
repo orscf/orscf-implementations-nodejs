@@ -12,5 +12,8 @@
   },
   "author": "ORSCF.org",
   "license": "Apache-2.0",
-  "homepage": "ORSCF.org"
+  "homepage": "ORSCF.org",
+  "dependencies": {
+    "orscf-subjectdata-contract": "^1.8.9"
+  },
 }

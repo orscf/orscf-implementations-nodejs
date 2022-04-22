@@ -1,4 +1,4 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.11747 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
 
 
 export class Arm {
@@ -21,42 +21,42 @@ export class Arm {
   /**
    * the ProcedureSchedule which is representing the primary-/entry-workflow (estimated visits) for participants of this arm *this field is optional
    */
-  public rootProcedureScheduleId : string;
+  public rootProcedureScheduleId? : string;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnFailedInclusion : number;
+  public billablePriceOnFailedInclusion? : number;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnSuccessfullInclusion : number;
+  public billablePriceOnSuccessfullInclusion? : number;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnAbortedParticipation : number;
+  public billablePriceOnAbortedParticipation? : number;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnCompletedParticipation : number;
+  public billablePriceOnCompletedParticipation? : number;
   
   /**
    * *this field is optional (use null as value)
    */
-  public armSpecificDocumentationUrl : string;
+  public armSpecificDocumentationUrl? : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public inclusionCriteria : string;
+  public inclusionCriteria? : string;
   
   /**
    * comma sparated list of Sub-Study names which are allowed to be executed for this arm *this field is optional (use null as value)
    */
-  public allowedSubstudies : string;
+  public allowedSubstudies? : string;
   
 }
 
@@ -80,19 +80,19 @@ export class DataRecordingTaskDefinition {
   /**
    * *this field is optional
    */
-  public billablePriceOnCompletedExecution : number;
+  public billablePriceOnCompletedExecution? : number;
   
   public shortDescription : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public taskSpecificDocumentationUrl : string;
+  public taskSpecificDocumentationUrl? : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public importantNotices : string;
+  public importantNotices? : string;
   
   /**
    * schema-url of the data which have to be recorded
@@ -102,7 +102,7 @@ export class DataRecordingTaskDefinition {
   /**
    * RAW data, in the schema as defined at the 'DataSchemaUrl' *this field is optional (use null as value)
    */
-  public defaultData : string;
+  public defaultData? : string;
   
 }
 
@@ -126,14 +126,14 @@ export class DrugApplymentTaskDefinition {
   /**
    * *this field is optional
    */
-  public billablePriceOnCompletedExecution : number;
+  public billablePriceOnCompletedExecution? : number;
   
   public shortDescription : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public taskSpecificDocumentationUrl : string;
+  public taskSpecificDocumentationUrl? : string;
   
   public drugName : string;
   
@@ -146,7 +146,7 @@ export class DrugApplymentTaskDefinition {
   /**
    * *this field is optional (use null as value)
    */
-  public importantNotices : string;
+  public importantNotices? : string;
   
 }
 
@@ -170,22 +170,22 @@ export class ProcedureDefinition {
   /**
    * the TaskSchedule which is representing the primary-/entry-workflow (estimated tasks) when executing this visit *this field is optional
    */
-  public rootTaskScheduleId : string;
+  public rootTaskScheduleId? : string;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnAbortedExecution : number;
+  public billablePriceOnAbortedExecution? : number;
   
   /**
    * *this field is optional
    */
-  public billablePriceOnCompletedExecution : number;
+  public billablePriceOnCompletedExecution? : number;
   
   /**
    * *this field is optional (use null as value)
    */
-  public visitSpecificDocumentationUrl : string;
+  public visitSpecificDocumentationUrl? : string;
   
 }
 
@@ -257,7 +257,7 @@ export class InducedProcedure {
   /**
    * The name of a Sub-Study for which this procedure should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   /**
    * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
@@ -306,7 +306,7 @@ export class InducedSubProcedureSchedule {
   /**
    * The name of a Sub-Study for which this schedule should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   public increaseVisitNumberBase : number;
   
@@ -336,7 +336,7 @@ export class ProcedureCycleDefinition {
   /**
    * number of cycles (of null for a infinite number of cycles) *this field is optional
    */
-  public cycleLimit : number;
+  public cycleLimit? : number;
   
   public sharedSkipCounters : boolean;
   
@@ -374,21 +374,21 @@ export class TreatmentTaskDefinition {
   /**
    * *this field is optional
    */
-  public billablePriceOnCompletedExecution : number;
+  public billablePriceOnCompletedExecution? : number;
   
   public shortDescription : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public taskSpecificDocumentationUrl : string;
+  public taskSpecificDocumentationUrl? : string;
   
   public treatmentDescription : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public importantNotices : string;
+  public importantNotices? : string;
   
 }
 
@@ -460,7 +460,7 @@ export class InducedDataRecordingTask {
   /**
    * The name of a Sub-Study for which this Task should be induced or empty when its part of the current Arms regular workflow *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   /**
    * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
@@ -537,7 +537,7 @@ export class InducedDrugApplymentTask {
   /**
    * The name of a Sub-Study for which this Task should be induced or empty when its part of the current Arms regular workflow *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   /**
    * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
@@ -586,7 +586,7 @@ export class InducedSubTaskSchedule {
   /**
    * The name of a Sub-Study for which this schedule should be induced or empty when its part of the current Arms regular workflow  *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   public increaseVisitNumberBase : number;
   
@@ -662,7 +662,7 @@ export class InducedTreatmentTask {
   /**
    * The name of a Sub-Study for which this Task should be induced or empty when its part of the current Arms regular workflow *this field is optional (use null as value)
    */
-  public dedicatedToSubstudy : string;
+  public dedicatedToSubstudy? : string;
   
   /**
    * Number, which can be used via Placeholder {#} within the UniqueExecutionName and which will automatically increase when using cycles or sub-schedules
@@ -693,7 +693,7 @@ export class TaskCycleDefinition {
   /**
    * number of cycles (of null for a infinite number of cycles) *this field is optional
    */
-  public cycleLimit : number;
+  public cycleLimit? : number;
   
   public sharedSkipCounters : boolean;
   
@@ -731,7 +731,7 @@ export class StudyEvent {
   /**
    * *this field is optional
    */
-  public maxOccourrencesBeforeExclusion : number;
+  public maxOccourrencesBeforeExclusion? : number;
   
   public allowManualTrigger : boolean;
   
@@ -740,7 +740,7 @@ export class StudyEvent {
   /**
    * *this field is optional (use null as value)
    */
-  public evenSpecificDocumentationUrl : string;
+  public evenSpecificDocumentationUrl? : string;
   
 }
 
@@ -807,11 +807,11 @@ export class ProcedureSchedule {
   
   public abortCausingEvents : string;
   
-  public inducedProcedures : InducedProcedure[];
+  public inducedProcedures? : InducedProcedure[];
   
-  public inducedSubProcedureSchedules : InducedSubProcedureSchedule[];
+  public inducedSubProcedureSchedules? : InducedSubProcedureSchedule[];
   
-  public cycleDefinition : ProcedureCycleDefinition;
+  public cycleDefinition? : ProcedureCycleDefinition;
   
 }
 
@@ -852,15 +852,15 @@ export class TaskSchedule {
   
   public abortCausingEvents : string;
   
-  public inducedDataRecordingTasks : InducedDataRecordingTask[];
+  public inducedDataRecordingTasks? : InducedDataRecordingTask[];
   
-  public inducedDrugApplymentTasks : InducedDrugApplymentTask[];
+  public inducedDrugApplymentTasks? : InducedDrugApplymentTask[];
   
-  public inducedSubTaskSchedules : InducedSubTaskSchedule[];
+  public inducedSubTaskSchedules? : InducedSubTaskSchedule[];
   
-  public inducedTreatmentTasks : InducedTreatmentTask[];
+  public inducedTreatmentTasks? : InducedTreatmentTask[];
   
-  public cycleDefinition : TaskCycleDefinition;
+  public cycleDefinition? : TaskCycleDefinition;
   
 }
 
@@ -885,7 +885,7 @@ export class ResearchStudyDefinition {
   /**
    * Logo in base64 *this field is optional (use null as value)
    */
-  public logoImage : string;
+  public logoImage? : string;
   
   public description : string;
   
@@ -904,39 +904,39 @@ export class ResearchStudyDefinition {
   /**
    * *this field is optional (use null as value)
    */
-  public billingCurrency : string;
+  public billingCurrency? : string;
   
   /**
    * *this field is optional
    */
-  public billablePriceForGeneralPreparation : number;
+  public billablePriceForGeneralPreparation? : number;
   
   /**
    * *this field is optional (use null as value)
    */
-  public studyDocumentationUrl : string;
+  public studyDocumentationUrl? : string;
   
   /**
    * *this field is optional (use null as value)
    */
-  public caseReportFormUrl : string;
+  public caseReportFormUrl? : string;
   
-  public arms : Arm[];
+  public arms? : Arm[];
   
-  public dataRecordingTasks : DataRecordingTaskDefinition[];
+  public dataRecordingTasks? : DataRecordingTaskDefinition[];
   
-  public drugApplymentTasks : DrugApplymentTaskDefinition[];
+  public drugApplymentTasks? : DrugApplymentTaskDefinition[];
   
-  public procedureDefinitions : ProcedureDefinition[];
+  public procedureDefinitions? : ProcedureDefinition[];
   
-  public procedureSchedules : ProcedureSchedule[];
+  public procedureSchedules? : ProcedureSchedule[];
   
-  public treatmentTasks : TreatmentTaskDefinition[];
+  public treatmentTasks? : TreatmentTaskDefinition[];
   
-  public taskSchedules : TaskSchedule[];
+  public taskSchedules? : TaskSchedule[];
   
-  public events : StudyEvent[];
+  public events? : StudyEvent[];
   
-  public subStudies : SubStudy[];
+  public subStudies? : SubStudy[];
   
 }

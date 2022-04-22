@@ -1,0 +1,26 @@
+﻿{
+  "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.IdentityManagement.Contract.dll",
+  "interfaceTypeNamePattern": "MedicalResearch.IdentityManagement.I*Service",
+  "requireXmlDocForNamespaces": [
+    "MedicalResearch.IdentityManagement"
+  ],
+  "template": "Clients",
+  "outputLanguage": "TS",
+  "indentDepthPerLevel": 2,
+  "codeGenInfoHeader": "based on ORSCF IdentityManagement Contract v{InputAssemblyVersion}",
+  "outputNamespace": "",
+  "customImports": [
+  ],
+  "writeCustomImportsOnly": true,
+  "nsPrefixForModelTypesUsage": "Models.",
+  "generateFaultProperty": true,
+  "useInterfaceTypeNameToGenerateSubNamespace": false,
+  "removeLeadingCharCountForSubNamespace": 1,
+  "removeTrailingCharCountForSubNamespace": 7,
+  "connectorClassName": "ImsConnector",
+  "authHeaderName": "Authorization",
+  "throwClientExecptionsFromFaultProperty": true,
+  "ImportDtosFrom": "orscf-identitymanagement-contract/dtos",
+  "ImportModelsFrom": "orscf-identitymanagement-contract/models",
+  "ImportInterfacesFrom": "orscf-identitymanagement-contract/interfaces"
+}
