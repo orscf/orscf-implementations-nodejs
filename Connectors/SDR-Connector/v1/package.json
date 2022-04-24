@@ -15,5 +15,5 @@
   "homepage": "ORSCF.org",
   "dependencies": {
     "orscf-subjectdata-contract": "^1.8.9"
-  },
+  }
 }
