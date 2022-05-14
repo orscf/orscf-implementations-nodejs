@@ -302,6 +302,45 @@ export class DataRecordingFields extends DataRecordingMetaRecord {
   
 }
 
+export class VisitMutation extends BatchableVisitMutation {
+  
+  /**
+   * the estimated date when the visit is scheduled for execution *this field is optional
+   */
+  public scheduledDateUtc? : Date;
+  
+  /**
+   * the real date, when the visits was executed *this field is optional
+   */
+  public executionDateUtc? : Date;
+  
+  /**
+   * unique invariant name of the visit-procedure as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
+   */
+  public visitProcedureName? : string;
+  
+  /**
+   * unique title of the visit execution as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
+   */
+  public visitExecutionTitle? : string;
+  
+  /**
+   * 0=Unscheduled / 1=Sheduled / 2=Executed / 3=AbortDuringExecution / 4=Skipped / 5=Removed
+   */
+  public executionState? : number;
+  
+  /**
+   * *this field is optional (use null as value)
+   */
+  public executingPerson? : string;
+  
+  /**
+   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   */
+  public customFields? : Object;
+  
+}
+
 export class DataRecordingStructure extends DataRecordingFields {
   
   /**

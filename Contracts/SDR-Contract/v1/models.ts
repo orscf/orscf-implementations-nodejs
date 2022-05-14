@@ -268,3 +268,37 @@ export class BatchableSubjectMutation {
   public customFields? : Object;
   
 }
+
+export class SubjectMutation extends BatchableSubjectMutation {
+  
+  /**
+   * a note (manually written text) which provides some additional information about the reason why one transitioned to the current status
+   */
+  public statusNote? : string;
+  
+  public substudyNames? : string[];
+  
+  /**
+   * This can be the ID ('surrogate-key') of the Partient record within a site specific patient management system. This MUST NOT be any natural key or plain readable name which exposes the identity of the patient!
+   */
+  public actualSiteDefinedPatientIdentifier? : string;
+  
+  /**
+   * AS DECLARED BY [HL7.ResearchSubjectStatus](https://www.hl7.org/fhir/valueset-research-subject-status.html): candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
+   */
+  public status? : string;
+  
+  public assignedArm? : string;
+  
+  public actualArm? : string;
+  
+  public periodStart? : Date;
+  
+  public periodEnd? : Date;
+  
+  /**
+   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   */
+  public customFields? : Object;
+  
+}
