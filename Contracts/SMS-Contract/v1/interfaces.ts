@@ -9,35 +9,35 @@ export interface IInstituteMgmtService {
    *
    * @param instituteTitle
    */
-  GetInstituteUidByTitle(instituteTitle : string) : string;
+  GetInstituteUidByTitle(instituteTitle : string) : Promise<string>;
   
   /**
    * GetInstituteTitleByUid
    *
    * @param instituteUid
    */
-  GetInstituteTitleByUid(instituteUid : string) : string;
+  GetInstituteTitleByUid(instituteUid : string) : Promise<string>;
   
   /**
    * ArchiveInstitute
    *
    * @param instituteUid
    */
-  ArchiveInstitute(instituteUid : string) : string;
+  ArchiveInstitute(instituteUid : string) : Promise<string>;
   
   /**
    * GetInstituteInfos
    *
    * @param instituteUid
    */
-  GetInstituteInfos(instituteUid : string) : string;
+  GetInstituteInfos(instituteUid : string) : Promise<string>;
   
   /**
    * ensures, that an institute with the given Uid exists and returns true, if it has been newly created
    *
    * @param instituteUid
    */
-  CreateInstituteIfMissing(instituteUid : string) : boolean;
+  CreateInstituteIfMissing(instituteUid : string) : Promise<boolean>;
   
   /**
    * updated the title of the the institute or returns false, if there is no record for the given instituteUid
@@ -45,7 +45,7 @@ export interface IInstituteMgmtService {
    * @param instituteUid
    * @param newTitle
    */
-  UpdateInstitueTitle(instituteUid : string, newTitle : string) : boolean;
+  UpdateInstitueTitle(instituteUid : string, newTitle : string) : Promise<boolean>;
   
 }
 
@@ -58,24 +58,22 @@ export interface ISmsApiInfoService {
   /**
    * returns the version of the ORSCF specification which is implemented by this API, (this can be used for backward compatibility within inhomogeneous infrastructures)
    */
-  GetApiVersion() : string;
+  GetApiVersion() : Promise<string>;
   
   /**
    * returns a list of API-features (there are several 'services' for different use cases, described by ORSCF) supported by this implementation. The following values are possible: 'InstituteMgmt', 'StudySetup', 'StudyAccess', 'SiteParticipation'
    */
-  GetCapabilities() : string[];
+  GetCapabilities() : Promise<string[]>;
   
   /**
    * returns a list of available capabilities ("API:StudyAccess") and/or data-scopes ("Study:9B2C3F48-2941-2F8F-4D35-7D117D5C6F72") which are permitted for the CURRENT ACCESSOR and gives information about its 'authState', which can be: 0=auth needed / 1=authenticated / -1=auth expired / -2=auth invalid/disabled
-   *
-   * @param authState
    */
-  GetPermittedAuthScopes(authState : (out: number) => void) : string[];
+  GetPermittedAuthScopes() : Promise<{authState: number, return: string[]}>;
   
   /**
    * OPTIONAL: If the authentication on the current service is mapped using tokens and should provide information about the source at this point, the login URL to be called up via browser (OAuth ['CIBA-Flow'](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)) is returned here.
    */
-  GetOAuthTokenRequestUrl() : string;
+  GetOAuthTokenRequestUrl() : Promise<string>;
   
 }
 
@@ -86,14 +84,14 @@ export interface IStudyAccessService {
    *
    * @param eventQueueId
    */
-  SubscribeStudyStateChangedEvents(eventQueueId : string) : boolean;
+  SubscribeStudyStateChangedEvents(eventQueueId : string) : Promise<boolean>;
   
   /**
    * Unsubscribes the Event when the State of a Study was changed for the given "EventQueue"
    *
    * @param eventQueueId
    */
-  UnsubscribeStudyStateChangedEvents(eventQueueId : string) : boolean;
+  UnsubscribeStudyStateChangedEvents(eventQueueId : string) : Promise<boolean>;
   
 }
 
@@ -104,6 +102,6 @@ export interface IStudySetupService {
    *
    * @param studyIdentifier
    */
-  GetStudyTitleByIdentifier(studyIdentifier : string) : string;
+  GetStudyTitleByIdentifier(studyIdentifier : string) : Promise<string>;
   
 }

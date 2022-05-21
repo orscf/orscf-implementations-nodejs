@@ -18,5 +18,7 @@
     "MedicalResearch.IdentityManagement.*"
   ],
   "generateDataAnnotationsForLocalModels": false,
-  "generateNavigationAnnotationsForLocalModels": false
+  "generateNavigationAnnotationsForLocalModels": false,
+  "transformRefAndOutArgsToReturnPropertyBag": true,
+  "generateAsyncMethods": true
 }

@@ -17,10 +17,14 @@
   "useInterfaceTypeNameToGenerateSubNamespace": false,
   "removeLeadingCharCountForSubNamespace": 1,
   "removeTrailingCharCountForSubNamespace": 7,
+  "removeLeadingCharCountForOwnerName": 1,
+  "removeTrailingCharCountForOwnerName": 7,
   "connectorClassName": "BdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
   "ImportDtosFrom": "orscf-billingdata-contract/dtos",
   "ImportModelsFrom": "orscf-billingdata-contract/models",
-  "ImportInterfacesFrom": "orscf-billingdata-contract/interfaces"
+  "ImportInterfacesFrom": "orscf-billingdata-contract/interfaces",
+  "transformRefAndOutArgsToReturnPropertyBag": true,
+  "generateAsyncMethods": true
 }

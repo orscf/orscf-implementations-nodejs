@@ -17,10 +17,14 @@
   "useInterfaceTypeNameToGenerateSubNamespace": false,
   "removeLeadingCharCountForSubNamespace": 1,
   "removeTrailingCharCountForSubNamespace": 7,
+  "removeLeadingCharCountForOwnerName": 1,
+  "removeTrailingCharCountForOwnerName": 7,
   "connectorClassName": "WdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
   "ImportDtosFrom": "orscf-studyworkflowdefinition-contract/dtos",
   "ImportModelsFrom": "orscf-studyworkflowdefinition-contract/models",
-  "ImportInterfacesFrom": "orscf-studyworkflowdefinition-contract/interfaces"
+  "ImportInterfacesFrom": "orscf-studyworkflowdefinition-contract/interfaces",
+  "transformRefAndOutArgsToReturnPropertyBag": true,
+  "generateAsyncMethods": true
 }

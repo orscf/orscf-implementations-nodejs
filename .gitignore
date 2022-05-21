@@ -248,3 +248,4 @@ ModelManifest.xml
 /(Stage)/
 *.js
 *.tgz
+/(tools)/DEBUG.*

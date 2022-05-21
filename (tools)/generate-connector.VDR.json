@@ -17,10 +17,14 @@
   "useInterfaceTypeNameToGenerateSubNamespace": false,
   "removeLeadingCharCountForSubNamespace": 1,
   "removeTrailingCharCountForSubNamespace": 7,
+  "removeLeadingCharCountForOwnerName": 1,
+  "removeTrailingCharCountForOwnerName": 7,
   "connectorClassName": "VdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
   "ImportDtosFrom": "orscf-visitdata-contract/dtos",
   "ImportModelsFrom": "orscf-visitdata-contract/models",
-  "ImportInterfacesFrom": "orscf-visitdata-contract/interfaces"
+  "ImportInterfacesFrom": "orscf-visitdata-contract/interfaces",
+  "transformRefAndOutArgsToReturnPropertyBag": true,
+  "generateAsyncMethods": true
 }

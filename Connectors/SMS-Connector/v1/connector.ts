@@ -1,22 +1,20 @@
 /* based on ORSCF StudyManagement Contract v1.8.0.0 */
 
-import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { axios, AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-studymanagement-contract/dtos';
 import * as Models from 'orscf-studymanagement-contract/models';
 import * as Interfaces from 'orscf-studymanagement-contract/interfaces';
 
-
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
  */
-export class InstituteMgmtServiceClient {
+export class InstituteMgmtClient {
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){}
   
   private getEndpointUrl(): string {
@@ -29,17 +27,17 @@ export class InstituteMgmtServiceClient {
     }
   }
   
-  
   /**
    * GetInstituteUidByTitle
    */
-  public getInstituteUidByTitle(): Observable<string> {
+  public getInstituteUidByTitle(instituteTitle: string): Promise<string> {
     
     let requestWrapper : DTOs.GetInstituteUidByTitleRequest = {
+      instituteTitle: instituteTitle
     };
     
     let url = this.getEndpointUrl() + 'getInstituteUidByTitle';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetInstituteUidByTitleResponse);
         if(responseWrapper.fault){
@@ -48,19 +46,20 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * GetInstituteTitleByUid
    */
-  public getInstituteTitleByUid(): Observable<string> {
+  public getInstituteTitleByUid(instituteUid: string): Promise<string> {
     
     let requestWrapper : DTOs.GetInstituteTitleByUidRequest = {
+      instituteUid: instituteUid
     };
     
     let url = this.getEndpointUrl() + 'getInstituteTitleByUid';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetInstituteTitleByUidResponse);
         if(responseWrapper.fault){
@@ -69,19 +68,20 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * ArchiveInstitute
    */
-  public archiveInstitute(): Observable<string> {
+  public archiveInstitute(instituteUid: string): Promise<string> {
     
     let requestWrapper : DTOs.ArchiveInstituteRequest = {
+      instituteUid: instituteUid
     };
     
     let url = this.getEndpointUrl() + 'archiveInstitute';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.ArchiveInstituteResponse);
         if(responseWrapper.fault){
@@ -90,19 +90,20 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * GetInstituteInfos
    */
-  public getInstituteInfos(): Observable<string> {
+  public getInstituteInfos(instituteUid: string): Promise<string> {
     
     let requestWrapper : DTOs.GetInstituteInfosRequest = {
+      instituteUid: instituteUid
     };
     
     let url = this.getEndpointUrl() + 'getInstituteInfos';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetInstituteInfosResponse);
         if(responseWrapper.fault){
@@ -111,19 +112,20 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * ensures, that an institute with the given Uid exists and returns true, if it has been newly created
    */
-  public createInstituteIfMissing(): Observable<boolean> {
+  public createInstituteIfMissing(instituteUid: string): Promise<boolean> {
     
     let requestWrapper : DTOs.CreateInstituteIfMissingRequest = {
+      instituteUid: instituteUid
     };
     
     let url = this.getEndpointUrl() + 'createInstituteIfMissing';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.CreateInstituteIfMissingResponse);
         if(responseWrapper.fault){
@@ -132,19 +134,21 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * updated the title of the the institute or returns false, if there is no record for the given instituteUid
    */
-  public updateInstitueTitle(): Observable<boolean> {
+  public updateInstitueTitle(instituteUid: string, newTitle: string): Promise<boolean> {
     
     let requestWrapper : DTOs.UpdateInstitueTitleRequest = {
+      instituteUid: instituteUid,
+      newTitle: newTitle
     };
     
     let url = this.getEndpointUrl() + 'updateInstitueTitle';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.UpdateInstitueTitleResponse);
         if(responseWrapper.fault){
@@ -153,7 +157,7 @@ export class InstituteMgmtServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
 }
@@ -161,12 +165,12 @@ export class InstituteMgmtServiceClient {
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
  */
-export class SiteParticipationServiceClient {
+export class SiteParticipationClient {
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){}
   
   private getEndpointUrl(): string {
@@ -179,18 +183,17 @@ export class SiteParticipationServiceClient {
     }
   }
   
-  
 }
 
 /**
  * Provides interoperability information for the current implementation
  */
-export class SmsApiInfoServiceClient {
+export class SmsApiInfoClient {
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){}
   
   private getEndpointUrl(): string {
@@ -203,17 +206,16 @@ export class SmsApiInfoServiceClient {
     }
   }
   
-  
   /**
    * returns the version of the ORSCF specification which is implemented by this API, (this can be used for backward compatibility within inhomogeneous infrastructures)
    */
-  public getApiVersion(): Observable<string> {
+  public getApiVersion(): Promise<string> {
     
     let requestWrapper : DTOs.GetApiVersionRequest = {
     };
     
     let url = this.getEndpointUrl() + 'getApiVersion';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetApiVersionResponse);
         if(responseWrapper.fault){
@@ -222,19 +224,19 @@ export class SmsApiInfoServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * returns a list of API-features (there are several 'services' for different use cases, described by ORSCF) supported by this implementation. The following values are possible: 'InstituteMgmt', 'StudySetup', 'StudyAccess', 'SiteParticipation'
    */
-  public getCapabilities(): Observable<string[]> {
+  public getCapabilities(): Promise<string[]> {
     
     let requestWrapper : DTOs.GetCapabilitiesRequest = {
     };
     
     let url = this.getEndpointUrl() + 'getCapabilities';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetCapabilitiesResponse);
         if(responseWrapper.fault){
@@ -243,19 +245,19 @@ export class SmsApiInfoServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * returns a list of available capabilities ("API:StudyAccess") and/or data-scopes ("Study:9B2C3F48-2941-2F8F-4D35-7D117D5C6F72") which are permitted for the CURRENT ACCESSOR and gives information about its 'authState', which can be: 0=auth needed / 1=authenticated / -1=auth expired / -2=auth invalid/disabled
    */
-  public getPermittedAuthScopes(): Observable<{authState: number, return: string[]}> {
+  public getPermittedAuthScopes(): Promise<{authState: number, return: string[]}> {
     
     let requestWrapper : DTOs.GetPermittedAuthScopesRequest = {
     };
     
     let url = this.getEndpointUrl() + 'getPermittedAuthScopes';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetPermittedAuthScopesResponse);
         if(responseWrapper.fault){
@@ -264,19 +266,19 @@ export class SmsApiInfoServiceClient {
         }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
-    ));
+    );
   }
   
   /**
    * OPTIONAL: If the authentication on the current service is mapped using tokens and should provide information about the source at this point, the login URL to be called up via browser (OAuth ['CIBA-Flow'](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)) is returned here.
    */
-  public getOAuthTokenRequestUrl(): Observable<string> {
+  public getOAuthTokenRequestUrl(): Promise<string> {
     
     let requestWrapper : DTOs.GetOAuthTokenRequestUrlRequest = {
     };
     
     let url = this.getEndpointUrl() + 'getOAuthTokenRequestUrl';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetOAuthTokenRequestUrlResponse);
         if(responseWrapper.fault){
@@ -285,7 +287,7 @@ export class SmsApiInfoServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
 }
@@ -293,12 +295,12 @@ export class SmsApiInfoServiceClient {
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
  */
-export class StudyAccessServiceClient {
+export class StudyAccessClient {
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){}
   
   private getEndpointUrl(): string {
@@ -311,17 +313,17 @@ export class StudyAccessServiceClient {
     }
   }
   
-  
   /**
    * Subscribes the Event when the State of a Study was changed to the given "EventQueue" which is accessable via "EventQueueService" (including http notifications)
    */
-  public subscribeStudyStateChangedEvents(): Observable<boolean> {
+  public subscribeStudyStateChangedEvents(eventQueueId: string): Promise<boolean> {
     
     let requestWrapper : DTOs.SubscribeStudyStateChangedEventsRequest = {
+      eventQueueId: eventQueueId
     };
     
     let url = this.getEndpointUrl() + 'subscribeStudyStateChangedEvents';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.SubscribeStudyStateChangedEventsResponse);
         if(responseWrapper.fault){
@@ -330,19 +332,20 @@ export class StudyAccessServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
   /**
    * Unsubscribes the Event when the State of a Study was changed for the given "EventQueue"
    */
-  public unsubscribeStudyStateChangedEvents(): Observable<boolean> {
+  public unsubscribeStudyStateChangedEvents(eventQueueId: string): Promise<boolean> {
     
     let requestWrapper : DTOs.UnsubscribeStudyStateChangedEventsRequest = {
+      eventQueueId: eventQueueId
     };
     
     let url = this.getEndpointUrl() + 'unsubscribeStudyStateChangedEvents';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.UnsubscribeStudyStateChangedEventsResponse);
         if(responseWrapper.fault){
@@ -351,7 +354,7 @@ export class StudyAccessServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
 }
@@ -359,12 +362,12 @@ export class StudyAccessServiceClient {
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
  */
-export class StudySetupServiceClient {
+export class StudySetupClient {
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){}
   
   private getEndpointUrl(): string {
@@ -377,17 +380,17 @@ export class StudySetupServiceClient {
     }
   }
   
-  
   /**
    * returns null, if there is no matching record
    */
-  public getStudyTitleByIdentifier(): Observable<string> {
+  public getStudyTitleByIdentifier(studyIdentifier: string): Promise<string> {
     
     let requestWrapper : DTOs.GetStudyTitleByIdentifierRequest = {
+      studyIdentifier: studyIdentifier
     };
     
     let url = this.getEndpointUrl() + 'getStudyTitleByIdentifier';
-    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).pipe(map(
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
       (r) => {
         let responseWrapper = (r as DTOs.GetStudyTitleByIdentifierResponse);
         if(responseWrapper.fault){
@@ -396,34 +399,47 @@ export class StudySetupServiceClient {
         }
         return responseWrapper.return;
       }
-    ));
+    );
   }
   
 }
 
 export class SmsConnector {
   
-  private instituteMgmtServiceClient: InstituteMgmtServiceClient;
+  private instituteMgmtClient: InstituteMgmtClient;
   
-  private siteParticipationServiceClient: SiteParticipationServiceClient;
+  private siteParticipationClient: SiteParticipationClient;
   
-  private smsApiInfoServiceClient: SmsApiInfoServiceClient;
+  private smsApiInfoClient: SmsApiInfoClient;
   
-  private studyAccessServiceClient: StudyAccessServiceClient;
+  private studyAccessClient: StudyAccessClient;
   
-  private studySetupServiceClient: StudySetupServiceClient;
+  private studySetupClient: StudySetupClient;
+  
+  private axiosHttpApi: AxiosInstance;
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){
   
-    this.instituteMgmtServiceClient = new InstituteMgmtServiceClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
-    this.siteParticipationServiceClient = new SiteParticipationServiceClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
-    this.smsApiInfoServiceClient = new SmsApiInfoServiceClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
-    this.studyAccessServiceClient = new StudyAccessServiceClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
-    this.studySetupServiceClient = new StudySetupServiceClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    if (this.httpPostMethod == null) {
+      this.axiosHttpApi = axios.create({ baseURL: this.rootUrlResolver() });
+      this.httpPostMethod = (url, requestObject, apiToken) => {
+        return this.axiosHttpApi.post(url, requestObject, {
+          headers: {
+            Authorization: apiToken
+          }
+        });
+      };
+    }
+    
+    this.instituteMgmtClient = new InstituteMgmtClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    this.siteParticipationClient = new SiteParticipationClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    this.smsApiInfoClient = new SmsApiInfoClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    this.studyAccessClient = new StudyAccessClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    this.studySetupClient = new StudySetupClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
     
   }
   
@@ -440,26 +456,26 @@ export class SmsConnector {
   /**
    * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
    */
-  get instituteMgmtService(): InstituteMgmtServiceClient { return this.instituteMgmtServiceClient }
+  get instituteMgmt(): InstituteMgmtClient { return this.instituteMgmtClient }
   
   /**
    * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
    */
-  get siteParticipationService(): SiteParticipationServiceClient { return this.siteParticipationServiceClient }
+  get siteParticipation(): SiteParticipationClient { return this.siteParticipationClient }
   
   /**
    * Provides interoperability information for the current implementation
    */
-  get smsApiInfoService(): SmsApiInfoServiceClient { return this.smsApiInfoServiceClient }
+  get smsApiInfo(): SmsApiInfoClient { return this.smsApiInfoClient }
   
   /**
    * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
    */
-  get studyAccessService(): StudyAccessServiceClient { return this.studyAccessServiceClient }
+  get studyAccess(): StudyAccessClient { return this.studyAccessClient }
   
   /**
    * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
    */
-  get studySetupService(): StudySetupServiceClient { return this.studySetupServiceClient }
+  get studySetup(): StudySetupClient { return this.studySetupClient }
   
 }

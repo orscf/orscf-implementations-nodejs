@@ -17,10 +17,14 @@
   "useInterfaceTypeNameToGenerateSubNamespace": false,
   "removeLeadingCharCountForSubNamespace": 1,
   "removeTrailingCharCountForSubNamespace": 7,
+  "removeLeadingCharCountForOwnerName": 1,
+  "removeTrailingCharCountForOwnerName": 7,
   "connectorClassName": "SdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
   "ImportDtosFrom": "orscf-subjectdata-contract/dtos",
   "ImportModelsFrom": "orscf-subjectdata-contract/models",
-  "ImportInterfacesFrom": "orscf-subjectdata-contract/interfaces"
+  "ImportInterfacesFrom": "orscf-subjectdata-contract/interfaces",
+  "transformRefAndOutArgsToReturnPropertyBag": true,
+  "generateAsyncMethods": true
 }

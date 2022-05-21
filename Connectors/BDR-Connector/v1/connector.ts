@@ -1,21 +1,32 @@
 /* based on ORSCF BillingData Contract v1.8.0.0 */
 
-import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { axios, AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-billingdata-contract/dtos';
 import * as Models from 'orscf-billingdata-contract/models';
 import * as Interfaces from 'orscf-billingdata-contract/interfaces';
 
-
 export class BdrConnector {
+  
+  private axiosHttpApi: AxiosInstance;
   
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Observable<any>
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){
   
+    if (this.httpPostMethod == null) {
+      this.axiosHttpApi = axios.create({ baseURL: this.rootUrlResolver() });
+      this.httpPostMethod = (url, requestObject, apiToken) => {
+        return this.axiosHttpApi.post(url, requestObject, {
+          headers: {
+            Authorization: apiToken
+          }
+        });
+      };
+    }
+    
     
   }
   
