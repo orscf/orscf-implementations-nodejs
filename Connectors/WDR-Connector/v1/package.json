@@ -1,6 +1,6 @@
 {
   "name": "orscf-studyworkflowdefinition-connector",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "description": "ORSCF - StudyWorkflowDefinition - Connector",
   "main": "index.js",
   "scripts": {

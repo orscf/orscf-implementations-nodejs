@@ -1,6 +1,6 @@
 /* based on ORSCF VisitData Contract v1.7.0.0 */
 
-import { axios, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-visitdata-contract/dtos';
 import * as Models from 'orscf-visitdata-contract/models';

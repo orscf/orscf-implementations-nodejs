@@ -1,6 +1,6 @@
 /* based on ORSCF StudyManagement Contract v1.8.0.0 */
 
-import { axios, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-studymanagement-contract/dtos';
 import * as Models from 'orscf-studymanagement-contract/models';

@@ -1,6 +1,6 @@
 /* based on ORSCF SubjectData Contract v1.8.0.0 */
 
-import { axios, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-subjectdata-contract/dtos';
 import * as Models from 'orscf-subjectdata-contract/models';

@@ -1,6 +1,6 @@
 /* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
 
-import { axios, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import * as DTOs from 'orscf-studyworkflowdefinition-contract/dtos';
 import * as Models from 'orscf-studyworkflowdefinition-contract/models';

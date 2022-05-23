@@ -1,6 +1,6 @@
 {
   "name": "orscf-subjectdata-connector",
-  "version": "0.1.0",
+  "version": "1.8.0",
   "description": "ORSCF - SubjectData - Connector",
   "main": "index.js",
   "scripts": {
