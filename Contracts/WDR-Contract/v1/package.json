@@ -2,9 +2,18 @@
   "name": "orscf-studyworkflowdefinition-contract",
   "version": "1.0.0",
   "description": "ORSCF - StudyWorkflowDefinition - Contract",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -12,5 +21,14 @@
   },
   "author": "ORSCF.org",
   "license": "Apache-2.0",
-  "homepage": "ORSCF.org"
+  "homepage": "ORSCF.org",
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.7.2"
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }

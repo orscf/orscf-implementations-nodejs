@@ -249,3 +249,15 @@ ModelManifest.xml
 *.js
 *.tgz
 /(tools)/DEBUG.*
+/Contracts/BDR-Contract/v1/lib
+/Contracts/IMS-Contract/v1/lib
+/Contracts/SDR-Contract/v1/lib
+/Contracts/SMS-Contract/v1/lib
+/Contracts/VDR-Contract/v1/lib
+/Contracts/WDR-Contract/v1/lib
+/Connectors/BDR-Connector/v1/lib
+/Connectors/IMS-Connector/v1/lib
+/Connectors/SDR-Connector/v1/lib
+/Connectors/SMS-Connector/v1/lib
+/Connectors/VDR-Connector/v1/lib
+/Connectors/WDR-Connector/v1/lib
