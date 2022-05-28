@@ -2,9 +2,6 @@
   "name": "orscf-subjectdata-contract",
   "version": "1.8.9",
   "description": "ORSCF - SubjectData - Contract",
-  "author": "ORSCF.org",
-  "license": "Apache-2.0",
-  "homepage": "ORSCF.org",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -13,7 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint",
+    "prepublishOnly_": "npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
