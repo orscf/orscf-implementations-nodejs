@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-identitymanagement-contract/dtos';
-import * as Models from 'orscf-identitymanagement-contract/models';
-import * as Interfaces from 'orscf-identitymanagement-contract/interfaces';
+import * as DTOs from 'orscf-identitymanagement-contract';
+import * as Models from 'orscf-identitymanagement-contract';
+import * as Interfaces from 'orscf-identitymanagement-contract';
 
 /**
  * Provides an workflow-level API for interating with a 'IdentityManagementSystem' (IMS)

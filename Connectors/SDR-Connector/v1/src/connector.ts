@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-subjectdata-contract/dtos';
-import * as Models from 'orscf-subjectdata-contract/models';
-import * as Interfaces from 'orscf-subjectdata-contract/interfaces';
+import * as DTOs from 'orscf-subjectdata-contract';
+import * as Models from 'orscf-subjectdata-contract';
+import * as Interfaces from 'orscf-subjectdata-contract';
 
 /**
  * Provides interoperability information for the current implementation

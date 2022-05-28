@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-billingdata-contract/dtos';
-import * as Models from 'orscf-billingdata-contract/models';
-import * as Interfaces from 'orscf-billingdata-contract/interfaces';
+import * as DTOs from 'orscf-billingdata-contract';
+import * as Models from 'orscf-billingdata-contract';
+import * as Interfaces from 'orscf-billingdata-contract';
 
 export class BdrConnector {
   

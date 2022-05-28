@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "homepage": "ORSCF.org",
   "dependencies": {
-    "orscf-studyworkflowdefinition-contract": "^1.8.11789",
+    "orscf-studyworkflowdefinition-contract": "^1.8.11809",
     "axios": "^0.27.2"
   },
   "devDependencies": {

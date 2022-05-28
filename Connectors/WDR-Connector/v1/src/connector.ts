@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-studyworkflowdefinition-contract/dtos';
-import * as Models from 'orscf-studyworkflowdefinition-contract/models';
-import * as Interfaces from 'orscf-studyworkflowdefinition-contract/interfaces';
+import * as DTOs from 'orscf-studyworkflowdefinition-contract';
+import * as Models from 'orscf-studyworkflowdefinition-contract';
+import * as Interfaces from 'orscf-studyworkflowdefinition-contract';
 
 /**
  * Provides CRUD access to stored ResearchStudyDefinitions (based on schema version '1.5.0')

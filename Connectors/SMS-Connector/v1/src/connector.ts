@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-studymanagement-contract/dtos';
-import * as Models from 'orscf-studymanagement-contract/models';
-import * as Interfaces from 'orscf-studymanagement-contract/interfaces';
+import * as DTOs from 'orscf-studymanagement-contract';
+import * as Models from 'orscf-studymanagement-contract';
+import * as Interfaces from 'orscf-studymanagement-contract';
 
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
