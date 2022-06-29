@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-studymanagement-contract';
-import * as Models from 'orscf-studymanagement-contract';
-import * as Interfaces from 'orscf-studymanagement-contract';
+import * as DTOs from 'orscf-studymanagement-contract/dtos';
+import * as Models from 'orscf-studymanagement-contract/models';
+import * as Interfaces from 'orscf-studymanagement-contract/interfaces';
 
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
@@ -421,10 +421,10 @@ export class SmsConnector {
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
+    private httpPostMethod?: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){
   
-    if (this.httpPostMethod == null) {
+    if (!this.httpPostMethod) {
       this.axiosHttpApi = axios.create({ baseURL: this.rootUrlResolver() });
       this.httpPostMethod = (url, requestObject, apiToken) => {
         if(!this.axiosHttpApi) {

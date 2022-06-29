@@ -1,6 +1,42 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.9.0.0 */
 
 import * as Models from './models';
+
+export interface IFhirQuestionaireConsumeService {
+  
+  /**
+   * Lists all FHIR Questionaires
+   */
+  SearchFhirQuestionaires() : Promise<{result: Models.QuestionaireMetaRecord[]}>;
+  
+  /**
+   * Exports a FHIR Questionaire by its given 'questionaireIdentifyingUrl' and 'questionaireVersion'
+   *
+   * @param questionaireIdentifyingUrl
+   * @param questionaireVersion
+   */
+  ExportFhirQuestionaire(questionaireIdentifyingUrl : string, questionaireVersion : string) : Promise<{wasFound: boolean, fhirContent: string}>;
+  
+}
+
+export interface IFhirQuestionaireSubmissionService {
+  
+  /**
+   * Imports a FHIR Questionaire into the Repository The 'questionaireIdentifyingUrl' and 'questionaireVersion' will be taken from the 'fhirContent'
+   *
+   * @param fhirContent
+   */
+  ImportFhirQuestionaire(fhirContent : string) : Promise<{wasNew: boolean}>;
+  
+  /**
+   * Deletes a FHIR Questionaire by its given 'questionaireIdentifyingUrl' and 'questionaireVersion'
+   *
+   * @param questionaireIdentifyingUrl
+   * @param questionaireVersion
+   */
+  DeleteFhirQuestionaire(questionaireIdentifyingUrl : string, questionaireVersion : string) : Promise<{wasDeleted: boolean}>;
+  
+}
 
 export interface IWdrApiInfoService {
   
@@ -10,7 +46,7 @@ export interface IWdrApiInfoService {
   GetApiVersion() : Promise<string>;
   
   /**
-   * returns a list of API-features (there are several 'services' for different use cases, described by ORSCF) supported by this implementation. The following values are possible: 'WorkflowConsume', 'WorkflowDefinition',
+   * returns a list of API-features (there are several 'services' for different use cases, described by ORSCF) supported by this implementation. The following values are possible: 'WorkflowConsume', 'WorkflowSubmission', 'FhirQuestionaireConsume', 'FhirQuestionaireSubmission'
    */
   GetCapabilities() : Promise<string[]>;
   
@@ -29,15 +65,35 @@ export interface IWdrApiInfoService {
 export interface IWorkflowConsumeService {
   
   /**
-   * GetWorkflowDefintion
+   * Lists all ORSCF 'ResearchStudyDefinitions'
+   */
+  SearchWorkflowDefinitions() : Promise<{result: Models.ResearchStudyDefinitionMetaRecord[]}>;
+  
+  /**
+   * Exports a ORSCF 'ResearchStudyDefinition' by its given 'workflowDefinitionName' and 'workflowVersion'
    *
    * @param workflowDefinitionName
    * @param workflowVersion
    */
-  GetWorkflowDefintion(workflowDefinitionName : string, workflowVersion : string) : Promise<Models.ResearchStudyDefinition>;
+  ExportWorkflowDefinition(workflowDefinitionName : string, workflowVersion : string) : Promise<{wasFound: boolean, result: Models.ResearchStudyDefinition}>;
   
 }
 
-export interface IWorkflowDefinitionService {
+export interface IWorkflowSubmissionService {
+  
+  /**
+   * Imports a ORSCF 'ResearchStudyDefinition' into the Repository The 'workflowDefinitionName' and 'workflowVersion' will be taken from the definition itself
+   *
+   * @param workflowDefinition
+   */
+  ImportWorkflowDefinition(workflowDefinition : Models.ResearchStudyDefinition) : Promise<{wasNew: boolean}>;
+  
+  /**
+   * Deletes a ORSCF 'ResearchStudyDefinition' by its given 'workflowDefinitionName' and 'workflowVersion'
+   *
+   * @param workflowDefinitionName
+   * @param workflowVersion
+   */
+  DeleteWorkflowDefinition(workflowDefinitionName : string, workflowVersion : string) : Promise<{wasDeleted: boolean}>;
   
 }

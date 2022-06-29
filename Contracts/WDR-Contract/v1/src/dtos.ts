@@ -1,193 +1,344 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.9.0.0 */
 
 import * as Models from './models';
 
 /**
- * Contains arguments for calling 'GetResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Loads a specific ResearchStudyDefinition addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
+ * Contains arguments for calling 'SearchFhirQuestionaires'.
+ * Method: Lists all FHIR Questionaires
  */
-export class GetResearchStudyDefinitionByResearchStudyDefinitionIdentityRequest {
-  
-  // Required Argument for 'GetResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Models.ResearchStudyDefinitionIdentity): Composite Key, which represents the primary identity of a ResearchStudyDefinition
-  public researchStudyDefinitionIdentity: Models.ResearchStudyDefinitionIdentity = new Models.ResearchStudyDefinitionIdentity();
+export class SearchFhirQuestionairesRequest {
   
 }
 
 /**
- * Contains results from calling 'GetResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Loads a specific ResearchStudyDefinition addressed by the given primary identifier. Returns null on failure, or if no record exists with the given identity.
+ * Contains results from calling 'SearchFhirQuestionaires'.
+ * Method: Lists all FHIR Questionaires
  */
-export class GetResearchStudyDefinitionByResearchStudyDefinitionIdentityResponse {
+export class SearchFhirQuestionairesResponse {
+  
+  // Out-Argument of 'SearchFhirQuestionaires' (Models.QuestionaireMetaRecord[])
+  public result: Models.QuestionaireMetaRecord[] = [];
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'GetResearchStudyDefinitionByResearchStudyDefinitionIdentity' (ResearchStudyDefinition)
-  public return: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
+}
+
+/**
+ * Contains arguments for calling 'ExportFhirQuestionaire'.
+ * Method: Exports a FHIR Questionaire by its given
+ * 'questionaireIdentifyingUrl' and 'questionaireVersion'
+ */
+export class ExportFhirQuestionaireRequest {
+  
+  // Required Argument for 'ExportFhirQuestionaire' (string)
+  public questionaireIdentifyingUrl: string = '';
+  
+  // Required Argument for 'ExportFhirQuestionaire' (string)
+  public questionaireVersion: string = '';
   
 }
 
 /**
- * Contains arguments for calling 'GetResearchStudyDefinitions'.
- * Method: Loads ResearchStudyDefinitions.
+ * Contains results from calling 'ExportFhirQuestionaire'.
+ * Method: Exports a FHIR Questionaire by its given
+ * 'questionaireIdentifyingUrl' and 'questionaireVersion'
  */
-export class GetResearchStudyDefinitionsRequest {
+export class ExportFhirQuestionaireResponse {
   
-  // Optional Argument for 'GetResearchStudyDefinitions' (number): Number of the page, which should be returned
-  public page?: number;
+  // Out-Argument of 'ExportFhirQuestionaire' (boolean)
+  public wasFound: boolean = false;
   
-  // Optional Argument for 'GetResearchStudyDefinitions' (number): Max count of ResearchStudyDefinitions which should be returned
-  public pageSize?: number;
-  
-}
-
-/**
- * Contains results from calling 'GetResearchStudyDefinitions'.
- * Method: Loads ResearchStudyDefinitions.
- */
-export class GetResearchStudyDefinitionsResponse {
+  // Out-Argument of 'ExportFhirQuestionaire' (string)
+  public fhirContent: string = '';
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'GetResearchStudyDefinitions' (ResearchStudyDefinition[])
-  public return: Models.ResearchStudyDefinition[] = [];
+}
+
+/**
+ * Contains arguments for calling 'ImportFhirQuestionaire'.
+ * Method: Imports a FHIR Questionaire into the Repository
+ * The 'questionaireIdentifyingUrl' and 'questionaireVersion'
+ * will be taken from the 'fhirContent'
+ */
+export class ImportFhirQuestionaireRequest {
+  
+  // Required Argument for 'ImportFhirQuestionaire' (string)
+  public fhirContent: string = '';
   
 }
 
 /**
- * Contains arguments for calling 'SearchResearchStudyDefinitions'.
- * Method: Loads ResearchStudyDefinitions where values matching to the given filterExpression
+ * Contains results from calling 'ImportFhirQuestionaire'.
+ * Method: Imports a FHIR Questionaire into the Repository
+ * The 'questionaireIdentifyingUrl' and 'questionaireVersion'
+ * will be taken from the 'fhirContent'
  */
-export class SearchResearchStudyDefinitionsRequest {
+export class ImportFhirQuestionaireResponse {
   
-  // Required Argument for 'SearchResearchStudyDefinitions' (string): a filter expression like '((FieldName1 == "ABC" &amp;&amp; FieldName2 &gt; 12) || FieldName2 != "")'
-  public filterExpression: string = '';
-  
-  // Optional Argument for 'SearchResearchStudyDefinitions' (string): one or more property names which are used as sort order (before pagination)
-  public sortingExpression?: string;
-  
-  // Optional Argument for 'SearchResearchStudyDefinitions' (number): Number of the page, which should be returned
-  public page?: number;
-  
-  // Optional Argument for 'SearchResearchStudyDefinitions' (number): Max count of ResearchStudyDefinitions which should be returned
-  public pageSize?: number;
-  
-}
-
-/**
- * Contains results from calling 'SearchResearchStudyDefinitions'.
- * Method: Loads ResearchStudyDefinitions where values matching to the given filterExpression
- */
-export class SearchResearchStudyDefinitionsResponse {
+  // Out-Argument of 'ImportFhirQuestionaire' (boolean): returns true, if this questionare was not already exisiting before the import
+  public wasNew: boolean = false;
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'SearchResearchStudyDefinitions' (ResearchStudyDefinition[])
-  public return: Models.ResearchStudyDefinition[] = [];
+}
+
+/**
+ * Contains arguments for calling 'DeleteFhirQuestionaire'.
+ * Method: Deletes a FHIR Questionaire by its given
+ * 'questionaireIdentifyingUrl' and 'questionaireVersion'
+ */
+export class DeleteFhirQuestionaireRequest {
+  
+  // Required Argument for 'DeleteFhirQuestionaire' (string)
+  public questionaireIdentifyingUrl: string = '';
+  
+  // Required Argument for 'DeleteFhirQuestionaire' (string)
+  public questionaireVersion: string = '';
   
 }
 
 /**
- * Contains arguments for calling 'AddNewResearchStudyDefinition'.
- * Method: Adds a new ResearchStudyDefinition and returns its primary identifier (or null on failure).
+ * Contains results from calling 'DeleteFhirQuestionaire'.
+ * Method: Deletes a FHIR Questionaire by its given
+ * 'questionaireIdentifyingUrl' and 'questionaireVersion'
  */
-export class AddNewResearchStudyDefinitionRequest {
+export class DeleteFhirQuestionaireResponse {
   
-  // Required Argument for 'AddNewResearchStudyDefinition' (Models.ResearchStudyDefinition): ResearchStudyDefinition containing the new values
-  public researchStudyDefinition: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
-  
-}
-
-/**
- * Contains results from calling 'AddNewResearchStudyDefinition'.
- * Method: Adds a new ResearchStudyDefinition and returns its primary identifier (or null on failure).
- */
-export class AddNewResearchStudyDefinitionResponse {
+  // Out-Argument of 'DeleteFhirQuestionaire' (boolean)
+  public wasDeleted: boolean = false;
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'AddNewResearchStudyDefinition' (Boolean)
-  public return: boolean = false;
+}
+
+/**
+ * Contains arguments for calling 'GetApiVersion'.
+ * Method: returns the version of the ORSCF specification which is implemented by this API,
+ * (this can be used for backward compatibility within inhomogeneous infrastructures)
+ */
+export class GetApiVersionRequest {
   
 }
 
 /**
- * Contains arguments for calling 'UpdateResearchStudyDefinition'.
- * Method: Updates all values (which are not "FixedAfterCreation") of the given ResearchStudyDefinition addressed by the primary identifier fields within the given ResearchStudyDefinition. Returns false on failure or if no target record was found, otherwise true.
+ * Contains results from calling 'GetApiVersion'.
+ * Method: returns the version of the ORSCF specification which is implemented by this API,
+ * (this can be used for backward compatibility within inhomogeneous infrastructures)
  */
-export class UpdateResearchStudyDefinitionRequest {
-  
-  // Required Argument for 'UpdateResearchStudyDefinition' (Models.ResearchStudyDefinition): ResearchStudyDefinition containing the new values (the primary identifier fields within the given ResearchStudyDefinition will be used to address the target record)
-  public researchStudyDefinition: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
-  
-}
-
-/**
- * Contains results from calling 'UpdateResearchStudyDefinition'.
- * Method: Updates all values (which are not "FixedAfterCreation") of the given ResearchStudyDefinition addressed by the primary identifier fields within the given ResearchStudyDefinition. Returns false on failure or if no target record was found, otherwise true.
- */
-export class UpdateResearchStudyDefinitionResponse {
+export class GetApiVersionResponse {
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'UpdateResearchStudyDefinition' (Boolean)
-  public return: boolean = false;
+  // Return-Value of 'GetApiVersion' (String)
+  public return?: string;
   
 }
 
 /**
- * Contains arguments for calling 'UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Updates all values (which are not "FixedAfterCreation") of the given ResearchStudyDefinition addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
+ * Contains arguments for calling 'GetCapabilities'.
+ * Method: returns a list of API-features (there are several 'services' for different use cases, described by ORSCF)
+ * supported by this implementation. The following values are possible:
+ * 'WorkflowConsume', 'WorkflowSubmission', 'FhirQuestionaireConsume', 'FhirQuestionaireSubmission'
  */
-export class UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentityRequest {
-  
-  // Required Argument for 'UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Models.ResearchStudyDefinitionIdentity): Composite Key, which represents the primary identity of a ResearchStudyDefinition
-  public researchStudyDefinitionIdentity: Models.ResearchStudyDefinitionIdentity = new Models.ResearchStudyDefinitionIdentity();
-  
-  // Required Argument for 'UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Models.ResearchStudyDefinition): ResearchStudyDefinition containing the new values (the primary identifier fields within the given ResearchStudyDefinition will be ignored)
-  public researchStudyDefinition: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
+export class GetCapabilitiesRequest {
   
 }
 
 /**
- * Contains results from calling 'UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Updates all values (which are not "FixedAfterCreation") of the given ResearchStudyDefinition addressed by the supplementary given primary identifier. Returns false on failure or if no target record was found, otherwise true.
+ * Contains results from calling 'GetCapabilities'.
+ * Method: returns a list of API-features (there are several 'services' for different use cases, described by ORSCF)
+ * supported by this implementation. The following values are possible:
+ * 'WorkflowConsume', 'WorkflowSubmission', 'FhirQuestionaireConsume', 'FhirQuestionaireSubmission'
  */
-export class UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentityResponse {
+export class GetCapabilitiesResponse {
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'UpdateResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Boolean)
-  public return: boolean = false;
+  // Return-Value of 'GetCapabilities' (String[])
+  public return?: string[];
   
 }
 
 /**
- * Contains arguments for calling 'DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Deletes a specific ResearchStudyDefinition addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
+ * Contains arguments for calling 'GetPermittedAuthScopes'.
+ * Method: returns a list of available capabilities ("API:WorkflowConsume") and/or
+ * data-scopes ("Study:9B2C3F48-2941-2F8F-4D35-7D117D5C6F72")
+ * which are permitted for the CURRENT ACCESSOR and gives information about its 'authState', which can be:
+ * 0=auth needed /
+ * 1=authenticated /
+ * -1=auth expired /
+ * -2=auth invalid/disabled
  */
-export class DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentityRequest {
-  
-  // Required Argument for 'DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Models.ResearchStudyDefinitionIdentity): Composite Key, which represents the primary identity of a ResearchStudyDefinition
-  public researchStudyDefinitionIdentity: Models.ResearchStudyDefinitionIdentity = new Models.ResearchStudyDefinitionIdentity();
+export class GetPermittedAuthScopesRequest {
   
 }
 
 /**
- * Contains results from calling 'DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentity'.
- * Method: Deletes a specific ResearchStudyDefinition addressed by the given primary identifier. Returns false on failure or if no target record was found, otherwise true.
+ * Contains results from calling 'GetPermittedAuthScopes'.
+ * Method: returns a list of available capabilities ("API:WorkflowConsume") and/or
+ * data-scopes ("Study:9B2C3F48-2941-2F8F-4D35-7D117D5C6F72")
+ * which are permitted for the CURRENT ACCESSOR and gives information about its 'authState', which can be:
+ * 0=auth needed /
+ * 1=authenticated /
+ * -1=auth expired /
+ * -2=auth invalid/disabled
  */
-export class DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentityResponse {
+export class GetPermittedAuthScopesResponse {
+  
+  // Out-Argument of 'GetPermittedAuthScopes' (number)
+  public authState: number = 0;
   
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'DeleteResearchStudyDefinitionByResearchStudyDefinitionIdentity' (Boolean)
-  public return: boolean = false;
+  // Return-Value of 'GetPermittedAuthScopes' (String[])
+  public return?: string[];
+  
+}
+
+/**
+ * Contains arguments for calling 'GetOAuthTokenRequestUrl'.
+ * Method: OPTIONAL: If the authentication on the current service is mapped
+ * using tokens and should provide information about the source at this point,
+ * the login URL to be called up via browser (OAuth ['CIBA-Flow'](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)) is returned here.
+ */
+export class GetOAuthTokenRequestUrlRequest {
+  
+}
+
+/**
+ * Contains results from calling 'GetOAuthTokenRequestUrl'.
+ * Method: OPTIONAL: If the authentication on the current service is mapped
+ * using tokens and should provide information about the source at this point,
+ * the login URL to be called up via browser (OAuth ['CIBA-Flow'](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)) is returned here.
+ */
+export class GetOAuthTokenRequestUrlResponse {
+  
+  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  public fault?: string;
+  
+  // Return-Value of 'GetOAuthTokenRequestUrl' (String)
+  public return?: string;
+  
+}
+
+/**
+ * Contains arguments for calling 'SearchWorkflowDefinitions'.
+ * Method: Lists all ORSCF 'ResearchStudyDefinitions'
+ */
+export class SearchWorkflowDefinitionsRequest {
+  
+}
+
+/**
+ * Contains results from calling 'SearchWorkflowDefinitions'.
+ * Method: Lists all ORSCF 'ResearchStudyDefinitions'
+ */
+export class SearchWorkflowDefinitionsResponse {
+  
+  // Out-Argument of 'SearchWorkflowDefinitions' (Models.ResearchStudyDefinitionMetaRecord[])
+  public result: Models.ResearchStudyDefinitionMetaRecord[] = [];
+  
+  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  public fault?: string;
+  
+}
+
+/**
+ * Contains arguments for calling 'ExportWorkflowDefinition'.
+ * Method: Exports a ORSCF 'ResearchStudyDefinition' by its given
+ * 'workflowDefinitionName' and 'workflowVersion'
+ */
+export class ExportWorkflowDefinitionRequest {
+  
+  // Required Argument for 'ExportWorkflowDefinition' (string)
+  public workflowDefinitionName: string = '';
+  
+  // Required Argument for 'ExportWorkflowDefinition' (string)
+  public workflowVersion: string = '';
+  
+}
+
+/**
+ * Contains results from calling 'ExportWorkflowDefinition'.
+ * Method: Exports a ORSCF 'ResearchStudyDefinition' by its given
+ * 'workflowDefinitionName' and 'workflowVersion'
+ */
+export class ExportWorkflowDefinitionResponse {
+  
+  // Out-Argument of 'ExportWorkflowDefinition' (boolean)
+  public wasFound: boolean = false;
+  
+  // Out-Argument of 'ExportWorkflowDefinition' (Models.ResearchStudyDefinition)
+  public result: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
+  
+  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  public fault?: string;
+  
+}
+
+/**
+ * Contains arguments for calling 'ImportWorkflowDefinition'.
+ * Method: Imports a ORSCF 'ResearchStudyDefinition' into the Repository
+ * The 'workflowDefinitionName' and 'workflowVersion'
+ * will be taken from the definition itself
+ */
+export class ImportWorkflowDefinitionRequest {
+  
+  // Required Argument for 'ImportWorkflowDefinition' (Models.ResearchStudyDefinition)
+  public workflowDefinition: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
+  
+}
+
+/**
+ * Contains results from calling 'ImportWorkflowDefinition'.
+ * Method: Imports a ORSCF 'ResearchStudyDefinition' into the Repository
+ * The 'workflowDefinitionName' and 'workflowVersion'
+ * will be taken from the definition itself
+ */
+export class ImportWorkflowDefinitionResponse {
+  
+  // Out-Argument of 'ImportWorkflowDefinition' (boolean): returns true, if this questionare was not already exisiting before the import
+  public wasNew: boolean = false;
+  
+  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  public fault?: string;
+  
+}
+
+/**
+ * Contains arguments for calling 'DeleteWorkflowDefinition'.
+ * Method: Deletes a ORSCF 'ResearchStudyDefinition' by its given
+ * 'workflowDefinitionName' and 'workflowVersion'
+ */
+export class DeleteWorkflowDefinitionRequest {
+  
+  // Required Argument for 'DeleteWorkflowDefinition' (string)
+  public workflowDefinitionName: string = '';
+  
+  // Required Argument for 'DeleteWorkflowDefinition' (string)
+  public workflowVersion: string = '';
+  
+}
+
+/**
+ * Contains results from calling 'DeleteWorkflowDefinition'.
+ * Method: Deletes a ORSCF 'ResearchStudyDefinition' by its given
+ * 'workflowDefinitionName' and 'workflowVersion'
+ */
+export class DeleteWorkflowDefinitionResponse {
+  
+  // Out-Argument of 'DeleteWorkflowDefinition' (boolean)
+  public wasDeleted: boolean = false;
+  
+  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  public fault?: string;
   
 }

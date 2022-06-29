@@ -1,5 +1,29 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.8.0.0 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.9.0.0 */
 
+
+export class QuestionaireMetaRecord {
+  
+  public questionaireUrl: string = '';
+  
+  public questionaireVersion: string = '';
+  
+}
+
+export class ResearchStudyDefinitionMetaRecord {
+  
+  /**
+   * the official invariant name of the study as given by the sponsor *this field has a max length of 100
+   */
+  public studyWorkflowName: string = '';
+  
+  /**
+   * This value follows the rules of 'Semantic Versioning' (https://semver.org) and needs to be updated exactly and only on transition to DraftState.Released! If the previously DraftState was 'DraftNewFix', then the 3. number must be increased at this time! If the previously DraftState was 'DraftNewMinor', then the 2. number must be increased, and the 3. number must be set to 0 at this time! If the previously DraftState was 'DraftNewMajor', then the 1. number must be increased, and the 2.+3. number must be set to 0 at this time! *this field has a max length of 20
+   */
+  public studyWorkflowVersion: string = '';
+  
+  public officialLabel: string = '';
+  
+}
 
 export class Arm {
   
@@ -760,13 +784,6 @@ export class SubStudy {
    * *this field has a max length of 20
    */
   public studyWorkflowVersion: string = '';
-  
-}
-
-/**
- * Composite Key, which represents the primary identity of a ResearchStudyDefinition
- */
-export class ResearchStudyDefinitionIdentity {
   
 }
 

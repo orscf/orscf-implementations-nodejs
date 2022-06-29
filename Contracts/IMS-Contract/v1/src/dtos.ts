@@ -32,7 +32,7 @@ export class RequestUnblindingTokenResponse {
   public fault?: string;
   
   // Return-Value of 'RequestUnblindingToken' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -57,7 +57,7 @@ export class GetUnblindingTokenStateResponse {
   public fault?: string;
   
   // Return-Value of 'GetUnblindingTokenState' (Int32)
-  public return: number = 0;
+  public return?: number;
   
 }
 
@@ -88,7 +88,7 @@ export class UnblindSubjectResponse {
   public fault?: string;
   
   // Return-Value of 'UnblindSubject' (IdentityDetails)
-  public return: Models.IdentityDetails = new Models.IdentityDetails();
+  public return?: Models.IdentityDetails;
   
 }
 
@@ -112,7 +112,7 @@ export class GetApiVersionResponse {
   public fault?: string;
   
   // Return-Value of 'GetApiVersion' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -138,7 +138,7 @@ export class GetCapabilitiesResponse {
   public fault?: string;
   
   // Return-Value of 'GetCapabilities' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -175,7 +175,7 @@ export class GetPermittedAuthScopesResponse {
   public fault?: string;
   
   // Return-Value of 'GetPermittedAuthScopes' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -201,7 +201,7 @@ export class GetOAuthTokenRequestUrlResponse {
   public fault?: string;
   
   // Return-Value of 'GetOAuthTokenRequestUrl' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -224,7 +224,7 @@ export class GetExtendedFieldDescriptorsResponse {
   public fault?: string;
   
   // Return-Value of 'GetExtendedFieldDescriptors' (ExtendedFieldDescriptor[])
-  public return: Models.ExtendedFieldDescriptor[] = [];
+  public return?: Models.ExtendedFieldDescriptor[];
   
 }
 
@@ -268,7 +268,7 @@ export class GetOrCreatePseudonymResponse {
   public fault?: string;
   
   // Return-Value of 'GetOrCreatePseudonym' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -306,6 +306,6 @@ export class GetExisitingPseudonymResponse {
   public fault?: string;
   
   // Return-Value of 'GetExisitingPseudonym' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }

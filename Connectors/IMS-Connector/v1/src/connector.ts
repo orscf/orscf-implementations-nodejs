@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-identitymanagement-contract';
-import * as Models from 'orscf-identitymanagement-contract';
-import * as Interfaces from 'orscf-identitymanagement-contract';
+import * as DTOs from 'orscf-identitymanagement-contract/dtos';
+import * as Models from 'orscf-identitymanagement-contract/models';
+import * as Interfaces from 'orscf-identitymanagement-contract/interfaces';
 
 /**
  * Provides an workflow-level API for interating with a 'IdentityManagementSystem' (IMS)
@@ -318,10 +318,10 @@ export class ImsConnector {
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
+    private httpPostMethod?: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){
   
-    if (this.httpPostMethod == null) {
+    if (!this.httpPostMethod) {
       this.axiosHttpApi = axios.create({ baseURL: this.rootUrlResolver() });
       this.httpPostMethod = (url, requestObject, apiToken) => {
         if(!this.axiosHttpApi) {

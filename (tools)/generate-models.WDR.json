@@ -1,6 +1,6 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.StudyWorkflowDefinition.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.Workflow.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.Workflow.I*",
   "requireXmlDocForNamespaces": [
     "MedicalResearch.Workflow"
   ],

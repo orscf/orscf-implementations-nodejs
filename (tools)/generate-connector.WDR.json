@@ -1,8 +1,8 @@
 ﻿{
   "inputFile": "..\\..\\orscf-implementations-dotnet\\(Stage)\\Bin\\ORSCF.StudyWorkflowDefinition.Contract.dll",
-  "interfaceTypeNamePattern": "MedicalResearch.Workflow.StoreAccess.I*",
+  "interfaceTypeNamePattern": "MedicalResearch.Workflow.I*Service",
   "requireXmlDocForNamespaces": [
-    "MedicalResearch.Workflow.StoreAccess"
+    "MedicalResearch.Workflow"
   ],
   "template": "Clients",
   "outputLanguage": "TS",

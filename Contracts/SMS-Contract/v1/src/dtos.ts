@@ -21,7 +21,7 @@ export class GetInstituteUidByTitleResponse {
   public fault?: string;
   
   // Return-Value of 'GetInstituteUidByTitle' (Guid)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -44,7 +44,7 @@ export class GetInstituteTitleByUidResponse {
   public fault?: string;
   
   // Return-Value of 'GetInstituteTitleByUid' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -67,7 +67,7 @@ export class ArchiveInstituteResponse {
   public fault?: string;
   
   // Return-Value of 'ArchiveInstitute' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -90,7 +90,7 @@ export class GetInstituteInfosResponse {
   public fault?: string;
   
   // Return-Value of 'GetInstituteInfos' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -117,7 +117,7 @@ export class CreateInstituteIfMissingResponse {
   public fault?: string;
   
   // Return-Value of 'CreateInstituteIfMissing' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -147,7 +147,7 @@ export class UpdateInstitueTitleResponse {
   public fault?: string;
   
   // Return-Value of 'UpdateInstitueTitle' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -171,7 +171,7 @@ export class GetApiVersionResponse {
   public fault?: string;
   
   // Return-Value of 'GetApiVersion' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -197,7 +197,7 @@ export class GetCapabilitiesResponse {
   public fault?: string;
   
   // Return-Value of 'GetCapabilities' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -234,7 +234,7 @@ export class GetPermittedAuthScopesResponse {
   public fault?: string;
   
   // Return-Value of 'GetPermittedAuthScopes' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -260,7 +260,7 @@ export class GetOAuthTokenRequestUrlResponse {
   public fault?: string;
   
   // Return-Value of 'GetOAuthTokenRequestUrl' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -289,7 +289,7 @@ export class SubscribeStudyStateChangedEventsResponse {
   public fault?: string;
   
   // Return-Value of 'SubscribeStudyStateChangedEvents' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -316,7 +316,7 @@ export class UnsubscribeStudyStateChangedEventsResponse {
   public fault?: string;
   
   // Return-Value of 'UnsubscribeStudyStateChangedEvents' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -341,6 +341,6 @@ export class GetStudyTitleByIdentifierResponse {
   public fault?: string;
   
   // Return-Value of 'GetStudyTitleByIdentifier' (String)
-  public return: string = '';
+  public return?: string;
   
 }

@@ -22,7 +22,7 @@ export class GetApiVersionResponse {
   public fault?: string;
   
   // Return-Value of 'GetApiVersion' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -56,7 +56,7 @@ export class GetCapabilitiesResponse {
   public fault?: string;
   
   // Return-Value of 'GetCapabilities' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -93,7 +93,7 @@ export class GetPermittedAuthScopesResponse {
   public fault?: string;
   
   // Return-Value of 'GetPermittedAuthScopes' (String[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -119,7 +119,7 @@ export class GetOAuthTokenRequestUrlResponse {
   public fault?: string;
   
   // Return-Value of 'GetOAuthTokenRequestUrl' (String)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -157,7 +157,7 @@ export class SubscribeForChangedSubjectsResponse {
   public fault?: string;
   
   // Return-Value of 'SubscribeForChangedSubjects' (Guid)
-  public return: string = '';
+  public return?: string;
   
 }
 
@@ -278,7 +278,7 @@ export class TerminateSubscriptionResponse {
   public fault?: string;
   
   // Return-Value of 'TerminateSubscription' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 
@@ -308,7 +308,7 @@ export class GetSubsriptionsBySubscriberUrlResponse {
   public fault?: string;
   
   // Return-Value of 'GetSubsriptionsBySubscriberUrl' (Guid[])
-  public return: string[] = [];
+  public return?: string[];
   
 }
 
@@ -415,7 +415,7 @@ export class GetCustomFieldDescriptorsForSubjectResponse {
   public fault?: string;
   
   // Return-Value of 'GetCustomFieldDescriptorsForSubject' (CustomFieldDescriptor[])
-  public return: Models.CustomFieldDescriptor[] = [];
+  public return?: Models.CustomFieldDescriptor[];
   
 }
 
@@ -539,7 +539,7 @@ export class ExportSubjectFhirRessourcesResponse {
   public fault?: string;
   
   // Return-Value of 'ExportSubjectFhirRessources' (Boolean)
-  public return: boolean = false;
+  public return?: boolean;
   
 }
 

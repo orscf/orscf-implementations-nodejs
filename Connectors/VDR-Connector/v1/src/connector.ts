@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-visitdata-contract';
-import * as Models from 'orscf-visitdata-contract';
-import * as Interfaces from 'orscf-visitdata-contract';
+import * as DTOs from 'orscf-visitdata-contract/dtos';
+import * as Models from 'orscf-visitdata-contract/models';
+import * as Interfaces from 'orscf-visitdata-contract/interfaces';
 
 /**
  * Provides interoperability information for the current implementation
@@ -706,10 +706,10 @@ export class VdrConnector {
   constructor(
     private rootUrlResolver: () => string,
     private apiTokenResolver: () => string,
-    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
+    private httpPostMethod?: (url: string, requestObject: any, apiToken: string) => Promise<any>
   ){
   
-    if (this.httpPostMethod == null) {
+    if (!this.httpPostMethod) {
       this.axiosHttpApi = axios.create({ baseURL: this.rootUrlResolver() });
       this.httpPostMethod = (url, requestObject, apiToken) => {
         if(!this.axiosHttpApi) {
