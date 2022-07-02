@@ -89,8 +89,8 @@ export class GetInstituteInfosResponse {
   // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
   public fault?: string;
   
-  // Return-Value of 'GetInstituteInfos' (String)
-  public return?: string;
+  // Return-Value of 'GetInstituteInfos' (InstituteInfo[])
+  public return?: Models.InstituteInfo[];
   
 }
 

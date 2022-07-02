@@ -269,6 +269,21 @@ export class DataRecordingFields extends DataRecordingMetaRecord {
   public dataSchemaUrl: string = '';
   
   /**
+   * version of schema, which is addressed by the 'DataSchemaUrl'
+   */
+  public dataSchemaVersion: string = '';
+  
+  /**
+   * 'FhirQuestionaire' / 'XML' / 'CSV' / 'Custom'
+   */
+  public dataSchemaKind: string = '';
+  
+  /**
+   * Language of free-text information inside of the data content
+   */
+  public dataLanguage?: string;
+  
+  /**
    * additional notes regarding this dedcated execution (supplied by the execution person) *this field is optional (use null as value)
    */
   public notesRegardingOutcome?: string;
@@ -377,6 +392,21 @@ export class DataRecordingStructure extends DataRecordingFields {
    * schema-url of the data which were stored inside of the 'RecordedData' field
    */
   public dataSchemaUrl: string = '';
+  
+  /**
+   * version of schema, which is addressed by the 'DataSchemaUrl'
+   */
+  public dataSchemaVersion: string = '';
+  
+  /**
+   * 'FhirQuestionaire' / 'XML' / 'CSV' / 'Custom'
+   */
+  public dataSchemaKind: string = '';
+  
+  /**
+   * Language of free-text information inside of the data content
+   */
+  public dataLanguage?: string;
   
   /**
    * additional notes regarding this dedcated execution (supplied by the execution person) *this field is optional (use null as value)

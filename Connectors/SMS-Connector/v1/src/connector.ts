@@ -96,7 +96,7 @@ export class InstituteMgmtClient {
   /**
    * GetInstituteInfos
    */
-  public getInstituteInfos(instituteUid: string): Promise<string> {
+  public getInstituteInfos(instituteUid: string): Promise<Models.InstituteInfo[]> {
     
     let requestWrapper : DTOs.GetInstituteInfosRequest = {
       instituteUid: instituteUid

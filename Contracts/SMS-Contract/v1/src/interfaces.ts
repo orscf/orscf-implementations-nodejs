@@ -30,7 +30,7 @@ export interface IInstituteMgmtService {
    *
    * @param instituteUid
    */
-  GetInstituteInfos(instituteUid : string) : Promise<string>;
+  GetInstituteInfos(instituteUid : string) : Promise<Models.InstituteInfo[]>;
   
   /**
    * ensures, that an institute with the given Uid exists and returns true, if it has been newly created
