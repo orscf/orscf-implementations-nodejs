@@ -1,41 +1,55 @@
-/* based on ORSCF VisitData Contract v1.7.0.11813 */
+/* based on ORSCF VisitData Contract v1.9.0.11833 */
 
 
-export class VisitFilter {
-  
-  public studyUid?: string;
-  
-  public siteUid?: string;
+export class StringValueCriteria {
   
   /**
-   * identity of the patient which is usually a pseudonym from a corr. 'IdentiyManagementSystem' (the exact semantic is defined per study) *this field has a max length of 100
+   * The value to match.
    */
-  public subjectIdentifier?: string;
-  
-  public visitProcedureName?: string;
+  public value: string = '';
   
   /**
-   * unique title of the visit execution as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
+   * Enables, that the given value can just be a substring within the content of the target field. DEFAULT (if this is undefined or null) is 'false'.
    */
-  public visitExecutionTitle: string = '';
+  public matchSubstring?: boolean;
+  
+}
+
+export class StringFieldFilter {
   
   /**
-   * 0=Unscheduled / 1=Sheduled / 2=Executed / 3=AbortDuringExecution / 4=Skipped / 5=Removed
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
-  public executionState?: number;
-  
-  public minScheduledDateUtc?: Date;
-  
-  public maxScheduledDateUtc?: Date;
-  
-  public minExecutionDateUtc?: Date;
-  
-  public maxExecutionDateUtc?: Date;
+  public includedValues?: StringValueCriteria[];
   
   /**
-   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
-  public customFields?: Object;
+  public excludedValues?: StringValueCriteria[];
+  
+  /**
+   * Enables, that the included and excluded values are processed case-insenstive. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public ignoreCasing?: boolean;
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+/**
+ * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
+ */
+export interface RangeMatchingBehaviour extends Enum {
+  
+}
+
+/**
+ * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
+ */
+export interface DateMatchingPrecision extends Enum {
   
 }
 
@@ -236,6 +250,58 @@ export class BatchableVisitMutation {
   
 }
 
+export class UidFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public includedValues?: StringValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: StringValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+export class NumericValueCriteria {
+  
+  /**
+   * The value to match.
+   */
+  public value: number = 0;
+  
+  /**
+   * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
+   */
+  public matchingBehaviour?: RangeMatchingBehaviour;
+  
+}
+
+export class DateValueCriteria {
+  
+  /**
+   * The value to match.
+   */
+  public value: number = 0;
+  
+  /**
+   * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
+   */
+  public matchingBehaviour?: RangeMatchingBehaviour;
+  
+  /**
+   * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
+   */
+  public matchingPrecision?: DateMatchingPrecision;
+  
+}
+
 export class DataRecordingFields extends DataRecordingMetaRecord {
   
   /**
@@ -353,6 +419,44 @@ export class VisitMutation extends BatchableVisitMutation {
    * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
    */
   public customFields?: Object;
+  
+}
+
+export class NumericFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public includedValues?: NumericValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: NumericValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+export class DateFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public includedValues?: DateValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: DateValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
   
 }
 
@@ -504,5 +608,39 @@ export class VisitStructure extends VisitFields {
    * This is an internal managed field (UNIX-Timestamp), which is related to the state of records dedicated to the database. It will be automatically set to the current time when a record is created, updated, archived or unarchived, but cannot be updated from outside and must not be mapped during data imports.
    */
   public modificationTimestampUtc: number = 0;
+  
+}
+
+export class VisitFilter {
+  
+  public studyUid?: UidFieldFilter;
+  
+  public siteUid?: UidFieldFilter;
+  
+  /**
+   * identity of the patient which is usually a pseudonym from a corr. 'IdentiyManagementSystem' (the exact semantic is defined per study) *this field has a max length of 100
+   */
+  public subjectIdentifier?: StringFieldFilter;
+  
+  public visitProcedureName?: StringFieldFilter;
+  
+  /**
+   * unique title of the visit execution as defined in the 'StudyWorkflowDefinition' (originated from the sponsor)
+   */
+  public visitExecutionTitle?: StringFieldFilter;
+  
+  /**
+   * 0=Unscheduled / 1=Sheduled / 2=Executed / 3=AbortDuringExecution / 4=Skipped / 5=Removed
+   */
+  public executionState?: NumericFieldFilter;
+  
+  public scheduledDateUtc?: DateFieldFilter;
+  
+  public executionDateUtc?: DateFieldFilter;
+  
+  /**
+   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   */
+  public customFields?: Object;
   
 }

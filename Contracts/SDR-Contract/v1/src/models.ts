@@ -1,45 +1,55 @@
-/* based on ORSCF SubjectData Contract v1.8.0.11813 */
+/* based on ORSCF SubjectData Contract v1.9.0.11833 */
 
 
-export class SubjectFilter {
-  
-  public studyUid?: string;
-  
-  public siteUid?: string;
+export class StringValueCriteria {
   
   /**
-   * identity of the patient which is usually a pseudonym from a corr. 'IdentiyManagementSystem' (the exact semantic is defined per study) *this field has a max length of 100
+   * The value to match.
    */
-  public subjectIdentifier?: string;
+  public value: string = '';
   
   /**
-   * AS DECLARED BY [HL7.ResearchSubjectStatus](https://www.hl7.org/fhir/valueset-research-subject-status.html): candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
+   * Enables, that the given value can just be a substring within the content of the target field. DEFAULT (if this is undefined or null) is 'false'.
    */
-  public status?: string;
+  public matchSubstring?: boolean;
   
-  public minPeriodStart?: Date;
-  
-  public maxPeriodStart?: Date;
-  
-  public minPeriodEnd?: Date;
-  
-  public maxPeriodEnd?: Date;
-  
-  public assignedArm?: string;
-  
-  public actualArm?: string;
-  
-  public substudyName?: string;
+}
+
+export class StringFieldFilter {
   
   /**
-   * This can be the ID ('surrogate-key') of the Partient record within a site specific patient management system. This MUST NOT be any natural key or plain readable name which exposes the identity of the patient!
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
-  public actualSiteDefinedPatientIdentifier?: string;
+  public includedValues?: StringValueCriteria[];
   
   /**
-   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
-  public customFields?: Object;
+  public excludedValues?: StringValueCriteria[];
+  
+  /**
+   * Enables, that the included and excluded values are processed case-insenstive. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public ignoreCasing?: boolean;
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+/**
+ * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
+ */
+export interface RangeMatchingBehaviour extends Enum {
+  
+}
+
+/**
+ * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
+ */
+export interface DateMatchingPrecision extends Enum {
   
 }
 
@@ -269,6 +279,44 @@ export class BatchableSubjectMutation {
   
 }
 
+export class UidFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public includedValues?: StringValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: StringValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+export class DateValueCriteria {
+  
+  /**
+   * The value to match.
+   */
+  public value: number = 0;
+  
+  /**
+   * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
+   */
+  public matchingBehaviour?: RangeMatchingBehaviour;
+  
+  /**
+   * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
+   */
+  public matchingPrecision?: DateMatchingPrecision;
+  
+}
+
 export class SubjectMutation extends BatchableSubjectMutation {
   
   /**
@@ -295,6 +343,63 @@ export class SubjectMutation extends BatchableSubjectMutation {
   public periodStart?: Date;
   
   public periodEnd?: Date;
+  
+  /**
+   * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
+   */
+  public customFields?: Object;
+  
+}
+
+export class DateFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public includedValues?: DateValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: DateValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+export class SubjectFilter {
+  
+  public studyUid?: UidFieldFilter;
+  
+  public siteUid?: UidFieldFilter;
+  
+  /**
+   * identity of the patient which is usually a pseudonym from a corr. 'IdentiyManagementSystem' (the exact semantic is defined per study) *this field has a max length of 100
+   */
+  public subjectIdentifier?: StringFieldFilter;
+  
+  /**
+   * AS DECLARED BY [HL7.ResearchSubjectStatus](https://www.hl7.org/fhir/valueset-research-subject-status.html): candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
+   */
+  public status?: StringFieldFilter;
+  
+  public periodStart?: DateFieldFilter;
+  
+  public periodEnd?: DateFieldFilter;
+  
+  public assignedArm?: StringFieldFilter;
+  
+  public actualArm?: StringFieldFilter;
+  
+  public substudyName?: StringFieldFilter;
+  
+  /**
+   * This can be the ID ('surrogate-key') of the Partient record within a site specific patient management system. This MUST NOT be any natural key or plain readable name which exposes the identity of the patient!
+   */
+  public actualSiteDefinedPatientIdentifier?: StringFieldFilter;
   
   /**
    * Custom fields as defined by the Service. Call 'GetCustomFieldDescriptors' to get information about supported/required fields. Any passed values for undefined fields will be ignored.
