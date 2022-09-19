@@ -1,4 +1,4 @@
-/* based on ORSCF VisitData Contract v1.9.0.11833 */
+/* based on ORSCF VisitData Contract v1.9.0.0 */
 
 import * as Models from './models';
 
@@ -18,10 +18,10 @@ export class GetApiVersionRequest {
  */
 export class GetApiVersionResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetApiVersion' (String)
+  /** Return-Value of 'GetApiVersion' (String) */
   public return?: string;
   
 }
@@ -54,10 +54,10 @@ export class GetCapabilitiesRequest {
  */
 export class GetCapabilitiesResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetCapabilities' (String[])
+  /** Return-Value of 'GetCapabilities' (String[]) */
   public return?: string[];
   
 }
@@ -88,13 +88,13 @@ export class GetPermittedAuthScopesRequest {
  */
 export class GetPermittedAuthScopesResponse {
   
-  // Out-Argument of 'GetPermittedAuthScopes' (number)
+  /** Out-Argument of 'GetPermittedAuthScopes' (number) */
   public authState: number = 0;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetPermittedAuthScopes' (String[])
+  /** Return-Value of 'GetPermittedAuthScopes' (String[]) */
   public return?: string[];
   
 }
@@ -117,10 +117,10 @@ export class GetOAuthTokenRequestUrlRequest {
  */
 export class GetOAuthTokenRequestUrlResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetOAuthTokenRequestUrl' (String)
+  /** Return-Value of 'GetOAuthTokenRequestUrl' (String) */
   public return?: string;
   
 }
@@ -136,10 +136,10 @@ export class GetOAuthTokenRequestUrlResponse {
  */
 export class SubscribeForChangedVisitsRequest {
   
-  // Required Argument for 'SubscribeForChangedVisits' (string): the root-url of the subscriber which needs to provide at least the methods '/ConfirmAsSubscriber' and '/NoticeChangedVisits'
+  /** Required Argument for 'SubscribeForChangedVisits' (string): the root-url of the subscriber which needs to provide at least the methods '/ConfirmAsSubscriber' and '/NoticeChangedVisits' */
   public subscriberUrl: string = '';
   
-  // Optional Argument for 'SubscribeForChangedVisits' (Models.VisitFilter): if provided, the subscription will only publish events for records matching to the given filter
+  /** Optional Argument for 'SubscribeForChangedVisits' (Models.VisitFilter): if provided, the subscription will only publish events for records matching to the given filter */
   public filter?: Models.VisitFilter;
   
 }
@@ -155,10 +155,10 @@ export class SubscribeForChangedVisitsRequest {
  */
 export class SubscribeForChangedVisitsResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'SubscribeForChangedVisits' (Guid)
+  /** Return-Value of 'SubscribeForChangedVisits' (Guid) */
   public return?: string;
   
 }
@@ -174,25 +174,25 @@ export class SubscribeForChangedVisitsResponse {
  */
 export class NoticeChangedVisitsRequest {
   
-  // Required Argument for 'NoticeChangedVisits' (string): a UUID which identifies the current event message
+  /** Required Argument for 'NoticeChangedVisits' (string): a UUID which identifies the current event message */
   public eventUid: string = '';
   
-  // Required Argument for 'NoticeChangedVisits' (string): a SHA256 Hash of SubscriptionSecret + EventUid (in lower string representation, without '-' characters!) Sample: SHA256('ThEs3Cr3T'+'c997dfb1c445fea84afe995307713b59') = 'a320ef5b0f563e8dcb16d759961739977afc98b90628d9dc3be519fb20701490'
+  /** Required Argument for 'NoticeChangedVisits' (string): a SHA256 Hash of SubscriptionSecret + EventUid (in lower string representation, without '-' characters!) Sample: SHA256('ThEs3Cr3T'+'c997dfb1c445fea84afe995307713b59') = 'a320ef5b0f563e8dcb16d759961739977afc98b90628d9dc3be519fb20701490' */
   public eventSignature: string = '';
   
-  // Required Argument for 'NoticeChangedVisits' (string): a UUID which identifies the subscription for which this event is published
+  /** Required Argument for 'NoticeChangedVisits' (string): a UUID which identifies the subscription for which this event is published */
   public subscriptionUid: string = '';
   
-  // Required Argument for 'NoticeChangedVisits' (string): root-URL of the VDR-Service which is publishing this event
+  /** Required Argument for 'NoticeChangedVisits' (string): root-URL of the VDR-Service which is publishing this event */
   public publisherUrl: string = '';
   
-  // Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[])
+  /** Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[]) */
   public createdRecords: Models.VisitMetaRecord[] = [];
   
-  // Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[])
+  /** Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[]) */
   public modifiedRecords: Models.VisitMetaRecord[] = [];
   
-  // Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[])
+  /** Required Argument for 'NoticeChangedVisits' (Models.VisitMetaRecord[]) */
   public archivedRecords: Models.VisitMetaRecord[] = [];
   
 }
@@ -208,10 +208,10 @@ export class NoticeChangedVisitsRequest {
  */
 export class NoticeChangedVisitsResponse {
   
-  // Out-Argument of 'NoticeChangedVisits' (boolean): an array, which contains one element per changed visit
+  /** Out-Argument of 'NoticeChangedVisits' (boolean): an array, which contains one element per changed visit */
   public terminateSubscription: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -227,10 +227,10 @@ export class NoticeChangedVisitsResponse {
  */
 export class ConfirmAsSubscriberRequest {
   
-  // Required Argument for 'ConfirmAsSubscriber' (string): root-URL of the VDR-Service on which the subscription was requested
+  /** Required Argument for 'ConfirmAsSubscriber' (string): root-URL of the VDR-Service on which the subscription was requested */
   public publisherUrl: string = '';
   
-  // Required Argument for 'ConfirmAsSubscriber' (string): the Uid of the subscription which should be confirmed
+  /** Required Argument for 'ConfirmAsSubscriber' (string): the Uid of the subscription which should be confirmed */
   public subscriptionUid: string = '';
   
 }
@@ -246,10 +246,10 @@ export class ConfirmAsSubscriberRequest {
  */
 export class ConfirmAsSubscriberResponse {
   
-  // Out-Argument of 'ConfirmAsSubscriber' (string): A secret which is generated by the subscriber and used to provide additional security. It will be required for the 'TerminateSubscription' method and it is used to generate SHA256 hashes for signing the delivered event messages. The secret should: have a minimum length of 32 characters. A null or empty string has the semantics that the subscriber refuses to confirm and cancels the subscription setup.
+  /** Out-Argument of 'ConfirmAsSubscriber' (string): A secret which is generated by the subscriber and used to provide additional security. It will be required for the 'TerminateSubscription' method and it is used to generate SHA256 hashes for signing the delivered event messages. The secret should: have a minimum length of 32 characters. A null or empty string has the semantics that the subscriber refuses to confirm and cancels the subscription setup. */
   public secret: string = '';
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -261,10 +261,10 @@ export class ConfirmAsSubscriberResponse {
  */
 export class TerminateSubscriptionRequest {
   
-  // Required Argument for 'TerminateSubscription' (string): the Uid of the subscription which should be terminated
+  /** Required Argument for 'TerminateSubscription' (string): the Uid of the subscription which should be terminated */
   public subscriptionUid: string = '';
   
-  // Required Argument for 'TerminateSubscription' (string): the (same) secret, which was given by the subscriber during the subscription setup
+  /** Required Argument for 'TerminateSubscription' (string): the (same) secret, which was given by the subscriber during the subscription setup */
   public secret: string = '';
   
 }
@@ -276,10 +276,10 @@ export class TerminateSubscriptionRequest {
  */
 export class TerminateSubscriptionResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'TerminateSubscription' (Boolean)
+  /** Return-Value of 'TerminateSubscription' (Boolean) */
   public return?: boolean;
   
 }
@@ -291,10 +291,10 @@ export class TerminateSubscriptionResponse {
  */
 export class GetSubsriptionsBySubscriberUrlRequest {
   
-  // Required Argument for 'GetSubsriptionsBySubscriberUrl' (string)
+  /** Required Argument for 'GetSubsriptionsBySubscriberUrl' (string) */
   public subscriberUrl: string = '';
   
-  // Required Argument for 'GetSubsriptionsBySubscriberUrl' (string): the (same) secret, which was given by the subscriber during the subscription setup
+  /** Required Argument for 'GetSubsriptionsBySubscriberUrl' (string): the (same) secret, which was given by the subscriber during the subscription setup */
   public secret: string = '';
   
 }
@@ -306,10 +306,10 @@ export class GetSubsriptionsBySubscriberUrlRequest {
  */
 export class GetSubsriptionsBySubscriberUrlResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetSubsriptionsBySubscriberUrl' (Guid[])
+  /** Return-Value of 'GetSubsriptionsBySubscriberUrl' (Guid[]) */
   public return?: string[];
   
 }
@@ -319,7 +319,7 @@ export class GetSubsriptionsBySubscriberUrlResponse {
  */
 export class ImportDataRecordingsRequest {
   
-  // Required Argument for 'ImportDataRecordings' (Models.DataRecordingStructure[])
+  /** Required Argument for 'ImportDataRecordings' (Models.DataRecordingStructure[]) */
   public dataRecordings: Models.DataRecordingStructure[] = [];
   
 }
@@ -329,13 +329,13 @@ export class ImportDataRecordingsRequest {
  */
 export class ImportDataRecordingsResponse {
   
-  // Out-Argument of 'ImportDataRecordings' (string[])
+  /** Out-Argument of 'ImportDataRecordings' (string[]) */
   public createdDataRecordingUids: string[] = [];
   
-  // Out-Argument of 'ImportDataRecordings' (string[])
+  /** Out-Argument of 'ImportDataRecordings' (string[]) */
   public updatedDataRecordingUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -348,19 +348,19 @@ export class ImportDataRecordingsResponse {
  */
 export class SearchVisitsRequest {
   
-  // Optional Argument for 'SearchVisits' (string): A fieldname, which should be used to sort the result (can also be a 'CustomField'). If not provided, the result will be sorted by the creation date of the records
+  /** Optional Argument for 'SearchVisits' (string): A fieldname, which should be used to sort the result (can also be a 'CustomField'). If not provided, the result will be sorted by the creation date of the records */
   public sortingField?: string;
   
-  // Optional Argument for 'SearchVisits' (boolean): toggles the sorting direction
+  /** Optional Argument for 'SearchVisits' (boolean): toggles the sorting direction */
   public sortDescending?: boolean;
   
-  // Optional Argument for 'SearchVisits' (Models.VisitFilter): values by field name (can also be a 'CustomField') which will used as AND-linked filter
+  /** Optional Argument for 'SearchVisits' (Models.VisitFilter): values by field name (can also be a 'CustomField') which will used as AND-linked filter */
   public filter?: Models.VisitFilter;
   
-  // Optional Argument for 'SearchVisits' (boolean): includes archived records in the result
+  /** Optional Argument for 'SearchVisits' (boolean): includes archived records in the result */
   public includeArchivedRecords?: boolean;
   
-  // Optional Argument for 'SearchVisits' (number): a value greather than zero will represent a maximum count of results, that sould be returned
+  /** Optional Argument for 'SearchVisits' (number): a value greather than zero will represent a maximum count of results, that sould be returned */
   public limitResults?: number;
   
 }
@@ -373,10 +373,10 @@ export class SearchVisitsRequest {
  */
 export class SearchVisitsResponse {
   
-  // Out-Argument of 'SearchVisits' (Models.VisitMetaRecord[])
+  /** Out-Argument of 'SearchVisits' (Models.VisitMetaRecord[]) */
   public result: Models.VisitMetaRecord[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -390,10 +390,10 @@ export class SearchVisitsResponse {
  */
 export class SearchChangedVisitsRequest {
   
-  // Required Argument for 'SearchChangedVisits' (number): start of the timespan to search (as UNIX-Timestamp)
+  /** Required Argument for 'SearchChangedVisits' (number): start of the timespan to search (as UNIX-Timestamp) */
   public minTimestampUtc: number = 0;
   
-  // Optional Argument for 'SearchChangedVisits' (Models.VisitFilter): values by field name (can also be a 'CustomField') which will used as AND-linked filter
+  /** Optional Argument for 'SearchChangedVisits' (Models.VisitFilter): values by field name (can also be a 'CustomField') which will used as AND-linked filter */
   public filter?: Models.VisitFilter;
   
 }
@@ -407,19 +407,19 @@ export class SearchChangedVisitsRequest {
  */
 export class SearchChangedVisitsResponse {
   
-  // Out-Argument of 'SearchChangedVisits' (number): the exact timestamp of the search (as UNIX-Timestamp)
+  /** Out-Argument of 'SearchChangedVisits' (number): the exact timestamp of the search (as UNIX-Timestamp) */
   public latestTimestampUtc: number = 0;
   
-  // Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[])
+  /** Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[]) */
   public createdRecords: Models.VisitMetaRecord[] = [];
   
-  // Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[])
+  /** Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[]) */
   public modifiedRecords: Models.VisitMetaRecord[] = [];
   
-  // Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[])
+  /** Out-Argument of 'SearchChangedVisits' (Models.VisitMetaRecord[]) */
   public archivedRecords: Models.VisitMetaRecord[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -429,7 +429,7 @@ export class SearchChangedVisitsResponse {
  */
 export class GetCustomFieldDescriptorsForVisitRequest {
   
-  // Optional Argument for 'GetCustomFieldDescriptorsForVisit' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors. The default is 'EN'.
+  /** Optional Argument for 'GetCustomFieldDescriptorsForVisit' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors. The default is 'EN'. */
   public languagePref?: string;
   
 }
@@ -439,10 +439,10 @@ export class GetCustomFieldDescriptorsForVisitRequest {
  */
 export class GetCustomFieldDescriptorsForVisitResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetCustomFieldDescriptorsForVisit' (CustomFieldDescriptor[])
+  /** Return-Value of 'GetCustomFieldDescriptorsForVisit' (CustomFieldDescriptor[]) */
   public return?: Models.CustomFieldDescriptor[];
   
 }
@@ -453,7 +453,7 @@ export class GetCustomFieldDescriptorsForVisitResponse {
  */
 export class CheckVisitExisitenceRequest {
   
-  // Required Argument for 'CheckVisitExisitence' (string[])
+  /** Required Argument for 'CheckVisitExisitence' (string[]) */
   public visitUids: string[] = [];
   
 }
@@ -464,13 +464,13 @@ export class CheckVisitExisitenceRequest {
  */
 export class CheckVisitExisitenceResponse {
   
-  // Out-Argument of 'CheckVisitExisitence' (string[])
+  /** Out-Argument of 'CheckVisitExisitence' (string[]) */
   public unavailableVisitUids: string[] = [];
   
-  // Out-Argument of 'CheckVisitExisitence' (string[])
+  /** Out-Argument of 'CheckVisitExisitence' (string[]) */
   public availableVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -486,7 +486,7 @@ export class CheckVisitExisitenceResponse {
  */
 export class GetVisitFieldsRequest {
   
-  // Required Argument for 'GetVisitFields' (string[])
+  /** Required Argument for 'GetVisitFields' (string[]) */
   public visitUids: string[] = [];
   
 }
@@ -502,13 +502,13 @@ export class GetVisitFieldsRequest {
  */
 export class GetVisitFieldsResponse {
   
-  // Out-Argument of 'GetVisitFields' (string[])
+  /** Out-Argument of 'GetVisitFields' (string[]) */
   public unavailableVisitUids: string[] = [];
   
-  // Out-Argument of 'GetVisitFields' (Models.VisitFields[])
+  /** Out-Argument of 'GetVisitFields' (Models.VisitFields[]) */
   public result: Models.VisitFields[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -519,7 +519,7 @@ export class GetVisitFieldsResponse {
  */
 export class ExportVisitsRequest {
   
-  // Required Argument for 'ExportVisits' (string[])
+  /** Required Argument for 'ExportVisits' (string[]) */
   public visitUids: string[] = [];
   
 }
@@ -530,13 +530,13 @@ export class ExportVisitsRequest {
  */
 export class ExportVisitsResponse {
   
-  // Out-Argument of 'ExportVisits' (string[])
+  /** Out-Argument of 'ExportVisits' (string[]) */
   public unavailableVisitUids: string[] = [];
   
-  // Out-Argument of 'ExportVisits' (Models.VisitStructure[])
+  /** Out-Argument of 'ExportVisits' (Models.VisitStructure[]) */
   public result: Models.VisitStructure[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -548,7 +548,7 @@ export class ExportVisitsResponse {
  */
 export class ExportVisitFhirRessourcesRequest {
   
-  // Required Argument for 'ExportVisitFhirRessources' (string)
+  /** Required Argument for 'ExportVisitFhirRessources' (string) */
   public visitUid: string = '';
   
 }
@@ -560,13 +560,13 @@ export class ExportVisitFhirRessourcesRequest {
  */
 export class ExportVisitFhirRessourcesResponse {
   
-  // Out-Argument of 'ExportVisitFhirRessources' (Models.VisitFhirRessourceContainer[])
+  /** Out-Argument of 'ExportVisitFhirRessources' (Models.VisitFhirRessourceContainer[]) */
   public visitFhirRessources: Models.VisitFhirRessourceContainer[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'ExportVisitFhirRessources' (Boolean)
+  /** Return-Value of 'ExportVisitFhirRessources' (Boolean) */
   public return?: boolean;
   
 }
@@ -578,7 +578,7 @@ export class ExportVisitFhirRessourcesResponse {
  */
 export class ImportVisitFhirRessourcesRequest {
   
-  // Required Argument for 'ImportVisitFhirRessources' (Models.VisitFhirRessourceContainer[]): A structure containing HL7/FHIR-Ressources (JSON only) and the essential fields which are required to qualify a ORSCF record.
+  /** Required Argument for 'ImportVisitFhirRessources' (Models.VisitFhirRessourceContainer[]): A structure containing HL7/FHIR-Ressources (JSON only) and the essential fields which are required to qualify a ORSCF record. */
   public visitFhirRessources: Models.VisitFhirRessourceContainer[] = [];
   
 }
@@ -590,13 +590,13 @@ export class ImportVisitFhirRessourcesRequest {
  */
 export class ImportVisitFhirRessourcesResponse {
   
-  // Out-Argument of 'ImportVisitFhirRessources' (string[])
+  /** Out-Argument of 'ImportVisitFhirRessources' (string[]) */
   public createdVisitUids: string[] = [];
   
-  // Out-Argument of 'ImportVisitFhirRessources' (string[])
+  /** Out-Argument of 'ImportVisitFhirRessources' (string[]) */
   public updatedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -606,7 +606,7 @@ export class ImportVisitFhirRessourcesResponse {
  */
 export class ArchiveVisitsRequest {
   
-  // Required Argument for 'ArchiveVisits' (string[])
+  /** Required Argument for 'ArchiveVisits' (string[]) */
   public visitUids: string[] = [];
   
 }
@@ -616,10 +616,10 @@ export class ArchiveVisitsRequest {
  */
 export class ArchiveVisitsResponse {
   
-  // Out-Argument of 'ArchiveVisits' (string[]): also including the Uids of already archived records
+  /** Out-Argument of 'ArchiveVisits' (string[]): also including the Uids of already archived records */
   public archivedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -629,7 +629,7 @@ export class ArchiveVisitsResponse {
  */
 export class UnarchiveVisitsRequest {
   
-  // Required Argument for 'UnarchiveVisits' (string[])
+  /** Required Argument for 'UnarchiveVisits' (string[]) */
   public visitUids: string[] = [];
   
 }
@@ -639,10 +639,10 @@ export class UnarchiveVisitsRequest {
  */
 export class UnarchiveVisitsResponse {
   
-  // Out-Argument of 'UnarchiveVisits' (string[])
+  /** Out-Argument of 'UnarchiveVisits' (string[]) */
   public unarchivedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -652,7 +652,7 @@ export class UnarchiveVisitsResponse {
  */
 export class ApplyVisitMutationsRequest {
   
-  // Required Argument for 'ApplyVisitMutations' (Object)
+  /** Required Argument for 'ApplyVisitMutations' (Object) */
   public mutationsByVisitUid: Object = new Object();
   
 }
@@ -662,10 +662,10 @@ export class ApplyVisitMutationsRequest {
  */
 export class ApplyVisitMutationsResponse {
   
-  // Out-Argument of 'ApplyVisitMutations' (string[])
+  /** Out-Argument of 'ApplyVisitMutations' (string[]) */
   public updatedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -675,10 +675,10 @@ export class ApplyVisitMutationsResponse {
  */
 export class ApplyVisitBatchMutationRequest {
   
-  // Required Argument for 'ApplyVisitBatchMutation' (string[])
+  /** Required Argument for 'ApplyVisitBatchMutation' (string[]) */
   public visitUids: string[] = [];
   
-  // Required Argument for 'ApplyVisitBatchMutation' (Models.BatchableVisitMutation)
+  /** Required Argument for 'ApplyVisitBatchMutation' (Models.BatchableVisitMutation) */
   public mutation: Models.BatchableVisitMutation = new Models.BatchableVisitMutation();
   
 }
@@ -688,10 +688,10 @@ export class ApplyVisitBatchMutationRequest {
  */
 export class ApplyVisitBatchMutationResponse {
   
-  // Out-Argument of 'ApplyVisitBatchMutation' (string[])
+  /** Out-Argument of 'ApplyVisitBatchMutation' (string[]) */
   public updatedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -701,7 +701,7 @@ export class ApplyVisitBatchMutationResponse {
  */
 export class ImportVisitsRequest {
   
-  // Required Argument for 'ImportVisits' (Models.VisitStructure[])
+  /** Required Argument for 'ImportVisits' (Models.VisitStructure[]) */
   public visits: Models.VisitStructure[] = [];
   
 }
@@ -711,13 +711,13 @@ export class ImportVisitsRequest {
  */
 export class ImportVisitsResponse {
   
-  // Out-Argument of 'ImportVisits' (string[])
+  /** Out-Argument of 'ImportVisits' (string[]) */
   public createdVisitUids: string[] = [];
   
-  // Out-Argument of 'ImportVisits' (string[])
+  /** Out-Argument of 'ImportVisits' (string[]) */
   public updatedVisitUids: string[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }

@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "homepage": "ORSCF.org",
   "dependencies": {
-    "orscf-identitymanagement-contract": "^1.8.11809",
+    "orscf-identitymanagement-contract": "^1.8.11816",
     "axios": "^0.27.2"
   },
   "devDependencies": {

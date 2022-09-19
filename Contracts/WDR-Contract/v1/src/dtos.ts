@@ -1,4 +1,4 @@
-/* based on ORSCF StudyWorkflowDefinition Contract v1.9.0.11833 */
+/* based on ORSCF StudyWorkflowDefinition Contract v1.9.0.0 */
 
 import * as Models from './models';
 
@@ -16,10 +16,10 @@ export class SearchFhirQuestionairesRequest {
  */
 export class SearchFhirQuestionairesResponse {
   
-  // Out-Argument of 'SearchFhirQuestionaires' (Models.QuestionaireMetaRecord[])
+  /** Out-Argument of 'SearchFhirQuestionaires' (Models.QuestionaireMetaRecord[]) */
   public result: Models.QuestionaireMetaRecord[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -31,10 +31,10 @@ export class SearchFhirQuestionairesResponse {
  */
 export class ExportFhirQuestionaireRequest {
   
-  // Required Argument for 'ExportFhirQuestionaire' (string)
+  /** Required Argument for 'ExportFhirQuestionaire' (string) */
   public questionaireIdentifyingUrl: string = '';
   
-  // Required Argument for 'ExportFhirQuestionaire' (string)
+  /** Required Argument for 'ExportFhirQuestionaire' (string) */
   public questionaireVersion: string = '';
   
 }
@@ -46,13 +46,13 @@ export class ExportFhirQuestionaireRequest {
  */
 export class ExportFhirQuestionaireResponse {
   
-  // Out-Argument of 'ExportFhirQuestionaire' (boolean)
+  /** Out-Argument of 'ExportFhirQuestionaire' (boolean) */
   public wasFound: boolean = false;
   
-  // Out-Argument of 'ExportFhirQuestionaire' (string)
+  /** Out-Argument of 'ExportFhirQuestionaire' (string) */
   public fhirContent: string = '';
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -65,7 +65,7 @@ export class ExportFhirQuestionaireResponse {
  */
 export class ImportFhirQuestionaireRequest {
   
-  // Required Argument for 'ImportFhirQuestionaire' (string)
+  /** Required Argument for 'ImportFhirQuestionaire' (string) */
   public fhirContent: string = '';
   
 }
@@ -78,10 +78,10 @@ export class ImportFhirQuestionaireRequest {
  */
 export class ImportFhirQuestionaireResponse {
   
-  // Out-Argument of 'ImportFhirQuestionaire' (boolean): returns true, if this questionare was not already exisiting before the import
+  /** Out-Argument of 'ImportFhirQuestionaire' (boolean): returns true, if this questionare was not already exisiting before the import */
   public wasNew: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -93,10 +93,10 @@ export class ImportFhirQuestionaireResponse {
  */
 export class DeleteFhirQuestionaireRequest {
   
-  // Required Argument for 'DeleteFhirQuestionaire' (string)
+  /** Required Argument for 'DeleteFhirQuestionaire' (string) */
   public questionaireIdentifyingUrl: string = '';
   
-  // Required Argument for 'DeleteFhirQuestionaire' (string)
+  /** Required Argument for 'DeleteFhirQuestionaire' (string) */
   public questionaireVersion: string = '';
   
 }
@@ -108,10 +108,10 @@ export class DeleteFhirQuestionaireRequest {
  */
 export class DeleteFhirQuestionaireResponse {
   
-  // Out-Argument of 'DeleteFhirQuestionaire' (boolean)
+  /** Out-Argument of 'DeleteFhirQuestionaire' (boolean) */
   public wasDeleted: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -132,10 +132,10 @@ export class GetApiVersionRequest {
  */
 export class GetApiVersionResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetApiVersion' (String)
+  /** Return-Value of 'GetApiVersion' (String) */
   public return?: string;
   
 }
@@ -158,10 +158,10 @@ export class GetCapabilitiesRequest {
  */
 export class GetCapabilitiesResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetCapabilities' (String[])
+  /** Return-Value of 'GetCapabilities' (String[]) */
   public return?: string[];
   
 }
@@ -192,13 +192,13 @@ export class GetPermittedAuthScopesRequest {
  */
 export class GetPermittedAuthScopesResponse {
   
-  // Out-Argument of 'GetPermittedAuthScopes' (number)
+  /** Out-Argument of 'GetPermittedAuthScopes' (number) */
   public authState: number = 0;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetPermittedAuthScopes' (String[])
+  /** Return-Value of 'GetPermittedAuthScopes' (String[]) */
   public return?: string[];
   
 }
@@ -221,10 +221,10 @@ export class GetOAuthTokenRequestUrlRequest {
  */
 export class GetOAuthTokenRequestUrlResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetOAuthTokenRequestUrl' (String)
+  /** Return-Value of 'GetOAuthTokenRequestUrl' (String) */
   public return?: string;
   
 }
@@ -243,10 +243,10 @@ export class SearchWorkflowDefinitionsRequest {
  */
 export class SearchWorkflowDefinitionsResponse {
   
-  // Out-Argument of 'SearchWorkflowDefinitions' (Models.ResearchStudyDefinitionMetaRecord[])
+  /** Out-Argument of 'SearchWorkflowDefinitions' (Models.ResearchStudyDefinitionMetaRecord[]) */
   public result: Models.ResearchStudyDefinitionMetaRecord[] = [];
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -258,10 +258,10 @@ export class SearchWorkflowDefinitionsResponse {
  */
 export class ExportWorkflowDefinitionRequest {
   
-  // Required Argument for 'ExportWorkflowDefinition' (string)
+  /** Required Argument for 'ExportWorkflowDefinition' (string) */
   public workflowDefinitionName: string = '';
   
-  // Required Argument for 'ExportWorkflowDefinition' (string)
+  /** Required Argument for 'ExportWorkflowDefinition' (string) */
   public workflowVersion: string = '';
   
 }
@@ -273,13 +273,13 @@ export class ExportWorkflowDefinitionRequest {
  */
 export class ExportWorkflowDefinitionResponse {
   
-  // Out-Argument of 'ExportWorkflowDefinition' (boolean)
+  /** Out-Argument of 'ExportWorkflowDefinition' (boolean) */
   public wasFound: boolean = false;
   
-  // Out-Argument of 'ExportWorkflowDefinition' (Models.ResearchStudyDefinition)
+  /** Out-Argument of 'ExportWorkflowDefinition' (Models.ResearchStudyDefinition) */
   public result: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -292,7 +292,7 @@ export class ExportWorkflowDefinitionResponse {
  */
 export class ImportWorkflowDefinitionRequest {
   
-  // Required Argument for 'ImportWorkflowDefinition' (Models.ResearchStudyDefinition)
+  /** Required Argument for 'ImportWorkflowDefinition' (Models.ResearchStudyDefinition) */
   public workflowDefinition: Models.ResearchStudyDefinition = new Models.ResearchStudyDefinition();
   
 }
@@ -305,10 +305,10 @@ export class ImportWorkflowDefinitionRequest {
  */
 export class ImportWorkflowDefinitionResponse {
   
-  // Out-Argument of 'ImportWorkflowDefinition' (boolean): returns true, if this questionare was not already exisiting before the import
+  /** Out-Argument of 'ImportWorkflowDefinition' (boolean): returns true, if this questionare was not already exisiting before the import */
   public wasNew: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }
@@ -320,10 +320,10 @@ export class ImportWorkflowDefinitionResponse {
  */
 export class DeleteWorkflowDefinitionRequest {
   
-  // Required Argument for 'DeleteWorkflowDefinition' (string)
+  /** Required Argument for 'DeleteWorkflowDefinition' (string) */
   public workflowDefinitionName: string = '';
   
-  // Required Argument for 'DeleteWorkflowDefinition' (string)
+  /** Required Argument for 'DeleteWorkflowDefinition' (string) */
   public workflowVersion: string = '';
   
 }
@@ -335,10 +335,10 @@ export class DeleteWorkflowDefinitionRequest {
  */
 export class DeleteWorkflowDefinitionResponse {
   
-  // Out-Argument of 'DeleteWorkflowDefinition' (boolean)
+  /** Out-Argument of 'DeleteWorkflowDefinition' (boolean) */
   public wasDeleted: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
 }

@@ -1,4 +1,4 @@
-/* based on ORSCF SubjectData Contract v1.9.0.11833 */
+/* based on ORSCF SubjectData Contract v1.9.0.0 */
 
 
 export class StringValueCriteria {
@@ -42,15 +42,31 @@ export class StringFieldFilter {
 /**
  * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
  */
-export interface RangeMatchingBehaviour extends Enum {
-  
+export enum RangeMatchingBehaviour {
+  /** Matching only the exactly given value. (DEFAULT) */
+  Equal = 1,
+  /** Matching all values lower than the given value. */
+  Less = 2,
+  /** Matching the given value or any value lower than it. */
+  LessOrEqual = 3,
+  /** Matching all values more than the given value. */
+  More = 4,
+  /** Matching the given value or any value more than it. */
+  MoreOrEqual = 5
 }
 
 /**
  * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
  */
-export interface DateMatchingPrecision extends Enum {
-  
+export enum DateMatchingPrecision {
+  /** Matching only the YEAR portion of the given value. */
+  Year = 1,
+  /** Matching the YEAR and MONTH portion of the given value. */
+  YearAndMonth = 2,
+  /** Matching the DATE (year+month+day) portion of the given value. (DEFAULT) */
+  Date = 3,
+  /** Matching the complete DATE and TIME of the given value. */
+  DateAndTime = 4
 }
 
 export class SubjectMetaRecord {

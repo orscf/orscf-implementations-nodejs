@@ -1,4 +1,4 @@
-/* based on ORSCF StudyManagement Contract v1.8.0.11833 */
+/* based on ORSCF StudyManagement Contract v1.8.0.0 */
 
 import * as Models from './models';
 
@@ -7,7 +7,7 @@ import * as Models from './models';
  */
 export class GetInstituteUidByTitleRequest {
   
-  // Required Argument for 'GetInstituteUidByTitle' (string)
+  /** Required Argument for 'GetInstituteUidByTitle' (string) */
   public instituteTitle: string = '';
   
 }
@@ -17,10 +17,10 @@ export class GetInstituteUidByTitleRequest {
  */
 export class GetInstituteUidByTitleResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetInstituteUidByTitle' (Guid)
+  /** Return-Value of 'GetInstituteUidByTitle' (Guid) */
   public return?: string;
   
 }
@@ -30,7 +30,7 @@ export class GetInstituteUidByTitleResponse {
  */
 export class GetInstituteTitleByUidRequest {
   
-  // Required Argument for 'GetInstituteTitleByUid' (string)
+  /** Required Argument for 'GetInstituteTitleByUid' (string) */
   public instituteUid: string = '';
   
 }
@@ -40,10 +40,10 @@ export class GetInstituteTitleByUidRequest {
  */
 export class GetInstituteTitleByUidResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetInstituteTitleByUid' (String)
+  /** Return-Value of 'GetInstituteTitleByUid' (String) */
   public return?: string;
   
 }
@@ -53,7 +53,7 @@ export class GetInstituteTitleByUidResponse {
  */
 export class ArchiveInstituteRequest {
   
-  // Required Argument for 'ArchiveInstitute' (string)
+  /** Required Argument for 'ArchiveInstitute' (string) */
   public instituteUid: string = '';
   
 }
@@ -63,10 +63,10 @@ export class ArchiveInstituteRequest {
  */
 export class ArchiveInstituteResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'ArchiveInstitute' (String)
+  /** Return-Value of 'ArchiveInstitute' (String) */
   public return?: string;
   
 }
@@ -76,7 +76,7 @@ export class ArchiveInstituteResponse {
  */
 export class GetInstituteInfosRequest {
   
-  // Required Argument for 'GetInstituteInfos' (string)
+  /** Required Argument for 'GetInstituteInfos' (string) */
   public instituteUid: string = '';
   
 }
@@ -86,10 +86,10 @@ export class GetInstituteInfosRequest {
  */
 export class GetInstituteInfosResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetInstituteInfos' (InstituteInfo[])
+  /** Return-Value of 'GetInstituteInfos' (InstituteInfo[]) */
   public return?: Models.InstituteInfo[];
   
 }
@@ -101,7 +101,7 @@ export class GetInstituteInfosResponse {
  */
 export class CreateInstituteIfMissingRequest {
   
-  // Required Argument for 'CreateInstituteIfMissing' (string)
+  /** Required Argument for 'CreateInstituteIfMissing' (string) */
   public instituteUid: string = '';
   
 }
@@ -113,10 +113,10 @@ export class CreateInstituteIfMissingRequest {
  */
 export class CreateInstituteIfMissingResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'CreateInstituteIfMissing' (Boolean)
+  /** Return-Value of 'CreateInstituteIfMissing' (Boolean) */
   public return?: boolean;
   
 }
@@ -128,10 +128,10 @@ export class CreateInstituteIfMissingResponse {
  */
 export class UpdateInstitueTitleRequest {
   
-  // Required Argument for 'UpdateInstitueTitle' (string)
+  /** Required Argument for 'UpdateInstitueTitle' (string) */
   public instituteUid: string = '';
   
-  // Required Argument for 'UpdateInstitueTitle' (string)
+  /** Required Argument for 'UpdateInstitueTitle' (string) */
   public newTitle: string = '';
   
 }
@@ -143,10 +143,10 @@ export class UpdateInstitueTitleRequest {
  */
 export class UpdateInstitueTitleResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'UpdateInstitueTitle' (Boolean)
+  /** Return-Value of 'UpdateInstitueTitle' (Boolean) */
   public return?: boolean;
   
 }
@@ -167,10 +167,10 @@ export class GetApiVersionRequest {
  */
 export class GetApiVersionResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetApiVersion' (String)
+  /** Return-Value of 'GetApiVersion' (String) */
   public return?: string;
   
 }
@@ -193,10 +193,10 @@ export class GetCapabilitiesRequest {
  */
 export class GetCapabilitiesResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetCapabilities' (String[])
+  /** Return-Value of 'GetCapabilities' (String[]) */
   public return?: string[];
   
 }
@@ -227,13 +227,13 @@ export class GetPermittedAuthScopesRequest {
  */
 export class GetPermittedAuthScopesResponse {
   
-  // Out-Argument of 'GetPermittedAuthScopes' (number)
+  /** Out-Argument of 'GetPermittedAuthScopes' (number) */
   public authState: number = 0;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetPermittedAuthScopes' (String[])
+  /** Return-Value of 'GetPermittedAuthScopes' (String[]) */
   public return?: string[];
   
 }
@@ -256,10 +256,10 @@ export class GetOAuthTokenRequestUrlRequest {
  */
 export class GetOAuthTokenRequestUrlResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetOAuthTokenRequestUrl' (String)
+  /** Return-Value of 'GetOAuthTokenRequestUrl' (String) */
   public return?: string;
   
 }
@@ -272,7 +272,7 @@ export class GetOAuthTokenRequestUrlResponse {
  */
 export class SubscribeStudyStateChangedEventsRequest {
   
-  // Required Argument for 'SubscribeStudyStateChangedEvents' (string)
+  /** Required Argument for 'SubscribeStudyStateChangedEvents' (string) */
   public eventQueueId: string = '';
   
 }
@@ -285,10 +285,10 @@ export class SubscribeStudyStateChangedEventsRequest {
  */
 export class SubscribeStudyStateChangedEventsResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'SubscribeStudyStateChangedEvents' (Boolean)
+  /** Return-Value of 'SubscribeStudyStateChangedEvents' (Boolean) */
   public return?: boolean;
   
 }
@@ -300,7 +300,7 @@ export class SubscribeStudyStateChangedEventsResponse {
  */
 export class UnsubscribeStudyStateChangedEventsRequest {
   
-  // Required Argument for 'UnsubscribeStudyStateChangedEvents' (string)
+  /** Required Argument for 'UnsubscribeStudyStateChangedEvents' (string) */
   public eventQueueId: string = '';
   
 }
@@ -312,10 +312,10 @@ export class UnsubscribeStudyStateChangedEventsRequest {
  */
 export class UnsubscribeStudyStateChangedEventsResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'UnsubscribeStudyStateChangedEvents' (Boolean)
+  /** Return-Value of 'UnsubscribeStudyStateChangedEvents' (Boolean) */
   public return?: boolean;
   
 }
@@ -326,7 +326,7 @@ export class UnsubscribeStudyStateChangedEventsResponse {
  */
 export class GetStudyTitleByIdentifierRequest {
   
-  // Required Argument for 'GetStudyTitleByIdentifier' (string)
+  /** Required Argument for 'GetStudyTitleByIdentifier' (string) */
   public studyIdentifier: string = '';
   
 }
@@ -337,10 +337,10 @@ export class GetStudyTitleByIdentifierRequest {
  */
 export class GetStudyTitleByIdentifierResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetStudyTitleByIdentifier' (String)
+  /** Return-Value of 'GetStudyTitleByIdentifier' (String) */
   public return?: string;
   
 }

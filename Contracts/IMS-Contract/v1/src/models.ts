@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.8.0.11833 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
 
 
 export class IdentityDetails {

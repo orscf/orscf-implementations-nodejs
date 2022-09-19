@@ -1,4 +1,4 @@
-/* based on ORSCF IdentityManagement Contract v1.8.0.11833 */
+/* based on ORSCF IdentityManagement Contract v1.8.0.0 */
 
 import * as Models from './models';
 
@@ -8,16 +8,16 @@ import * as Models from './models';
  */
 export class RequestUnblindingTokenRequest {
   
-  // Required Argument for 'RequestUnblindingToken' (string)
+  /** Required Argument for 'RequestUnblindingToken' (string) */
   public researchStudyName: string = '';
   
-  // Required Argument for 'RequestUnblindingToken' (string)
+  /** Required Argument for 'RequestUnblindingToken' (string) */
   public subjectId: string = '';
   
-  // Required Argument for 'RequestUnblindingToken' (string)
+  /** Required Argument for 'RequestUnblindingToken' (string) */
   public reason: string = '';
   
-  // Required Argument for 'RequestUnblindingToken' (string)
+  /** Required Argument for 'RequestUnblindingToken' (string) */
   public requestingPerson: string = '';
   
 }
@@ -28,10 +28,10 @@ export class RequestUnblindingTokenRequest {
  */
 export class RequestUnblindingTokenResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'RequestUnblindingToken' (String)
+  /** Return-Value of 'RequestUnblindingToken' (String) */
   public return?: string;
   
 }
@@ -42,7 +42,7 @@ export class RequestUnblindingTokenResponse {
  */
 export class GetUnblindingTokenStateRequest {
   
-  // Required Argument for 'GetUnblindingTokenState' (string)
+  /** Required Argument for 'GetUnblindingTokenState' (string) */
   public unblindingToken: string = '';
   
 }
@@ -53,10 +53,10 @@ export class GetUnblindingTokenStateRequest {
  */
 export class GetUnblindingTokenStateResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetUnblindingTokenState' (Int32)
+  /** Return-Value of 'GetUnblindingTokenState' (Int32) */
   public return?: number;
   
 }
@@ -67,13 +67,13 @@ export class GetUnblindingTokenStateResponse {
  */
 export class UnblindSubjectRequest {
   
-  // Required Argument for 'UnblindSubject' (string)
+  /** Required Argument for 'UnblindSubject' (string) */
   public researchStudyName: string = '';
   
-  // Required Argument for 'UnblindSubject' (string)
+  /** Required Argument for 'UnblindSubject' (string) */
   public subjectId: string = '';
   
-  // Required Argument for 'UnblindSubject' (string)
+  /** Required Argument for 'UnblindSubject' (string) */
   public unblindingToken: string = '';
   
 }
@@ -84,10 +84,10 @@ export class UnblindSubjectRequest {
  */
 export class UnblindSubjectResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'UnblindSubject' (IdentityDetails)
+  /** Return-Value of 'UnblindSubject' (IdentityDetails) */
   public return?: Models.IdentityDetails;
   
 }
@@ -108,10 +108,10 @@ export class GetApiVersionRequest {
  */
 export class GetApiVersionResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetApiVersion' (String)
+  /** Return-Value of 'GetApiVersion' (String) */
   public return?: string;
   
 }
@@ -134,10 +134,10 @@ export class GetCapabilitiesRequest {
  */
 export class GetCapabilitiesResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetCapabilities' (String[])
+  /** Return-Value of 'GetCapabilities' (String[]) */
   public return?: string[];
   
 }
@@ -168,13 +168,13 @@ export class GetPermittedAuthScopesRequest {
  */
 export class GetPermittedAuthScopesResponse {
   
-  // Out-Argument of 'GetPermittedAuthScopes' (number)
+  /** Out-Argument of 'GetPermittedAuthScopes' (number) */
   public authState: number = 0;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetPermittedAuthScopes' (String[])
+  /** Return-Value of 'GetPermittedAuthScopes' (String[]) */
   public return?: string[];
   
 }
@@ -197,10 +197,10 @@ export class GetOAuthTokenRequestUrlRequest {
  */
 export class GetOAuthTokenRequestUrlResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetOAuthTokenRequestUrl' (String)
+  /** Return-Value of 'GetOAuthTokenRequestUrl' (String) */
   public return?: string;
   
 }
@@ -210,7 +210,7 @@ export class GetOAuthTokenRequestUrlResponse {
  */
 export class GetExtendedFieldDescriptorsRequest {
   
-  // Optional Argument for 'GetExtendedFieldDescriptors' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors.
+  /** Optional Argument for 'GetExtendedFieldDescriptors' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors. */
   public languagePref?: string;
   
 }
@@ -220,10 +220,10 @@ export class GetExtendedFieldDescriptorsRequest {
  */
 export class GetExtendedFieldDescriptorsResponse {
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetExtendedFieldDescriptors' (ExtendedFieldDescriptor[])
+  /** Return-Value of 'GetExtendedFieldDescriptors' (ExtendedFieldDescriptor[]) */
   public return?: Models.ExtendedFieldDescriptor[];
   
 }
@@ -233,22 +233,22 @@ export class GetExtendedFieldDescriptorsResponse {
  */
 export class GetOrCreatePseudonymRequest {
   
-  // Required Argument for 'GetOrCreatePseudonym' (string): A UUID
+  /** Required Argument for 'GetOrCreatePseudonym' (string): A UUID */
   public researchStudyUid: string = '';
   
-  // Required Argument for 'GetOrCreatePseudonym' (string): the Firstname a the paticipant (named as in the HL7 standard)
+  /** Required Argument for 'GetOrCreatePseudonym' (string): the Firstname a the paticipant (named as in the HL7 standard) */
   public givenName: string = '';
   
-  // Required Argument for 'GetOrCreatePseudonym' (string)
+  /** Required Argument for 'GetOrCreatePseudonym' (string) */
   public familyName: string = '';
   
-  // Required Argument for 'GetOrCreatePseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!)
+  /** Required Argument for 'GetOrCreatePseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!) */
   public birthDate: string = '';
   
-  // Required Argument for 'GetOrCreatePseudonym' (Object)
+  /** Required Argument for 'GetOrCreatePseudonym' (Object) */
   public extendedFields: Object = new Object();
   
-  // Required Argument for 'GetOrCreatePseudonym' (string): A UUID
+  /** Required Argument for 'GetOrCreatePseudonym' (string): A UUID */
   public siteUid: string = '';
   
 }
@@ -258,16 +258,16 @@ export class GetOrCreatePseudonymRequest {
  */
 export class GetOrCreatePseudonymResponse {
   
-  // Out-Argument of 'GetOrCreatePseudonym' (string)
+  /** Out-Argument of 'GetOrCreatePseudonym' (string) */
   public pseudonym: string = '';
   
-  // Out-Argument of 'GetOrCreatePseudonym' (boolean)
+  /** Out-Argument of 'GetOrCreatePseudonym' (boolean) */
   public wasCreatedNewly: boolean = false;
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetOrCreatePseudonym' (Boolean)
+  /** Return-Value of 'GetOrCreatePseudonym' (Boolean) */
   public return?: boolean;
   
 }
@@ -277,19 +277,19 @@ export class GetOrCreatePseudonymResponse {
  */
 export class GetExisitingPseudonymRequest {
   
-  // Required Argument for 'GetExisitingPseudonym' (string): A UUID
+  /** Required Argument for 'GetExisitingPseudonym' (string): A UUID */
   public researchStudyUid: string = '';
   
-  // Required Argument for 'GetExisitingPseudonym' (string)
+  /** Required Argument for 'GetExisitingPseudonym' (string) */
   public givenName: string = '';
   
-  // Required Argument for 'GetExisitingPseudonym' (string)
+  /** Required Argument for 'GetExisitingPseudonym' (string) */
   public familyName: string = '';
   
-  // Required Argument for 'GetExisitingPseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!)
+  /** Required Argument for 'GetExisitingPseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!) */
   public birthDate: string = '';
   
-  // Required Argument for 'GetExisitingPseudonym' (Object)
+  /** Required Argument for 'GetExisitingPseudonym' (Object) */
   public extendedFields: Object = new Object();
   
 }
@@ -299,13 +299,13 @@ export class GetExisitingPseudonymRequest {
  */
 export class GetExisitingPseudonymResponse {
   
-  // Out-Argument of 'GetExisitingPseudonym' (string)
+  /** Out-Argument of 'GetExisitingPseudonym' (string) */
   public pseudonym: string = '';
   
-  // This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null)
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  // Return-Value of 'GetExisitingPseudonym' (Boolean)
+  /** Return-Value of 'GetExisitingPseudonym' (Boolean) */
   public return?: boolean;
   
 }
