@@ -22,9 +22,9 @@
   "connectorClassName": "BdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-billingdata-contract/dtos",
-  "ImportModelsFrom": "orscf-billingdata-contract/models",
-  "ImportInterfacesFrom": "orscf-billingdata-contract/interfaces",
+  "ImportDtosFrom": "orscf-billingdata-contract",
+  "ImportModelsFrom": "orscf-billingdata-contract",
+  "ImportInterfacesFrom": "orscf-billingdata-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }

@@ -22,9 +22,9 @@
   "connectorClassName": "VdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-visitdata-contract/dtos",
-  "ImportModelsFrom": "orscf-visitdata-contract/models",
-  "ImportInterfacesFrom": "orscf-visitdata-contract/interfaces",
+  "ImportDtosFrom": "orscf-visitdata-contract",
+  "ImportModelsFrom": "orscf-visitdata-contract",
+  "ImportInterfacesFrom": "orscf-visitdata-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }

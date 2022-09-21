@@ -22,9 +22,9 @@
   "connectorClassName": "WdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-studyworkflowdefinition-contract/dtos",
-  "ImportModelsFrom": "orscf-studyworkflowdefinition-contract/models",
-  "ImportInterfacesFrom": "orscf-studyworkflowdefinition-contract/interfaces",
+  "ImportDtosFrom": "orscf-studyworkflowdefinition-contract",
+  "ImportModelsFrom": "orscf-studyworkflowdefinition-contract",
+  "ImportInterfacesFrom": "orscf-studyworkflowdefinition-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }

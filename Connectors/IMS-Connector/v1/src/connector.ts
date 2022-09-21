@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-identitymanagement-contract/dtos';
-import * as Models from 'orscf-identitymanagement-contract/models';
-import * as Interfaces from 'orscf-identitymanagement-contract/interfaces';
+import * as DTOs from 'orscf-identitymanagement-contract';
+import * as Models from 'orscf-identitymanagement-contract';
+import * as Interfaces from 'orscf-identitymanagement-contract';
 
 /**
  * Provides an workflow-level API for interating with a 'IdentityManagementSystem' (IMS)
@@ -47,6 +47,9 @@ export class IdentityUnblindingClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -68,6 +71,9 @@ export class IdentityUnblindingClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -92,6 +98,9 @@ export class IdentityUnblindingClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -137,6 +146,9 @@ export class ImsApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -157,6 +169,9 @@ export class ImsApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -179,6 +194,9 @@ export class ImsApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
     );
@@ -199,6 +217,9 @@ export class ImsApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -245,6 +266,9 @@ export class PseudonymizationClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -272,6 +296,9 @@ export class PseudonymizationClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {pseudonym: responseWrapper.pseudonym, wasCreatedNewly: responseWrapper.wasCreatedNewly, return: responseWrapper.return};
       }
     );
@@ -297,6 +324,9 @@ export class PseudonymizationClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return {pseudonym: responseWrapper.pseudonym, return: responseWrapper.return};
       }

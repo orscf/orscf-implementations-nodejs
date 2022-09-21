@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-studyworkflowdefinition-contract/dtos';
-import * as Models from 'orscf-studyworkflowdefinition-contract/models';
-import * as Interfaces from 'orscf-studyworkflowdefinition-contract/interfaces';
+import * as DTOs from 'orscf-studyworkflowdefinition-contract';
+import * as Models from 'orscf-studyworkflowdefinition-contract';
+import * as Interfaces from 'orscf-studyworkflowdefinition-contract';
 
 /**
  * Provides an API for accessing a 'WorkflowDefinitionRepository' (WDR) in order to consume FHIR Questionaires
@@ -178,6 +178,9 @@ export class WdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -198,6 +201,9 @@ export class WdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -220,6 +226,9 @@ export class WdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
     );
@@ -240,6 +249,9 @@ export class WdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }

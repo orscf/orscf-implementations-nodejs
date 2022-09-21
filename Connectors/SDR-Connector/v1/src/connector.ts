@@ -1,10 +1,10 @@
-/* based on ORSCF SubjectData Contract v1.9.0.0 */
+/* based on ORSCF SubjectData Contract v1.9.1.0 */
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-subjectdata-contract/dtos';
-import * as Models from 'orscf-subjectdata-contract/models';
-import * as Interfaces from 'orscf-subjectdata-contract/interfaces';
+import * as DTOs from 'orscf-subjectdata-contract';
+import * as Models from 'orscf-subjectdata-contract';
+import * as Interfaces from 'orscf-subjectdata-contract';
 
 /**
  * Provides interoperability information for the current implementation
@@ -43,6 +43,9 @@ export class SdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -63,6 +66,9 @@ export class SdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -85,6 +91,9 @@ export class SdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
     );
@@ -105,6 +114,9 @@ export class SdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -151,6 +163,9 @@ export class SdrEventSubscriptionClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -226,6 +241,9 @@ export class SdrEventSubscriptionClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -248,6 +266,9 @@ export class SdrEventSubscriptionClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -342,6 +363,9 @@ export class SubjectConsumeClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -453,6 +477,9 @@ export class SubjectHL7ExportClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return {subjectFhirRessources: responseWrapper.subjectFhirRessources, return: responseWrapper.return};
       }

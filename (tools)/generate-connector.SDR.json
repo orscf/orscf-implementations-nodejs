@@ -22,9 +22,9 @@
   "connectorClassName": "SdrConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-subjectdata-contract/dtos",
-  "ImportModelsFrom": "orscf-subjectdata-contract/models",
-  "ImportInterfacesFrom": "orscf-subjectdata-contract/interfaces",
+  "ImportDtosFrom": "orscf-subjectdata-contract",
+  "ImportModelsFrom": "orscf-subjectdata-contract",
+  "ImportInterfacesFrom": "orscf-subjectdata-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }

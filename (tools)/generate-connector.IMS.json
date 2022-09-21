@@ -22,9 +22,9 @@
   "connectorClassName": "ImsConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-identitymanagement-contract/dtos",
-  "ImportModelsFrom": "orscf-identitymanagement-contract/models",
-  "ImportInterfacesFrom": "orscf-identitymanagement-contract/interfaces",
+  "ImportDtosFrom": "orscf-identitymanagement-contract",
+  "ImportModelsFrom": "orscf-identitymanagement-contract",
+  "ImportInterfacesFrom": "orscf-identitymanagement-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }

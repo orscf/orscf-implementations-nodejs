@@ -2,9 +2,9 @@
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-studymanagement-contract/dtos';
-import * as Models from 'orscf-studymanagement-contract/models';
-import * as Interfaces from 'orscf-studymanagement-contract/interfaces';
+import * as DTOs from 'orscf-studymanagement-contract';
+import * as Models from 'orscf-studymanagement-contract';
+import * as Interfaces from 'orscf-studymanagement-contract';
 
 /**
  * Provides an workflow-level API for interating with a 'StudyManagementSystem' (SMS)
@@ -44,6 +44,9 @@ export class InstituteMgmtClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -65,6 +68,9 @@ export class InstituteMgmtClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -88,6 +94,9 @@ export class InstituteMgmtClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -109,6 +118,9 @@ export class InstituteMgmtClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -132,6 +144,9 @@ export class InstituteMgmtClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -154,6 +169,9 @@ export class InstituteMgmtClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -222,6 +240,9 @@ export class SmsApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -242,6 +263,9 @@ export class SmsApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -264,6 +288,9 @@ export class SmsApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
     );
@@ -284,6 +311,9 @@ export class SmsApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -330,6 +360,9 @@ export class StudyAccessClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -351,6 +384,9 @@ export class StudyAccessClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -396,6 +432,9 @@ export class StudySetupClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }

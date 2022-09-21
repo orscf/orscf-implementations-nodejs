@@ -1,10 +1,10 @@
-/* based on ORSCF VisitData Contract v1.9.0.0 */
+/* based on ORSCF VisitData Contract v1.9.1.0 */
 
 import axios, { AxiosInstance } from 'axios';
 
-import * as DTOs from 'orscf-visitdata-contract/dtos';
-import * as Models from 'orscf-visitdata-contract/models';
-import * as Interfaces from 'orscf-visitdata-contract/interfaces';
+import * as DTOs from 'orscf-visitdata-contract';
+import * as Models from 'orscf-visitdata-contract';
+import * as Interfaces from 'orscf-visitdata-contract';
 
 /**
  * Provides interoperability information for the current implementation
@@ -43,6 +43,9 @@ export class VdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -63,6 +66,9 @@ export class VdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -85,6 +91,9 @@ export class VdrApiInfoClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return {authState: responseWrapper.authState, return: responseWrapper.return};
       }
     );
@@ -105,6 +114,9 @@ export class VdrApiInfoClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -151,6 +163,9 @@ export class VdrEventSubscriptionClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -226,6 +241,9 @@ export class VdrEventSubscriptionClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -248,6 +266,123 @@ export class VdrEventSubscriptionClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
+        return responseWrapper.return;
+      }
+    );
+  }
+  
+}
+
+/**
+ * Provides an workflow-level API for interating with a 'VisitDataRepository' (VDR)
+ */
+export class DataEnrollmentClient {
+  
+  constructor(
+    private rootUrlResolver: () => string,
+    private apiTokenResolver: () => string,
+    private httpPostMethod: (url: string, requestObject: any, apiToken: string) => Promise<any>
+  ){}
+  
+  private getEndpointUrl(): string {
+    let rootUrl = this.rootUrlResolver();
+    if(rootUrl.endsWith('/')){
+      return rootUrl + 'dataEnrollment/';
+    }
+    else{
+      return rootUrl + '/dataEnrollment/';
+    }
+  }
+  
+  /**
+   * Enrolls recorded data to be stored as 'DataRecording'-Record related to a explicitly addressed Visit inside of this repository. This goes ahead with an validation process for each enrollment, therefore a dataEnrollmentUid will be returned which can be used to query the state of this process via 'GetValidationState'.
+   */
+  public enrollDataForVisitExplicit(targetvisitUid: string, taskExecutionTitle: string, executionDateTimeUtc: Date, dataSchemaKind: string, dataSchemaUrl: string, dataSchemaVersion: string, dataLanguage: string, recordedData: string): Promise<string> {
+    
+    let requestWrapper : DTOs.EnrollDataForVisitExplicitRequest = {
+      targetvisitUid: targetvisitUid,
+      taskExecutionTitle: taskExecutionTitle,
+      executionDateTimeUtc: executionDateTimeUtc,
+      dataSchemaKind: dataSchemaKind,
+      dataSchemaUrl: dataSchemaUrl,
+      dataSchemaVersion: dataSchemaVersion,
+      dataLanguage: dataLanguage,
+      recordedData: recordedData
+    };
+    
+    let url = this.getEndpointUrl() + 'enrollDataForVisitExplicit';
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
+      (r) => {
+        let responseWrapper = (r as DTOs.EnrollDataForVisitExplicitResponse);
+        if(responseWrapper.fault){
+          console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
+          throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
+        return responseWrapper.return;
+      }
+    );
+  }
+  
+  /**
+   * Enrolls recorded data to be stored as 'DataRecording'-Record related to a visit inside of this repository (which is implicitely resolved using the given 'visitExecutionTitle' and 'subjectIdentifier') . This goes ahead with an validation process for each enrollment, therefore a dataEnrollmentUid will be returned which can be used to query the state of this process via 'GetValidationState'.
+   */
+  public enrollDataForVisitImplicit(studyUid: string, subjectIdentifier: string, visitExecutionTitle: string, taskExecutionTitle: string, executionDateTimeUtc: Date, dataSchemaKind: string, dataSchemaUrl: string, dataSchemaVersion: string, dataLanguage: string, recordedData: string): Promise<string> {
+    
+    let requestWrapper : DTOs.EnrollDataForVisitImplicitRequest = {
+      studyUid: studyUid,
+      subjectIdentifier: subjectIdentifier,
+      visitExecutionTitle: visitExecutionTitle,
+      taskExecutionTitle: taskExecutionTitle,
+      executionDateTimeUtc: executionDateTimeUtc,
+      dataSchemaKind: dataSchemaKind,
+      dataSchemaUrl: dataSchemaUrl,
+      dataSchemaVersion: dataSchemaVersion,
+      dataLanguage: dataLanguage,
+      recordedData: recordedData
+    };
+    
+    let url = this.getEndpointUrl() + 'enrollDataForVisitImplicit';
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
+      (r) => {
+        let responseWrapper = (r as DTOs.EnrollDataForVisitImplicitResponse);
+        if(responseWrapper.fault){
+          console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
+          throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
+        return responseWrapper.return;
+      }
+    );
+  }
+  
+  /**
+   * Providing the current validation state for a given data enrollment process
+   */
+  public getValidationState(dataEnrollmentUid: string): Promise<Models.DataEnrollmentValidationState> {
+    
+    let requestWrapper : DTOs.GetValidationStateRequest = {
+      dataEnrollmentUid: dataEnrollmentUid
+    };
+    
+    let url = this.getEndpointUrl() + 'getValidationState';
+    return this.httpPostMethod(url, requestWrapper, this.apiTokenResolver()).then(
+      (r) => {
+        let responseWrapper = (r as DTOs.GetValidationStateResponse);
+        if(responseWrapper.fault){
+          console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
+          throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return responseWrapper.return;
       }
@@ -388,6 +523,9 @@ export class VisitConsumeClient {
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
         }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
+        }
         return responseWrapper.return;
       }
     );
@@ -498,6 +636,9 @@ export class VisitHL7ExportClient {
         if(responseWrapper.fault){
           console.warn('Request to "' + url + '" faulted: ' + responseWrapper.fault);
           throw {message: responseWrapper.fault};
+        }
+        if (responseWrapper.return == undefined){
+          throw { message: 'response dto contains no "return" value!'};
         }
         return {visitFhirRessources: responseWrapper.visitFhirRessources, return: responseWrapper.return};
       }
@@ -691,6 +832,8 @@ export class VdrConnector {
   
   private vdrEventSubscriptionClient: VdrEventSubscriptionClient;
   
+  private dataEnrollmentClient: DataEnrollmentClient;
+  
   private dataRecordingSubmissionClient: DataRecordingSubmissionClient;
   
   private visitConsumeClient: VisitConsumeClient;
@@ -725,6 +868,7 @@ export class VdrConnector {
     
     this.vdrApiInfoClient = new VdrApiInfoClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
     this.vdrEventSubscriptionClient = new VdrEventSubscriptionClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
+    this.dataEnrollmentClient = new DataEnrollmentClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
     this.dataRecordingSubmissionClient = new DataRecordingSubmissionClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
     this.visitConsumeClient = new VisitConsumeClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
     this.visitHL7ExportClient = new VisitHL7ExportClient(this.rootUrlResolver, this.apiTokenResolver, this.httpPostMethod);
@@ -752,6 +896,11 @@ export class VdrConnector {
    * Provides an workflow-level API for interating with a 'VisitDataRepository' (VDR)
    */
   get vdrEventSubscription(): VdrEventSubscriptionClient { return this.vdrEventSubscriptionClient }
+  
+  /**
+   * Provides an workflow-level API for interating with a 'VisitDataRepository' (VDR)
+   */
+  get dataEnrollment(): DataEnrollmentClient { return this.dataEnrollmentClient }
   
   /**
    * Provides an workflow-level API for interating with a 'VisitDataRepository' (VDR)

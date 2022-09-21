@@ -22,9 +22,9 @@
   "connectorClassName": "SmsConnector",
   "authHeaderName": "Authorization",
   "throwClientExecptionsFromFaultProperty": true,
-  "ImportDtosFrom": "orscf-studymanagement-contract/dtos",
-  "ImportModelsFrom": "orscf-studymanagement-contract/models",
-  "ImportInterfacesFrom": "orscf-studymanagement-contract/interfaces",
+  "ImportDtosFrom": "orscf-studymanagement-contract",
+  "ImportModelsFrom": "orscf-studymanagement-contract",
+  "ImportInterfacesFrom": "orscf-studymanagement-contract",
   "transformRefAndOutArgsToReturnPropertyBag": true,
   "generateAsyncMethods": true
 }
