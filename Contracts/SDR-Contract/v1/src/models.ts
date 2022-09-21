@@ -1,5 +1,14 @@
-/* based on ORSCF SubjectData Contract v1.9.0.0 */
+/* based on ORSCF SubjectData Contract v1.9.1.11838 */
 
+
+export class UidValueCriteria {
+  
+  /**
+   * The value to match.
+   */
+  public value: string = '';
+  
+}
 
 export class StringValueCriteria {
   
@@ -12,30 +21,6 @@ export class StringValueCriteria {
    * Enables, that the given value can just be a substring within the content of the target field. DEFAULT (if this is undefined or null) is 'false'.
    */
   public matchSubstring?: boolean;
-  
-}
-
-export class StringFieldFilter {
-  
-  /**
-   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
-   */
-  public includedValues?: StringValueCriteria[];
-  
-  /**
-   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
-   */
-  public excludedValues?: StringValueCriteria[];
-  
-  /**
-   * Enables, that the included and excluded values are processed case-insenstive. DEFAULT (if this is undefined or null) is 'false'.
-   */
-  public ignoreCasing?: boolean;
-  
-  /**
-   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
-   */
-  public negate?: boolean;
   
 }
 
@@ -53,20 +38,6 @@ export enum RangeMatchingBehaviour {
   More = 4,
   /** Matching the given value or any value more than it. */
   MoreOrEqual = 5
-}
-
-/**
- * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
- */
-export enum DateMatchingPrecision {
-  /** Matching only the YEAR portion of the given value. */
-  Year = 1,
-  /** Matching the YEAR and MONTH portion of the given value. */
-  YearAndMonth = 2,
-  /** Matching the DATE (year+month+day) portion of the given value. (DEFAULT) */
-  Date = 3,
-  /** Matching the complete DATE and TIME of the given value. */
-  DateAndTime = 4
 }
 
 export class SubjectMetaRecord {
@@ -300,12 +271,36 @@ export class UidFieldFilter {
   /**
    * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
+  public includedValues?: UidValueCriteria[];
+  
+  /**
+   * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
+  public excludedValues?: UidValueCriteria[];
+  
+  /**
+   * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public negate?: boolean;
+  
+}
+
+export class StringFieldFilter {
+  
+  /**
+   * Specifies one or more values to match. DEFAULT (if this is undefined or null) will include everything (but NULL) to enable filtering based on 'excluded values'. An empty array which just has no elements will be treaded as valid input and results in no value matching, so this only makes sense when including NULL instead (if supported). An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
+   */
   public includedValues?: StringValueCriteria[];
   
   /**
    * Specifies one or more values to be removed from the result set which was evaulated using the 'included values'. DEFAULT (if this is undefined or null) will just leave the filtering based on 'included values'. An empty array which just has no elements will also be ignored. An array containing multiple elements, will require at least ONE of the criteria to match (OR-linked)!
    */
   public excludedValues?: StringValueCriteria[];
+  
+  /**
+   * Enables, that the included and excluded values are processed case-insenstive. DEFAULT (if this is undefined or null) is 'false'.
+   */
+  public ignoreCasing?: boolean;
   
   /**
    * Negates the outcome of the whole filter. DEFAULT (if this is undefined or null) is 'false'.
@@ -319,17 +314,12 @@ export class DateValueCriteria {
   /**
    * The value to match.
    */
-  public value: number = 0;
+  public value: Date = new Date();
   
   /**
    * Declares, how the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Equal'(1).
    */
   public matchingBehaviour?: RangeMatchingBehaviour;
-  
-  /**
-   * Declares, which portion of the corresponding 'value' should be compared. DEFAULT (if this is undefined or null) is 'Date'(3).
-   */
-  public matchingPrecision?: DateMatchingPrecision;
   
 }
 
