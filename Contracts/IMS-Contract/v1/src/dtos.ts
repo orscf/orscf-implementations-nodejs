@@ -1,94 +1,101 @@
-/* based on ORSCF IdentityManagement Contract v1.8.0.11838 */
+/* based on ORSCF IdentityManagement Contract v1.9.0.11852 */
 
 import * as Models from './models';
 
 /**
- * Contains arguments for calling 'RequestUnblindingToken'.
- * Method: returns an unblindingToken which is not activated
+ * Contains arguments for calling 'GrantClearanceForUnblinding'.
  */
-export class RequestUnblindingTokenRequest {
+export class GrantClearanceForUnblindingRequest {
   
-  /** Required Argument for 'RequestUnblindingToken' (string) */
-  public researchStudyName: string = '';
-  
-  /** Required Argument for 'RequestUnblindingToken' (string) */
-  public subjectId: string = '';
-  
-  /** Required Argument for 'RequestUnblindingToken' (string) */
-  public reason: string = '';
-  
-  /** Required Argument for 'RequestUnblindingToken' (string) */
-  public requestingPerson: string = '';
-  
-}
-
-/**
- * Contains results from calling 'RequestUnblindingToken'.
- * Method: returns an unblindingToken which is not activated
- */
-export class RequestUnblindingTokenResponse {
-  
-  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
-  public fault?: string;
-  
-  /** Return-Value of 'RequestUnblindingToken' (String) */
-  public return?: string;
-  
-}
-
-/**
- * Contains arguments for calling 'GetUnblindingTokenState'.
- * Method: 0: not activated yet, 1=activated (can be used for 'UnblindSubject'), 2=expired/already used
- */
-export class GetUnblindingTokenStateRequest {
-  
-  /** Required Argument for 'GetUnblindingTokenState' (string) */
+  /** Required Argument for 'GrantClearanceForUnblinding' (string) */
   public unblindingToken: string = '';
   
+  /** Required Argument for 'GrantClearanceForUnblinding' (string[]) */
+  public pseudonymsToUnblind: string[] = [];
+  
+  /** Required Argument for 'GrantClearanceForUnblinding' (Date) */
+  public grantedUnitl: Date = new Date();
+  
 }
 
 /**
- * Contains results from calling 'GetUnblindingTokenState'.
- * Method: 0: not activated yet, 1=activated (can be used for 'UnblindSubject'), 2=expired/already used
+ * Contains results from calling 'GrantClearanceForUnblinding'.
  */
-export class GetUnblindingTokenStateResponse {
+export class GrantClearanceForUnblindingResponse {
   
   /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
   
-  /** Return-Value of 'GetUnblindingTokenState' (Int32) */
+}
+
+/**
+ * Contains arguments for calling 'HasClearanceForUnblinding'.
+ * Method: Returns:
+ * 1: if clearance granted /
+ * 0: if no realtime response is possible (delayed approval)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class HasClearanceForUnblindingRequest {
+  
+  /** Required Argument for 'HasClearanceForUnblinding' (string) */
+  public unblindingToken: string = '';
+  
+  /** Required Argument for 'HasClearanceForUnblinding' (string[]) */
+  public pseudonymsToUnblind: string[] = [];
+  
+  /** Required Argument for 'HasClearanceForUnblinding' (Object): an optional container that can contain for example the ipadress or JWT token of the accessor or some MFA related information */
+  public accessRelatedDetails: Object = new Object();
+  
+}
+
+/**
+ * Contains results from calling 'HasClearanceForUnblinding'.
+ * Method: Returns:
+ * 1: if clearance granted /
+ * 0: if no realtime response is possible (delayed approval)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class HasClearanceForUnblindingResponse {
+  
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
+  public fault?: string;
+  
+  /** Return-Value of 'HasClearanceForUnblinding' (Int32) */
   public return?: number;
   
 }
 
 /**
- * Contains arguments for calling 'UnblindSubject'.
- * Method: (only works with an activated unblindingOtp )
+ * Contains arguments for calling 'EvaluateAge'.
+ * Method: Calculates the age (only the integer Year) of several persons for a given date.
+ * This is supporting the very common usecase to evaluate inclusion criteria for research studies where the date of birth is not present alongside of the medical data.
+ * It allows for minimalist access disclosing the date of birth information (as happening when unblinding).
  */
-export class UnblindSubjectRequest {
+export class EvaluateAgeRequest {
   
-  /** Required Argument for 'UnblindSubject' (string) */
-  public researchStudyName: string = '';
+  /** Required Argument for 'EvaluateAge' (Date) */
+  public momentOfValuation: Date = new Date();
   
-  /** Required Argument for 'UnblindSubject' (string) */
-  public subjectId: string = '';
-  
-  /** Required Argument for 'UnblindSubject' (string) */
-  public unblindingToken: string = '';
+  /** Required Argument for 'EvaluateAge' (string[]) */
+  public pseudonymesToEvaluate: string[] = [];
   
 }
 
 /**
- * Contains results from calling 'UnblindSubject'.
- * Method: (only works with an activated unblindingOtp )
+ * Contains results from calling 'EvaluateAge'.
+ * Method: Calculates the age (only the integer Year) of several persons for a given date.
+ * This is supporting the very common usecase to evaluate inclusion criteria for research studies where the date of birth is not present alongside of the medical data.
+ * It allows for minimalist access disclosing the date of birth information (as happening when unblinding).
  */
-export class UnblindSubjectResponse {
+export class EvaluateAgeResponse {
+  
+  /** Out-Argument of 'EvaluateAge' (number[]): Returns an array with the same amount of fields as the given 'pseudonymesToEvaluate'-array. If it was not possible to evalute the age beacuse of not present data, then the corresponding array-field will contain a value of -1! */
+  public ages: number[] = [];
   
   /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
   public fault?: string;
-  
-  /** Return-Value of 'UnblindSubject' (IdentityDetails) */
-  public return?: Models.IdentityDetails;
   
 }
 
@@ -120,7 +127,12 @@ export class GetApiVersionResponse {
  * Contains arguments for calling 'GetCapabilities'.
  * Method: returns a list of API-features (there are several 'services' for different use cases, described by ORSCF)
  * supported by this implementation. The following values are possible:
- * 'Pseudonymization', 'IdentityUnblinding',
+ * 'ImsApiInfo',
+ * 'Pseudonymization',
+ * 'AgeEvaluation',
+ * 'Unblinding',
+ * 'UnblindingClearanceAwaiter'  (backend workflow for "PASSIVE-APPROVAL"),
+ * 'UnblindingClearanceGranting' (backend workflow for "ACTIVE-APPROVAL")
  */
 export class GetCapabilitiesRequest {
   
@@ -130,7 +142,12 @@ export class GetCapabilitiesRequest {
  * Contains results from calling 'GetCapabilities'.
  * Method: returns a list of API-features (there are several 'services' for different use cases, described by ORSCF)
  * supported by this implementation. The following values are possible:
- * 'Pseudonymization', 'IdentityUnblinding',
+ * 'ImsApiInfo',
+ * 'Pseudonymization',
+ * 'AgeEvaluation',
+ * 'Unblinding',
+ * 'UnblindingClearanceAwaiter'  (backend workflow for "PASSIVE-APPROVAL"),
+ * 'UnblindingClearanceGranting' (backend workflow for "ACTIVE-APPROVAL")
  */
 export class GetCapabilitiesResponse {
   
@@ -210,7 +227,7 @@ export class GetOAuthTokenRequestUrlResponse {
  */
 export class GetExtendedFieldDescriptorsRequest {
   
-  /** Optional Argument for 'GetExtendedFieldDescriptors' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors. */
+  /** Optional Argument for 'GetExtendedFieldDescriptors' (string): Preferred language for the 'DisplayLabel' and 'InputDescription' fields of the returned descriptors. ONLY RELEVANT FOR THE UI! */
   public languagePref?: string;
   
 }
@@ -233,10 +250,7 @@ export class GetExtendedFieldDescriptorsResponse {
  */
 export class GetOrCreatePseudonymRequest {
   
-  /** Required Argument for 'GetOrCreatePseudonym' (string): A UUID */
-  public researchStudyUid: string = '';
-  
-  /** Required Argument for 'GetOrCreatePseudonym' (string): the Firstname a the paticipant (named as in the HL7 standard) */
+  /** Required Argument for 'GetOrCreatePseudonym' (string): the Firstname a person (named as in the HL7 standard) */
   public givenName: string = '';
   
   /** Required Argument for 'GetOrCreatePseudonym' (string) */
@@ -245,11 +259,8 @@ export class GetOrCreatePseudonymRequest {
   /** Required Argument for 'GetOrCreatePseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!) */
   public birthDate: string = '';
   
-  /** Required Argument for 'GetOrCreatePseudonym' (Object) */
+  /** Required Argument for 'GetOrCreatePseudonym' (Object): additional values for each 'extendedField' that is mandatory within (and specific to) the current IMS-System. To retrieve the declarations for such fields call 'GetExtendedFieldDescriptors' */
   public extendedFields: Object = new Object();
-  
-  /** Required Argument for 'GetOrCreatePseudonym' (string): A UUID */
-  public siteUid: string = '';
   
 }
 
@@ -277,9 +288,6 @@ export class GetOrCreatePseudonymResponse {
  */
 export class GetExisitingPseudonymRequest {
   
-  /** Required Argument for 'GetExisitingPseudonym' (string): A UUID */
-  public researchStudyUid: string = '';
-  
   /** Required Argument for 'GetExisitingPseudonym' (string) */
   public givenName: string = '';
   
@@ -289,7 +297,7 @@ export class GetExisitingPseudonymRequest {
   /** Required Argument for 'GetExisitingPseudonym' (string): date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!) */
   public birthDate: string = '';
   
-  /** Required Argument for 'GetExisitingPseudonym' (Object) */
+  /** Required Argument for 'GetExisitingPseudonym' (Object): additional values for each 'extendedField' that is mandatory within (and specific to) the current IMS-System. To retrieve the declarations for such fields call 'GetExtendedFieldDescriptors' */
   public extendedFields: Object = new Object();
   
 }
@@ -307,5 +315,86 @@ export class GetExisitingPseudonymResponse {
   
   /** Return-Value of 'GetExisitingPseudonym' (Boolean) */
   public return?: boolean;
+  
+}
+
+/**
+ * Contains arguments for calling 'RequestUnblindingToken'.
+ * Method: Returns:
+ * 1: if clearance granted (token can be DIRECTLY used to call 'TryUnblind') /
+ * 0: if no realtime response is possible (delayed approval is outstanding)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class RequestUnblindingTokenRequest {
+  
+  /** Required Argument for 'RequestUnblindingToken' (string[]) */
+  public pseudonymsToUnblind: string[] = [];
+  
+  /** Required Argument for 'RequestUnblindingToken' (string) */
+  public requestReason: string = '';
+  
+  /** Required Argument for 'RequestUnblindingToken' (string) */
+  public requestBy: string = '';
+  
+}
+
+/**
+ * Contains results from calling 'RequestUnblindingToken'.
+ * Method: Returns:
+ * 1: if clearance granted (token can be DIRECTLY used to call 'TryUnblind') /
+ * 0: if no realtime response is possible (delayed approval is outstanding)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class RequestUnblindingTokenResponse {
+  
+  /** Out-Argument of 'RequestUnblindingToken' (string) */
+  public unblindingToken: string = '';
+  
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
+  public fault?: string;
+  
+  /** Return-Value of 'RequestUnblindingToken' (Int32) */
+  public return?: number;
+  
+}
+
+/**
+ * Contains arguments for calling 'TryUnblind'.
+ * Method: Returns:
+ * 1: on SUCCESS (unblindedIdentities should contain data) /
+ * 0: if no realtime response is possible (delayed approval is outstanding)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class TryUnblindRequest {
+  
+  /** Required Argument for 'TryUnblind' (string) */
+  public unblindingToken: string = '';
+  
+  /** Required Argument for 'TryUnblind' (string[]) */
+  public pseudonymsToUnblind: string[] = [];
+  
+  /** Required Argument for 'TryUnblind' (Models.IdentityDetails[]) */
+  public unblindedIdentities: Models.IdentityDetails[] = [];
+  
+}
+
+/**
+ * Contains results from calling 'TryUnblind'.
+ * Method: Returns:
+ * 1: on SUCCESS (unblindedIdentities should contain data) /
+ * 0: if no realtime response is possible (delayed approval is outstanding)
+ * -1: if a new unblindingToken is required (because the current has expired or has been repressed) /
+ * -2: if the access is denied for addressed scope of data
+ */
+export class TryUnblindResponse {
+  
+  /** This field contains error text equivalent to an Exception message! (note that only 'fault' XOR 'return' can have a value != null) */
+  public fault?: string;
+  
+  /** Return-Value of 'TryUnblind' (Int32) */
+  public return?: number;
   
 }

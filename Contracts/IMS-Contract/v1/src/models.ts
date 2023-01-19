@@ -1,36 +1,5 @@
-/* based on ORSCF IdentityManagement Contract v1.8.0.11838 */
+/* based on ORSCF IdentityManagement Contract v1.9.0.11852 */
 
-
-export class IdentityDetails {
-  
-  public firstName?: string;
-  
-  public lastName?: string;
-  
-  public email?: string;
-  
-  public phone?: string;
-  
-  public street?: string;
-  
-  public houseNumber?: string;
-  
-  public postCode?: string;
-  
-  public city?: string;
-  
-  public state?: string;
-  
-  /**
-   * two letter ISO code
-   */
-  public country?: string;
-  
-  public dateOfBirth?: Date;
-  
-  public dateOfDeath?: Date;
-  
-}
 
 export class ExtendedFieldDescriptor {
   
@@ -43,5 +12,29 @@ export class ExtendedFieldDescriptor {
   public inputDescription?: string;
   
   public regularExpression?: string;
+  
+}
+
+export class IdentityDetails {
+  
+  /**
+   * the firstname a person (named as in the HL7 standard)
+   */
+  public givenName: string = '';
+  
+  /**
+   * the lastname a person (named as in the HL7 standard)
+   */
+  public familyName: string = '';
+  
+  /**
+   * date in format 'yyyy-MM-dd' (must NOT be a partial date for this usecase!)
+   */
+  public birthDate: string = '';
+  
+  /**
+   * additional values for each 'extendedField' that is mandatory within (and specific to) the current IMS-System. To retrieve the declarations for such fields call 'GetExtendedFieldDescriptors'
+   */
+  public extendedFields?: Object;
   
 }
